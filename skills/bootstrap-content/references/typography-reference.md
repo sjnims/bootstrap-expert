@@ -190,65 +190,13 @@ Bootstrap 5 uses RFS (Responsive Font Sizes) by default. RFS automatically scale
 
 ## Table Classes
 
-### Base Table
+See `tables-reference.md` for complete table documentation including:
 
-| Class | Description |
-|-------|-------------|
-| `.table` | Base table styling |
-
-### Color Variants
-
-| Class | Description |
-|-------|-------------|
-| `.table-primary` | Primary background |
-| `.table-secondary` | Secondary background |
-| `.table-success` | Success background |
-| `.table-danger` | Danger background |
-| `.table-warning` | Warning background |
-| `.table-info` | Info background |
-| `.table-light` | Light background |
-| `.table-dark` | Dark background |
-
-### Style Modifiers
-
-| Class | Description |
-|-------|-------------|
-| `.table-striped` | Striped rows |
-| `.table-striped-columns` | Striped columns |
-| `.table-hover` | Hover effect |
-| `.table-active` | Active row/cell |
-| `.table-bordered` | All borders |
-| `.table-borderless` | No borders |
-| `.table-sm` | Compact spacing |
-
-### Alignment
-
-| Class | Alignment |
-|-------|-----------|
-| `.align-top` | Top |
-| `.align-middle` | Middle |
-| `.align-bottom` | Bottom |
-
-### Responsive
-
-| Class | Breakpoint |
-|-------|------------|
-| `.table-responsive` | Always |
-| `.table-responsive-sm` | <576px |
-| `.table-responsive-md` | <768px |
-| `.table-responsive-lg` | <992px |
-| `.table-responsive-xl` | <1200px |
-| `.table-responsive-xxl` | <1400px |
-
-### Caption
-
-```html
-<table class="table">
-  <caption>List of users</caption>
-  <!-- or -->
-  <caption class="caption-top">Caption on top</caption>
-</table>
-```
+- Base table and color variants
+- Style modifiers (striped, hover, bordered)
+- Table head variants and group dividers
+- Responsive tables and alignment
+- Captions, footers, and accessibility
 
 ## Image Classes
 
