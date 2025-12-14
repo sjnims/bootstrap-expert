@@ -20,26 +20,19 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 | Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/` |
 | Check links | `lychee --config .lycheeignore '**/*.md'` |
 
-## Commands
+## Testing the Plugin
+
+Test in a separate directory to avoid polluting the development environment:
 
 ```bash
-# Lint all markdown files
-markdownlint '**/*.md' --ignore node_modules
-
-# Auto-fix markdown issues
-markdownlint '**/*.md' --ignore node_modules --fix
-
-# Lint HTML example files
-npx htmlhint 'skills/**/examples/*.html'
-
-# Lint YAML configuration files
-uvx yamllint -c .yamllint.yml .github/ .claude-plugin/
-
-# Check links in documentation
-lychee --config .lycheeignore '**/*.md'
-
-# Load plugin for testing
+mkdir /tmp/test-bootstrap-plugin && cd /tmp/test-bootstrap-plugin && git init
 claude --plugin-dir /path/to/bootstrap-expert
+
+# Test the command
+/bootstrap-expert:component navbar
+
+# Clean up
+rm -rf /tmp/test-bootstrap-plugin
 ```
 
 ## Architecture
@@ -174,7 +167,20 @@ tools: Read, Write, Edit, Grep, Glob
 | `links.yml` | Broken link detection |
 | `component-validation.yml` | Plugin structure validation |
 | `version-check.yml` | Version consistency |
+| `validate-workflows.yml` | GitHub Actions syntax validation |
 | `claude-pr-review.yml` | AI code review |
+| `ci-failure-analysis.yml` | Automated CI failure analysis |
+
+## Common Mistakes
+
+| Mistake | Solution |
+|---------|----------|
+| Using `!` in skill docs | Use `[BANG]` placeholder to prevent shell execution |
+| Missing trigger phrases | Include specific queries in skill `description` field |
+| Large SKILL.md files | Keep 1,000-2,200 words; use `references/` for details |
+| Missing frontmatter | Always include `name` and `description` fields |
+| Old Bootstrap classes | Verify against Bootstrap 5.3.8 docs; use `data-bs-*` not `data-*` |
+| Testing in dev repo | Use `/tmp/test-bootstrap-plugin` to avoid pollution |
 
 ## Troubleshooting
 

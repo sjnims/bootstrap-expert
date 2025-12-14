@@ -37,6 +37,39 @@ To create collapsible content panels that show one section at a time, use the ac
 <div id="collapseOne" class="accordion-collapse collapse show">...</div>
 ```
 
+**JavaScript (optional):** Control accordion panels programmatically using the Collapse API:
+
+```javascript
+// Get or create a Collapse instance for a specific panel
+const collapseOne = bootstrap.Collapse.getOrCreateInstance('#collapseOne', {
+  toggle: false  // Don't toggle on init
+});
+
+// Methods
+collapseOne.show();
+collapseOne.hide();
+collapseOne.toggle();
+
+// Open all panels (requires removing data-bs-parent from markup)
+document.querySelectorAll('.accordion-collapse').forEach(el => {
+  bootstrap.Collapse.getOrCreateInstance(el, { toggle: false }).show();
+});
+
+// Close all panels
+document.querySelectorAll('.accordion-collapse').forEach(el => {
+  bootstrap.Collapse.getOrCreateInstance(el, { toggle: false }).hide();
+});
+
+// Events
+document.getElementById('collapseOne').addEventListener('shown.bs.collapse', () => {
+  console.log('Panel is now visible');
+});
+
+document.getElementById('collapseOne').addEventListener('hidden.bs.collapse', () => {
+  console.log('Panel is now hidden');
+});
+```
+
 **Accessibility:** The accordion button automatically manages `aria-expanded` state. Ensure each `accordion-collapse` has a unique `id` that matches its trigger's `data-bs-target`.
 
 ## Carousel

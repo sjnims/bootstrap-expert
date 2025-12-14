@@ -110,6 +110,12 @@ Generate Bootstrap component code interactively or with full arguments.
 - `alert` - Alert messages
 - `toast` - Toast notifications
 - `offcanvas` - Offcanvas sidebars
+- `pagination` - Page navigation
+- `breadcrumb` - Breadcrumb navigation
+- `button-group` - Grouped buttons
+- `list-group` - List items with actions
+- `progress` - Progress bars
+- `spinner` - Loading indicators
 
 ## Agent
 

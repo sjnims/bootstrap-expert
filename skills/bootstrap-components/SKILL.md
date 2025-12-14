@@ -1,6 +1,6 @@
 ---
 name: bootstrap-components
-description: This skill should be used when the user asks about Bootstrap components, Bootstrap accordion, Bootstrap alerts, Bootstrap badges, Bootstrap breadcrumb, Bootstrap buttons, Bootstrap button groups, Bootstrap cards, Bootstrap carousel, Bootstrap close button, Bootstrap collapse, Bootstrap dropdowns, Bootstrap list group, Bootstrap modal, Bootstrap navbar, Bootstrap navs and tabs, Bootstrap offcanvas, Bootstrap pagination, Bootstrap placeholders, Bootstrap popovers, Bootstrap progress, Bootstrap scrollspy, Bootstrap spinners, Bootstrap toasts, Bootstrap tooltips, or needs help implementing any Bootstrap UI component.
+description: This skill should be used when the user asks about Bootstrap components, "how to create a modal", "navbar not collapsing", "carousel autoplay", "responsive card grid", "toast notifications", "dropdown menu", "accordion FAQ", "offcanvas sidebar", "tab navigation", "tooltip not showing", "popover not working", Bootstrap accordion, alerts, badges, breadcrumb, buttons, button groups, cards, carousel, close button, collapse, dropdowns, list group, modal, navbar, navs and tabs, offcanvas, pagination, placeholders, popovers, progress, scrollspy, spinners, toasts, tooltips, or needs help implementing any Bootstrap UI component.
 ---
 
 # Bootstrap 5.3 Components
@@ -135,6 +135,8 @@ Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsin
 
 ## Example Files
 
+- `examples/accordion-patterns.html` - Accordion and FAQ patterns
+- `examples/card-grid-patterns.html` - Responsive card grid layouts
 - `examples/carousel-patterns.html` - Carousel implementation patterns
 - `examples/modal-patterns.html` - Modal dialog patterns
 - `examples/navbar-patterns.html` - Navigation bar layouts
