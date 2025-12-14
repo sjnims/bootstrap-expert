@@ -375,6 +375,96 @@ Bootstrap Reboot normalizes default browser styles for consistent cross-browser 
 <table class="table table-striped table-hover table-bordered">...</table>
 ```
 
+### Table Head Variants
+
+```html
+<!-- Light header -->
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>...</tbody>
+</table>
+
+<!-- Dark header -->
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>...</tbody>
+</table>
+```
+
+### Table Group Dividers
+
+Add a thicker border between table sections:
+
+```html
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+      <td>John</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Table Captions
+
+```html
+<!-- Caption at bottom (default) -->
+<table class="table">
+  <caption>List of users</caption>
+  <thead>...</thead>
+  <tbody>...</tbody>
+</table>
+
+<!-- Caption at top -->
+<table class="table caption-top">
+  <caption>List of users</caption>
+  <thead>...</thead>
+  <tbody>...</tbody>
+</table>
+```
+
+### Table Footer
+
+```html
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Product A</td>
+      <td>$10.00</td>
+    </tr>
+  </tbody>
+  <tfoot class="table-group-divider">
+    <tr>
+      <th>Total</th>
+      <td>$10.00</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
 ### Responsive Tables
 
 ```html
@@ -399,7 +489,7 @@ Bootstrap Reboot normalizes default browser styles for consistent cross-browser 
 </table>
 ```
 
-See `references/typography-reference.md` for complete text utilities.
+See `references/typography-reference.md` for complete text utilities and `references/tables-reference.md` for complete table class reference.
 
 For content examples, see:
 
