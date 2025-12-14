@@ -1,0 +1,35 @@
+name: HTML Lint
+
+on:
+  pull_request:
+    paths:
+      - "**/*.html"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint HTML Files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+
+      - name: Run HTMLHint
+        run: npx htmlhint 'skills/**/examples/*.html'

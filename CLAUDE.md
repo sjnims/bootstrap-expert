@@ -16,6 +16,8 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 | Generate component | `/bootstrap-expert:component navbar` |
 | Lint markdown | `markdownlint '**/*.md' --ignore node_modules` |
 | Fix markdown | `markdownlint '**/*.md' --ignore node_modules --fix` |
+| Lint HTML | `npx htmlhint 'skills/**/examples/*.html'` |
+| Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/` |
 | Check links | `lychee --config .lycheeignore '**/*.md'` |
 
 ## Commands
@@ -26,6 +28,12 @@ markdownlint '**/*.md' --ignore node_modules
 
 # Auto-fix markdown issues
 markdownlint '**/*.md' --ignore node_modules --fix
+
+# Lint HTML example files
+npx htmlhint 'skills/**/examples/*.html'
+
+# Lint YAML configuration files
+uvx yamllint -c .yamllint.yml .github/ .claude-plugin/
 
 # Check links in documentation
 lychee --config .lycheeignore '**/*.md'
@@ -81,6 +89,27 @@ Each skill directory follows this pattern:
 - Fenced code blocks (not indented)
 - No line length limits
 - Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`, `<details>`, `<summary>`, `<strong>`
+
+### HTML Style (from `.htmlhintrc`)
+
+Example HTML files in `skills/**/examples/` are validated with HTMLHint:
+
+- Tag pairs must match (no unclosed tags)
+- Attribute values use double quotes
+- No duplicate attributes or IDs
+- Images require `alt` attributes
+- Consistent space indentation
+- `doctype-first` disabled (examples are often partials)
+- `attr-lowercase` disabled (allows Bootstrap's `data-bs-*` attributes)
+
+### YAML Style (from `.yamllint.yml`)
+
+YAML configuration files are validated with yamllint:
+
+- 2-space indentation
+- No line length limit (workflows have long prompts)
+- Document start markers (`---`) not required
+- Truthy values allowed (`yes`, `no`, `on`, `off`)
 
 ### Ignored Paths (from `.markdownlintignore`)
 
@@ -140,6 +169,8 @@ tools: Read, Write, Edit, Grep, Glob
 | Workflow | Purpose |
 |----------|---------|
 | `markdownlint.yml` | Markdown style checks |
+| `html-lint.yml` | HTML example validation |
+| `yaml-lint.yml` | YAML configuration consistency |
 | `links.yml` | Broken link detection |
 | `component-validation.yml` | Plugin structure validation |
 | `version-check.yml` | Version consistency |

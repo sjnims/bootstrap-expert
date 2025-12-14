@@ -289,9 +289,11 @@ rm -rf /tmp/test-bootstrap-plugin
 Before submitting, verify:
 
 1. **Markdown linting passes**: `markdownlint '**/*.md' --ignore node_modules`
-2. **Generated Bootstrap code is valid**: Test in browser with Bootstrap 5.3.x CSS/JS
-3. **Accessibility**: Components include proper ARIA attributes
-4. **Responsive design**: Breakpoints use correct Bootstrap values
+2. **HTML linting passes**: `npx htmlhint 'skills/**/examples/*.html'`
+3. **YAML linting passes**: `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/`
+4. **Generated Bootstrap code is valid**: Test in browser with Bootstrap 5.3.x CSS/JS
+5. **Accessibility**: Components include proper ARIA attributes
+6. **Responsive design**: Breakpoints use correct Bootstrap values
 
 ## Submitting Changes
 
@@ -307,7 +309,13 @@ Before submitting, verify:
 # Lint all markdown
 markdownlint '**/*.md' --ignore node_modules --fix
 
-# Check specific files
+# Lint HTML example files
+npx htmlhint 'skills/**/examples/*.html'
+
+# Lint YAML configuration files (requires Python/uv)
+uvx yamllint -c .yamllint.yml .github/ .claude-plugin/
+
+# Check specific markdown files
 markdownlint skills/bootstrap-layout/SKILL.md
 ```
 
@@ -357,6 +365,8 @@ Your PR will automatically run these checks:
 | Workflow | What It Checks |
 |----------|----------------|
 | `markdownlint.yml` | Markdown style and formatting |
+| `html-lint.yml` | HTML example file validation |
+| `yaml-lint.yml` | YAML configuration consistency |
 | `links.yml` | Broken links in documentation |
 | `component-validation.yml` | Plugin component structure |
 | `version-check.yml` | Version consistency across manifests |

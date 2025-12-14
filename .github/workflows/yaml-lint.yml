@@ -1,0 +1,35 @@
+name: YAML Lint
+
+on:
+  pull_request:
+    paths:
+      - "**.yml"
+      - "**.yaml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**.yml"
+      - "**.yaml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint YAML Files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Run yamllint
+        run: yamllint -c .yamllint.yml .github/ .claude-plugin/

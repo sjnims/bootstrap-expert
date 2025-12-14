@@ -26,7 +26,7 @@
 - [ ] Examples (HTML/CSS/JS samples in `examples/` folders)
 - [ ] References (skill reference documents in `references/` folders)
 - [ ] Documentation (README.md, CONTRIBUTING.md, SECURITY.md)
-- [ ] Configuration (plugin.json, .markdownlint.json)
+- [ ] Configuration (plugin.json, .markdownlint.json, .htmlhintrc, .yamllint.yml)
 - [ ] Issue/PR templates
 - [ ] Other (please specify):
 
@@ -72,9 +72,11 @@ Fixes # (issue)
 - [ ] I have updated YAML frontmatter where applicable
 - [ ] I have verified all links work correctly
 
-### Markdown
+### Linting
 
 - [ ] I have run `markdownlint` and fixed all issues
+- [ ] I have run `npx htmlhint` on any HTML example files
+- [ ] I have run `uvx yamllint` on any YAML configuration files
 - [ ] I have verified special HTML elements are properly closed (`<p>`, `<img>`, `<example>`, `<commentary>`)
 
 ### Bootstrap Compatibility
