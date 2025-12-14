@@ -138,12 +138,19 @@ Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsin
 - `examples/accordion-patterns.html` - Accordion and FAQ patterns
 - `examples/alert-patterns.html` - Alert variants, dismissible alerts, live region patterns
 - `examples/badge-button-patterns.html` - Badges, buttons, button groups, and close buttons
+- `examples/breadcrumb-patterns.html` - Breadcrumb navigation with custom dividers and icons
 - `examples/card-grid-patterns.html` - Responsive card grid layouts
 - `examples/carousel-patterns.html` - Carousel implementation patterns
+- `examples/collapse-patterns.html` - Collapse, horizontal collapse, and multi-target patterns
+- `examples/dropdown-patterns.html` - Dropdown menus, split buttons, and form dropdowns
+- `examples/list-group-patterns.html` - List groups, actionable items, and tab integration
 - `examples/modal-patterns.html` - Modal dialog patterns
 - `examples/navbar-patterns.html` - Navigation bar layouts
 - `examples/offcanvas-patterns.html` - Offcanvas sidebar patterns
 - `examples/pagination-patterns.html` - Pagination variants, alignment, and responsive patterns
+- `examples/placeholder-patterns.html` - Loading skeleton patterns for cards, lists, and tables
 - `examples/popovers-tooltips-patterns.html` - Tooltip and popover patterns (requires JS init)
+- `examples/progress-spinner-patterns.html` - Progress bars and spinner loading indicators
+- `examples/scrollspy-patterns.html` - Scrollspy with navbar, list group, and documentation patterns
 - `examples/tabs-patterns.html` - Tab navigation patterns
 - `examples/toasts-patterns.html` - Toast notification patterns (requires JS init)
