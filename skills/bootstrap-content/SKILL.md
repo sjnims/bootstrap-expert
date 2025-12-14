@@ -7,6 +7,75 @@ description: This skill should be used when the user asks about Bootstrap typogr
 
 Bootstrap provides typography, image, table, and other content styles built on top of Reboot, a normalized baseline.
 
+## Reboot
+
+Bootstrap Reboot normalizes default browser styles for consistent cross-browser rendering. It provides a foundation for the typography and content styles that follow.
+
+### Code Elements
+
+```html
+<!-- Inline code -->
+<p>Use <code>&lt;section&gt;</code> for page sections.</p>
+
+<!-- Code blocks (use pre for preformatted text) -->
+<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line.&lt;/p&gt;</code></pre>
+
+<!-- Variables -->
+<var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+
+<!-- User input (keyboard) -->
+<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.</p>
+<p>Or type <kbd>cd</kbd> to change directory.</p>
+
+<!-- Nested kbd for key combinations -->
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></kbd>
+
+<!-- Sample output -->
+<samp>This text is meant to be sample output from a program.</samp>
+```
+
+### Address
+
+```html
+<address>
+  <strong>Company Name</strong><br>
+  123 Main Street<br>
+  City, State 12345<br>
+  <abbr title="Phone">P:</abbr> (123) 456-7890
+</address>
+
+<address>
+  <strong>Full Name</strong><br>
+  <a href="mailto:email@example.com">email@example.com</a>
+</address>
+```
+
+### Horizontal Rules
+
+```html
+<!-- Basic horizontal rule -->
+<hr>
+
+<!-- Styled with border utilities -->
+<hr class="border border-danger border-2 opacity-50">
+<hr class="border border-primary border-3 opacity-75">
+
+<!-- With margins -->
+<hr class="my-5">
+```
+
+### Abbreviations
+
+```html
+<p><abbr title="Hypertext Markup Language">HTML</abbr> is the foundation of the web.</p>
+
+<!-- Slightly smaller font size -->
+<p><abbr title="Cascading Style Sheets" class="initialism">CSS</abbr> for styling.</p>
+```
+
+See `references/reboot-reference.md` for CSS variables, page defaults, native font stack, and Sass customization options.
+
 ## Typography
 
 ### Headings
@@ -195,75 +264,6 @@ Add secondary, faded text to headings:
 
 Bootstrap 5 enables RFS (Responsive Font Sizes) by default. This automatically scales `font-size` based on viewport dimensions, preventing text from becoming too large or too small on different devices. RFS applies to headings, display headings, and lead text.
 
-## Reboot
-
-Bootstrap Reboot normalizes default browser styles for consistent cross-browser rendering. Beyond the typography elements above, Reboot styles several important HTML elements.
-
-### Code Elements
-
-```html
-<!-- Inline code -->
-<p>Use <code>&lt;section&gt;</code> for page sections.</p>
-
-<!-- Code blocks (use pre for preformatted text) -->
-<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
-&lt;p&gt;And another line.&lt;/p&gt;</code></pre>
-
-<!-- Variables -->
-<var>y</var> = <var>m</var><var>x</var> + <var>b</var>
-
-<!-- User input (keyboard) -->
-<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.</p>
-<p>Or type <kbd>cd</kbd> to change directory.</p>
-
-<!-- Nested kbd for key combinations -->
-<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></kbd>
-
-<!-- Sample output -->
-<samp>This text is meant to be sample output from a program.</samp>
-```
-
-### Address
-
-```html
-<address>
-  <strong>Company Name</strong><br>
-  123 Main Street<br>
-  City, State 12345<br>
-  <abbr title="Phone">P:</abbr> (123) 456-7890
-</address>
-
-<address>
-  <strong>Full Name</strong><br>
-  <a href="mailto:email@example.com">email@example.com</a>
-</address>
-```
-
-### Horizontal Rules
-
-```html
-<!-- Basic horizontal rule -->
-<hr>
-
-<!-- Styled with border utilities -->
-<hr class="border border-danger border-2 opacity-50">
-<hr class="border border-primary border-3 opacity-75">
-
-<!-- With margins -->
-<hr class="my-5">
-```
-
-### Abbreviations
-
-```html
-<p><abbr title="Hypertext Markup Language">HTML</abbr> is the foundation of the web.</p>
-
-<!-- Slightly smaller font size -->
-<p><abbr title="Cascading Style Sheets" class="initialism">CSS</abbr> for styling.</p>
-```
-
-See `references/reboot-reference.md` for CSS variables, page defaults, native font stack, and Sass customization options.
-
 ## Images
 
 ### Responsive Images
@@ -296,21 +296,6 @@ See `references/reboot-reference.md` for CSS variables, page defaults, native fo
   <source srcset="medium.jpg" media="(min-width: 768px)">
   <img src="small.jpg" class="img-fluid" alt="Responsive">
 </picture>
-```
-
-## Figures
-
-```html
-<figure class="figure">
-  <img src="..." class="figure-img img-fluid rounded" alt="...">
-  <figcaption class="figure-caption">A caption for the image.</figcaption>
-</figure>
-
-<!-- Right-aligned caption -->
-<figure class="figure">
-  <img src="..." class="figure-img img-fluid rounded" alt="...">
-  <figcaption class="figure-caption text-end">Right-aligned caption.</figcaption>
-</figure>
 ```
 
 ## Tables
@@ -491,12 +476,27 @@ Add a thicker border between table sections:
 </table>
 ```
 
+## Figures
+
+```html
+<figure class="figure">
+  <img src="..." class="figure-img img-fluid rounded" alt="...">
+  <figcaption class="figure-caption">A caption for the image.</figcaption>
+</figure>
+
+<!-- Right-aligned caption -->
+<figure class="figure">
+  <img src="..." class="figure-img img-fluid rounded" alt="...">
+  <figcaption class="figure-caption text-end">Right-aligned caption.</figcaption>
+</figure>
+```
+
 See `references/typography-reference.md` for complete text utilities and `references/tables-reference.md` for complete table class reference.
 
 For content examples, see:
 
+- `examples/reboot-elements.html` - Code, kbd, var, samp, abbr, hr elements
 - `examples/typography-patterns.html` - Typography, headings, text utilities
 - `examples/images-patterns.html` - Responsive images and alignment
-- `examples/figures-patterns.html` - Figure and caption patterns
 - `examples/tables.html` - Table styling and variants
-- `examples/reboot-elements.html` - Code, kbd, var, samp, abbr, hr elements
+- `examples/figures-patterns.html` - Figure and caption patterns
