@@ -3,14 +3,14 @@ name: YAML Lint
 on:
   pull_request:
     paths:
-      - "**.yml"
-      - "**.yaml"
+      - "**/*.yml"
+      - "**/*.yaml"
   push:
     branches:
       - main
     paths:
-      - "**.yml"
-      - "**.yaml"
+      - "**/*.yml"
+      - "**/*.yaml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

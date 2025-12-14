@@ -312,8 +312,11 @@ markdownlint '**/*.md' --ignore node_modules --fix
 # Lint HTML example files
 npx htmlhint 'skills/**/examples/*.html'
 
-# Lint YAML configuration files (requires Python/uv)
+# Lint YAML configuration files
+# Using uv (https://docs.astral.sh/uv/):
 uvx yamllint -c .yamllint.yml .github/ .claude-plugin/
+# Or with pip:
+# pip install yamllint && yamllint -c .yamllint.yml .github/ .claude-plugin/
 
 # Check specific markdown files
 markdownlint skills/bootstrap-layout/SKILL.md
