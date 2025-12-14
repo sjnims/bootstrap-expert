@@ -403,5 +403,8 @@ See `references/typography-reference.md` for complete text utilities.
 
 For content examples, see:
 
-- `examples/tables.html` - Table styling examples
-- `examples/reboot-elements.html` - Code, address, and hr styling examples
+- `examples/typography-patterns.html` - Typography, headings, text utilities
+- `examples/images-patterns.html` - Responsive images and alignment
+- `examples/figures-patterns.html` - Figure and caption patterns
+- `examples/tables.html` - Table styling and variants
+- `examples/reboot-elements.html` - Code, kbd, var, samp, abbr, hr elements
