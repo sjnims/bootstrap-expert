@@ -187,33 +187,3 @@ Bootstrap 5 uses RFS (Responsive Font Sizes) by default. RFS automatically scale
 <abbr title="attribute">attr</abbr>
 <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
 ```
-
-## Table Classes
-
-See `tables-reference.md` for complete table documentation including:
-
-- Base table and color variants
-- Style modifiers (striped, hover, bordered)
-- Table head variants and group dividers
-- Responsive tables and alignment
-- Captions, footers, and accessibility
-
-## Image Classes
-
-| Class | Description |
-|-------|-------------|
-| `.img-fluid` | Responsive, max-width: 100% |
-| `.img-thumbnail` | Rounded 1px border |
-| `.rounded` | Rounded corners |
-| `.rounded-circle` | Circular |
-| `.rounded-0` | No rounding |
-| `.float-start` | Float left |
-| `.float-end` | Float right |
-
-## Figure Classes
-
-| Class | Description |
-|-------|-------------|
-| `.figure` | Figure container |
-| `.figure-img` | Image inside figure |
-| `.figure-caption` | Caption text |

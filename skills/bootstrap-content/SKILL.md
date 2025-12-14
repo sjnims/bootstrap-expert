@@ -262,7 +262,7 @@ Add secondary, faded text to headings:
 
 ### Responsive Font Sizes
 
-Bootstrap 5 enables RFS (Responsive Font Sizes) by default. This automatically scales `font-size` based on viewport dimensions, preventing text from becoming too large or too small on different devices. RFS applies to headings, display headings, and lead text.
+Bootstrap 5 enables RFS (Responsive Font Sizes) by default, automatically scaling `font-size` based on viewport dimensions. See `references/typography-reference.md` for RFS details and Sass customization options.
 
 ## Images
 
