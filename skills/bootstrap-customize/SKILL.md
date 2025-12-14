@@ -559,3 +559,42 @@ For customization examples, see:
 - `examples/color-mode-toggle.js` - Dark/light mode toggle implementation
 - `examples/custom-theme.scss` - Custom theme Sass file
 - `examples/selective-imports.scss` - Minimal Bootstrap build example
+
+## Security Considerations
+
+### Content Security Policy (CSP)
+
+Bootstrap uses embedded SVGs in CSS (`data:` URIs) for consistent cross-browser styling. If your application has a strict Content Security Policy, some components may not display correctly.
+
+**Affected components:**
+
+- Accordion (collapse/expand icons)
+- Carousel (prev/next controls)
+- Close button (X icon)
+- Form controls (checkboxes, radios, switches, validation icons)
+- Navbar toggle (hamburger icon)
+- Select menus (dropdown arrow)
+
+**Symptoms of CSP conflicts:**
+
+- Form checkboxes don't show checkmarks
+- Accordions missing expand/collapse icons
+- Navbar hamburger menus appear broken
+- Select dropdowns lack arrows
+
+**Solutions:**
+
+1. **Replace with local assets** - Use the `escape-svg()` function with locally hosted SVG files:
+
+```scss
+// Custom checkbox with local SVG instead of data: URI
+$form-check-input-checked-bg-image: url("/assets/icons/check.svg");
+```
+
+2. **Adjust CSP** - If appropriate for your security requirements, allow the inline SVG data URIs in your policy
+
+3. **Use Bootstrap Icons font** - Replace SVG icons with the Bootstrap Icons font variant
+
+For strict CSP environments, audit Bootstrap's SVG usage during customization planning.
+
+See: [Bootstrap CSP Documentation](https://getbootstrap.com/docs/5.3/customize/overview/#csps-and-embedded-svgs)
