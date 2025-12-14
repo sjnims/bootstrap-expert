@@ -4,9 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8 and Bootstrap Icons 1.11.x expertise. It contains 9 specialized skills, 1 slash command, and 1 proactive agent for front-end development assistance.
+Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8 and Bootstrap Icons 1.13.x expertise. It contains 9 specialized skills, 1 slash command, and 1 proactive agent for front-end development assistance.
 
 ## Quick Reference
+
+**Current Version**: v0.1.0
 
 | Task | Command |
 |------|---------|
