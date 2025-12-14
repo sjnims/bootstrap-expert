@@ -96,6 +96,12 @@ This generates all utilities: `.bg-custom`, `.text-brand`, `.btn-custom`, etc.
 $theme-colors: map-remove($theme-colors, "info", "light");
 ```
 
+> **Warning:** The `primary`, `success`, and `danger` keys are **required** and cannot be removed. They're used by Bootstrap's core styles for links, form validation, and other components. Removing them will cause Sass compilation errors.
+
+**Safe to remove:** `secondary`, `info`, `warning`, `light`, `dark`
+
+**Cannot remove:** `primary`, `success`, `danger`
+
 ## Color Modes (Dark/Light)
 
 Bootstrap 5.3 includes built-in dark mode support.
