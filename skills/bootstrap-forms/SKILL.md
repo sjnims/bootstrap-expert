@@ -311,6 +311,50 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 </form>
 ```
 
+## Accessibility Essentials
+
+Forms require proper accessibility attributes for screen reader support and WCAG compliance.
+
+### Labels
+
+Always associate labels with inputs using `for` and `id` attributes:
+
+```html
+<label for="email" class="form-label">Email address</label>
+<input type="email" class="form-control" id="email">
+```
+
+For visually hidden labels, use `.visually-hidden`:
+
+```html
+<label for="search" class="visually-hidden">Search</label>
+<input type="search" class="form-control" id="search" placeholder="Search...">
+```
+
+### Help Text
+
+Connect help text to inputs with `aria-describedby`:
+
+```html
+<input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+<div id="passwordHelp" class="form-text">Must be 8+ characters.</div>
+```
+
+### Validation States
+
+Mark invalid fields for assistive technology:
+
+```html
+<input type="email" class="form-control is-invalid" aria-invalid="true" aria-describedby="emailError">
+<div id="emailError" class="invalid-feedback">Please enter a valid email.</div>
+```
+
+### Required Fields
+
+```html
+<input type="text" class="form-control" required aria-required="true">
+```
+
 ## Validation
 
 ### Browser Default
