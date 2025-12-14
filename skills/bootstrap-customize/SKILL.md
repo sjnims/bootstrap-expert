@@ -1,6 +1,6 @@
 ---
 name: bootstrap-customize
-description: This skill should be used when the user asks "how do I customize Bootstrap", "how to create a custom Bootstrap theme", "what Sass variables can I override", "how to implement dark mode in Bootstrap", "how to change Bootstrap colors", "how to override Bootstrap defaults", "how to add custom colors to Bootstrap", "how to enable Bootstrap shadows", "how to compile Bootstrap Sass", or needs help with Bootstrap theming, Sass variable overrides, CSS custom properties, or color mode implementation.
+description: This skill should be used when the user asks "how do I customize Bootstrap", "how to create a custom Bootstrap theme", "what Sass variables can I override", "how to implement dark mode in Bootstrap", "how to change Bootstrap colors", "how to override Bootstrap defaults", "how to add custom colors to Bootstrap", "how to enable Bootstrap shadows", "how to compile Bootstrap Sass", "how to use Bootstrap CSS variables", or needs help with Bootstrap theming, Sass variable overrides, CSS custom properties, or color mode implementation.
 ---
 
 # Bootstrap 5.3 Customization
@@ -9,9 +9,9 @@ Bootstrap 5.3 provides powerful customization through Sass variables, CSS custom
 
 ## Customization Methods
 
-### 1. CSS Custom Properties (Runtime)
+### 1. CSS Variables (Runtime Customization)
 
-Modify styles without recompiling. Override at any level:
+Bootstrap's docs call these "CSS variables" (technically CSS custom properties). Modify styles without recompiling by overriding at any level:
 
 ```css
 /* Global override */
