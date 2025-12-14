@@ -325,7 +325,11 @@ Use Bootstrap's mixins and functions for consistent components:
 
 ## Optimization
 
-### Import Only What You Need
+Bootstrap's full bundle is substantial. Use these strategies to reduce production bundle size.
+
+### Lean Sass Imports
+
+Import only the components you use:
 
 ```scss
 // Required core
@@ -336,14 +340,97 @@ Use Bootstrap's mixins and functions for consistent components:
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/root";
 
-// Optional components
+// Optional - import only what you use
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
 @import "bootstrap/scss/buttons";
-// ... only import what you use
 ```
+
+See `examples/selective-imports.scss` for a complete minimal build example.
+
+### Lean JavaScript Imports
+
+Tree-shake Bootstrap JavaScript by importing individual plugins:
+
+```javascript
+// Instead of importing everything
+// import * as bootstrap from 'bootstrap';
+
+// Import only what you need
+import Modal from 'bootstrap/js/dist/modal';
+import Dropdown from 'bootstrap/js/dist/dropdown';
+import Collapse from 'bootstrap/js/dist/collapse';
+
+// Initialize manually
+const modal = new Modal('#myModal');
+```
+
+Note: Some plugins have dependencies (e.g., Dropdown requires Popper.js). Check plugin documentation.
+
+### Remove Unused CSS with PurgeCSS
+
+PurgeCSS removes unused styles from your production build:
+
+```javascript
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./src/**/*.html', './src/**/*.js'],
+      // Safelist Bootstrap's dynamic classes
+      safelist: {
+        standard: [/^modal/, /^show/, /^fade/, /^collapse/, /^offcanvas/],
+        deep: [/^tooltip/, /^popover/, /^bs-/]
+      }
+    })
+  ]
+}
+```
+
+Bootstrap dynamically adds classes like `show`, `fade`, `collapsing`. Always safelist these patterns.
+
+### Autoprefixer Configuration
+
+Configure browser support to avoid unnecessary vendor prefixes:
+
+```text
+# .browserslistrc
+>= 0.5%
+last 2 major versions
+not dead
+not Explorer <= 11
+```
+
+This is Bootstrap's default configuration. Adjust based on your audience.
+
+### Production Best Practices
+
+**Minification**: Use minified distribution files in production:
+
+- `bootstrap.min.css` (not `bootstrap.css`)
+- `bootstrap.bundle.min.js` (not `bootstrap.bundle.js`)
+
+**Compression**: Enable gzip or Brotli on your server:
+
+```nginx
+# nginx.conf
+gzip on;
+gzip_types text/css application/javascript;
+```
+
+**Non-blocking Loading**: Use `defer` for non-critical scripts:
+
+```html
+<!-- Critical CSS in head -->
+<link rel="stylesheet" href="bootstrap.min.css">
+
+<!-- Scripts at end of body with defer -->
+<script src="bootstrap.bundle.min.js" defer></script>
+```
+
+**HTTPS**: Always serve Bootstrap over HTTPS. CDN links require secure connections and modern browsers may block mixed content.
 
 See `references/sass-variables.md` for complete variable reference.
 
@@ -351,3 +438,4 @@ For customization examples, see:
 
 - `examples/color-mode-toggle.js` - Dark/light mode toggle implementation
 - `examples/custom-theme.scss` - Custom theme Sass file
+- `examples/selective-imports.scss` - Minimal Bootstrap build example
