@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - "**.md"
+      - ".markdownlint.json"
   push:
     branches:
       - main
     paths:
       - "**.md"
+      - ".markdownlint.json"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
