@@ -262,6 +262,8 @@ Bootstrap Reboot normalizes default browser styles for consistent cross-browser 
 <p><abbr title="Cascading Style Sheets" class="initialism">CSS</abbr> for styling.</p>
 ```
 
+See `references/reboot-reference.md` for CSS variables, page defaults, native font stack, and Sass customization options.
+
 ## Images
 
 ### Responsive Images
