@@ -27,11 +27,13 @@ Before contributing, ensure you have:
 
 - **Claude Code**: Install from [claude.ai/code](https://claude.ai/code)
 - **Git**: For version control
-- **Node.js**: For markdownlint (optional but recommended)
+- **Node.js**: For markdownlint and htmlhint (optional but recommended)
 
   ```bash
   npm install -g markdownlint-cli
   ```
+
+- **Python/uv**: For yamllint (optional, see [uv docs](https://docs.astral.sh/uv/))
 
 ### Understanding the Project
 
@@ -251,6 +253,7 @@ When modifying the agent:
 |---------|---------|----------|
 | Testing in development repo | Pollutes your environment with test files | Create a separate test repository |
 | Using `!` in skill documentation | Shell execution during skill load | Use `[BANG]` placeholder (see [SECURITY.md](SECURITY.md)) |
+| Unescaped HTML special characters | HTMLHint errors, rendering issues | Escape `<` → `&lt;`, `>` → `&gt;`, `&` → `&amp;` |
 | Missing trigger phrases | Skills don't load when expected | Include specific user queries in descriptions |
 | Large SKILL.md files | Slow loading, excessive context | Keep core 1,000-2,200 words; use `references/` for details |
 | Missing frontmatter fields | Components fail validation | Always include required fields (`name`, `description`) |
@@ -375,6 +378,7 @@ Your PR will automatically run these checks:
 | `version-check.yml` | Version consistency across manifests |
 | `validate-workflows.yml` | GitHub Actions syntax |
 | `claude-pr-review.yml` | AI-powered code review |
+| `ci-failure-analysis.yml` | Automated CI failure analysis |
 
 All checks must pass before merging. Fix any failures before requesting review.
 

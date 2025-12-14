@@ -68,7 +68,7 @@ When a security vulnerability is confirmed:
 
 1. **No Secrets in Code**: Never commit API keys, tokens, or credentials
 2. **Code Review**: All changes go through pull request review
-3. **Markdown Linting**: Run `markdownlint` before committing to catch potential issues
+3. **Linting**: Run `markdownlint`, `htmlhint`, and `yamllint` before committing to catch potential issues
 4. **Test Locally**: Always test with `claude --plugin-dir .` before pushing
 
 ## Known Security Mitigations
