@@ -160,6 +160,36 @@ Override colors per mode:
 }
 ```
 
+## Sass Functions
+
+Bootstrap provides utility functions for color manipulation and accessibility:
+
+- `tint-color($color, $weight)` - Lighten by mixing with white
+- `shade-color($color, $weight)` - Darken by mixing with black
+- `shift-color($color, $weight)` - Auto tint/shade based on weight sign
+- `color-contrast($color)` - Get accessible contrast color for backgrounds
+
+```scss
+// Generate color scale
+$primary-light: tint-color($primary, 40%);
+$primary-dark: shade-color($primary, 20%);
+
+// Auto-contrast text
+.custom-badge {
+  background-color: $success;
+  color: color-contrast($success); // Returns #fff or #212529
+}
+
+// Hover states
+.btn-custom:hover {
+  background-color: shift-color($brand, 15%);
+}
+```
+
+Additional functions: `escape-svg()` for SVG backgrounds, `add()`/`subtract()` for safe CSS calc operations.
+
+See `references/sass-functions-mixins.md` for complete function and mixin reference.
+
 ## Key Sass Variables
 
 ### Typography
