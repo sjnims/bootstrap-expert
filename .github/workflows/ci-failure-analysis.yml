@@ -1,7 +1,7 @@
 name: CI Failure Analysis
 
 # Automatically analyze failed CI runs and provide actionable fix suggestions
-# Triggers when Markdown Lint, Check Links, or Validate Workflows fail
+# Triggers when any lint workflow fails (Markdown, HTML, YAML, Links, Workflows)
 #
 # Testing: Intentionally fail markdownlint (e.g., change - to * in any .md file)
 
@@ -9,6 +9,8 @@ on:
   workflow_run:
     workflows:
       - "Markdown Lint"
+      - "HTML Lint"
+      - "YAML Lint"
       - "Check Links"
       - "Validate Workflows"
     types: [completed]
@@ -84,6 +86,16 @@ jobs:
             - Read `.markdownlint.json` to understand the project's rules
             - Common issues: wrong list style (should use `-`), wrong header style (should use ATX `#`)
 
+            **For "HTML Lint" (htmlhint) failures:**
+            - Look for lines like: `filename:line:column error-message (rule-name)`
+            - Read `.htmlhintrc` to understand the project's rules
+            - Common issues: unclosed tags, missing alt attributes, unescaped special characters (`<`, `>`, `&`)
+
+            **For "YAML Lint" (yamllint) failures:**
+            - Look for lines like: `filename:line:column [error] message (rule-name)`
+            - Read `.yamllint.yml` to understand the project's rules
+            - Common issues: wrong indentation (should use 2 spaces), trailing spaces, missing newline at end of file
+
             **For "Check Links" (lychee) failures:**
             - Look for broken URLs with HTTP status codes (404, 403, etc.)
             - Read `.lycheeignore` to see what's intentionally excluded
@@ -139,6 +151,21 @@ jobs:
 
             **Option 2**: Manual fix
             {Explain specific change needed}
+
+            {For HTML failures}
+            ```bash
+            npx htmlhint "{file}"
+            ```
+            - Fix unclosed tags, add missing alt attributes
+            - Escape special characters: `<` → `&lt;`, `>` → `&gt;`, `&` → `&amp;`
+
+            {For YAML failures}
+            ```bash
+            uvx yamllint -c .yamllint.yml "{file}"
+            ```
+            - Fix indentation (use 2 spaces)
+            - Remove trailing whitespace
+            - Ensure newline at end of file
 
             {For link failures}
             - Check if URL has moved and update the link
