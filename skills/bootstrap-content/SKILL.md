@@ -166,9 +166,6 @@ Bootstrap Reboot normalizes default browser styles for consistent cross-browser 
 <pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
 &lt;p&gt;And another line.&lt;/p&gt;</code></pre>
 
-<!-- Scrollable code blocks -->
-<pre class="pre-scrollable"><code>Very long code content...</code></pre>
-
 <!-- Variables -->
 <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
 
