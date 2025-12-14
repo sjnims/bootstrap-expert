@@ -358,4 +358,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 <div class="invalid-feedback">Please provide a valid value.</div>
 ```
 
-See `references/form-reference.md` for complete form class reference and `examples/` for form templates.
+See `references/form-reference.md` for complete form class reference.
+
+For form examples, see:
+
+- `examples/validation-form.html` - Form validation patterns

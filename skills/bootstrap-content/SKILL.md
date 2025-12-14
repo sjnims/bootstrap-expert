@@ -289,4 +289,8 @@ Make a paragraph stand out:
 </table>
 ```
 
-See `references/typography-reference.md` for complete text utilities and `examples/` for content patterns.
+See `references/typography-reference.md` for complete text utilities.
+
+For content examples, see:
+
+- `examples/tables.html` - Table styling examples

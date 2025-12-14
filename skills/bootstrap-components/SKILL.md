@@ -1127,4 +1127,12 @@ tooltip.dispose();
 
 ---
 
-See `references/components-reference.md` for complete component API reference and `examples/` for component patterns.
+See `references/components-reference.md` for complete component API reference.
+
+For component implementation patterns, see:
+
+- `examples/carousel-patterns.html` - Carousel implementation patterns
+- `examples/modal-patterns.html` - Modal dialog patterns
+- `examples/navbar-patterns.html` - Navigation bar layouts
+- `examples/offcanvas-patterns.html` - Offcanvas sidebar patterns
+- `examples/tabs-patterns.html` - Tab navigation patterns

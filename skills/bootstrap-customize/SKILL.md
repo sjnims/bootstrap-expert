@@ -315,4 +315,9 @@ Use Bootstrap's mixins and functions for consistent components:
 // ... only import what you use
 ```
 
-See `references/sass-variables.md` for complete variable reference and `examples/` for theme examples.
+See `references/sass-variables.md` for complete variable reference.
+
+For customization examples, see:
+
+- `examples/color-mode-toggle.js` - Dark/light mode toggle implementation
+- `examples/custom-theme.scss` - Custom theme Sass file

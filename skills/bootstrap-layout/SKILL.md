@@ -325,4 +325,8 @@ Bootstrap 5.3 also supports CSS Grid:
 </div>
 ```
 
-See `references/grid-reference.md` for complete grid class reference and `examples/` for layout templates.
+See `references/grid-reference.md` for complete grid class reference.
+
+For layout examples, see:
+
+- `examples/responsive-layouts.html` - Responsive layout patterns
