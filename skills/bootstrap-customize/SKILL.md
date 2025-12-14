@@ -1,6 +1,6 @@
 ---
 name: bootstrap-customize
-description: This skill should be used when the user asks about Bootstrap customization, Bootstrap Sass variables, Bootstrap CSS custom properties, Bootstrap theming, Bootstrap color modes, Bootstrap dark mode, Bootstrap light mode, how to customize Bootstrap colors, how to override Bootstrap variables, Bootstrap SCSS customization, Bootstrap theme creation, Bootstrap design tokens, or needs help customizing Bootstrap's look and feel.
+description: This skill should be used when the user asks "how do I customize Bootstrap", "how to create a custom Bootstrap theme", "what Sass variables can I override", "how to implement dark mode in Bootstrap", "how to change Bootstrap colors", "how to override Bootstrap defaults", "how to add custom colors to Bootstrap", "how to enable Bootstrap shadows", "how to compile Bootstrap Sass", or needs help with Bootstrap theming, Sass variable overrides, CSS custom properties, or color mode implementation.
 ---
 
 # Bootstrap 5.3 Customization
