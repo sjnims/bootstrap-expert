@@ -146,6 +146,60 @@ prefersDark.addEventListener('change', (e) => {
 });
 ```
 
+### Color Mode Implementation Types
+
+Bootstrap supports two approaches for color mode switching, controlled by the `$color-mode-type` Sass variable.
+
+#### Data Attribute Method (Default)
+
+```scss
+$color-mode-type: data;
+```
+
+Uses the `data-bs-theme` attribute on HTML elements:
+
+```html
+<html data-bs-theme="dark">
+```
+
+**Advantages:**
+
+- Per-component theme control possible
+- User preferences can override system settings
+- Works with JavaScript theme toggles
+- Supports runtime switching without page reload
+
+**Use when:** Building a theme picker UI or needing granular control over individual components.
+
+#### Media Query Method
+
+```scss
+$color-mode-type: media;
+```
+
+Uses the `prefers-color-scheme` media query automatically:
+
+```css
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles applied automatically */
+}
+```
+
+**Advantages:**
+
+- Automatic system preference detection
+- No JavaScript required
+- Simpler implementation
+- Zero runtime overhead
+
+**Disadvantages:**
+
+- No per-component control
+- Users cannot override via UI
+- Requires page-level theming only
+
+**Use when:** You want automatic system preference detection without a manual toggle.
+
 ### Custom Color Mode Colors
 
 Override colors per mode:
