@@ -8,6 +8,8 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 
 ## Quick Reference
 
+**Current Version**: v0.1.0
+
 | Task | Command |
 |------|---------|
 | Load plugin | `claude --plugin-dir /path/to/bootstrap-expert` |
