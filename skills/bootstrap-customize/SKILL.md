@@ -351,3 +351,71 @@ For customization examples, see:
 
 - `examples/color-mode-toggle.js` - Dark/light mode toggle implementation
 - `examples/custom-theme.scss` - Custom theme Sass file
+
+## Optimization
+
+A seção de otimização é particularmente importante para implementações em produção, onde o tamanho do pacote afeta o desempenho. A cobertura atual deixa os usuários sem orientação sobre otimização em JavaScript, frameworks e melhores práticas de produção.
+
+### Import Only What You Need (Lean JavaScript and Sass)
+
+**1. JavaScript Mínimo:**
+Em vez de importar o JavaScript completo do Bootstrap, importe apenas os módulos que você realmente precisa (ex: apenas o `modal` ou `dropdown`).
+
+```javascript
+// Importe SOMENTE os módulos que você usa
+import Dropdown from 'bootstrap/js/dist/dropdown';
+import Modal from 'bootstrap/js/dist/modal';
+
+// Em vez de:
+// import * as bootstrap from 'bootstrap';
+
+CSS
+
+// Required core (o mínimo que você precisa)
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// Components you actually use
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons"; 
+// ... only import what you use
+
+JS
+
+// Exemplo de configuração do postcss.config.js
+module.exports = {
+  plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./**/*.html', './**/*.js'],
+      safelist: ['modal-open', 'show', 'fade'] // Classes dinâmicas que devem ser preservadas
+    }),
+    require('autoprefixer')
+  ]
+}
+
+## Considerações de Segurança
+
+### Content Security Policy (CSP)
+
+Bootstrap usa SVGs incorporados em CSS para consistência de navegador. Se o seu aplicativo usa uma política de Content Security Policy (CSP) restrita, isso pode entrar em conflito com regras CSP que bloqueiam estilos inline.
+
+#### Componentes Afetados:
+
+* Accordion (colapso/expandir ícones)
+* Carousel (próximo/controle anterior)
+* Form controls (checkboxes, radios, switches, ícones de validação)
+* Close button
+* Navbar toggle (hambúrguer)
+* Select menus (seta dropdown)
+
+#### Solução:
+
+1.  Substitua por ativos locais (`.svg`): Use a função `escape-svg()` com SVGs localmente hospedados.
+2.  Ajuste o CSP: Se for um requisito de segurança para sua aplicação, permita inline de dados de imagem SVG.
+3.  Use ícones de fonte: Substitua os ícones SVG por ícones de fonte (ex: ícones do Bootstrap).
