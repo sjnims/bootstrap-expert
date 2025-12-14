@@ -129,6 +129,7 @@ Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsin
 ## Reference Files
 
 - `references/components-reference.md` - Quick reference tables for all component classes
+- `references/css-custom-properties.md` - CSS custom properties for runtime component theming
 - `references/interactive-components.md` - Detailed documentation for JS-dependent components
 - `references/static-components.md` - Detailed documentation for CSS/HTML components
 
