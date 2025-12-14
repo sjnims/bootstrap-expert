@@ -88,6 +88,22 @@ Quick reference for all Bootstrap 5.3 component classes.
 | `.card-group` | Group cards |
 | `.h-100` | Full height card |
 
+## Close Button
+
+| Class | Description |
+|-------|-------------|
+| `.btn-close` | Base close button |
+| `.btn-close-white` | White variant for dark backgrounds |
+| `disabled` | Disabled state |
+
+| Attribute | Description |
+|-----------|-------------|
+| `data-bs-dismiss="alert"` | Dismiss alert |
+| `data-bs-dismiss="modal"` | Dismiss modal |
+| `data-bs-dismiss="offcanvas"` | Dismiss offcanvas |
+| `data-bs-dismiss="toast"` | Dismiss toast |
+| `aria-label="Close"` | Accessibility label |
+
 ## Carousel
 
 | Class | Description |
@@ -258,6 +274,20 @@ Quick reference for all Bootstrap 5.3 component classes.
 | `.progress-bar-striped` | Striped style |
 | `.progress-bar-animated` | Animated stripes |
 | `.progress-stacked` | Stacked bars |
+
+## Scrollspy
+
+| Attribute | Description |
+|-----------|-------------|
+| `data-bs-spy="scroll"` | Enable scrollspy on element |
+| `data-bs-target` | Target navigation selector |
+| `data-bs-root-margin` | Intersection Observer rootMargin |
+| `data-bs-smooth-scroll` | Enable smooth scrolling |
+| `data-bs-offset` | Pixels to offset from top (deprecated, use root-margin) |
+
+| Class | Description |
+|-------|-------------|
+| `.active` | Applied to active nav link |
 
 ## Spinners
 

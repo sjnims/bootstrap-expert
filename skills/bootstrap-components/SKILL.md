@@ -255,6 +255,47 @@ Slideshow component:
 <div class="carousel slide" data-bs-ride="carousel">...</div>
 ```
 
+## Close Button
+
+Generic close button for dismissing content:
+
+```html
+<!-- Basic close button -->
+<button type="button" class="btn-close" aria-label="Close"></button>
+
+<!-- Disabled state -->
+<button type="button" class="btn-close" disabled aria-label="Close"></button>
+
+<!-- White variant (for dark backgrounds) -->
+<div class="bg-dark p-3">
+  <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+</div>
+
+<!-- Used in alert -->
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  Alert content
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Used in modal header -->
+<div class="modal-header">
+  <h5 class="modal-title">Modal title</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+
+<!-- Used in toast header -->
+<div class="toast-header">
+  <strong class="me-auto">Toast title</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+
+<!-- Used in offcanvas -->
+<div class="offcanvas-header">
+  <h5 class="offcanvas-title">Offcanvas title</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+```
+
 ## Collapse
 
 Toggle content visibility:
@@ -415,6 +456,83 @@ Toggle content visibility:
 <nav class="navbar sticky-top">...</nav>
 ```
 
+## Navs and Tabs
+
+Base navigation component with multiple styles:
+
+```html
+<!-- Basic nav -->
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+
+<!-- Tabs style -->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+</ul>
+
+<!-- Pills style -->
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+</ul>
+
+<!-- Underline style -->
+<ul class="nav nav-underline">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+</ul>
+
+<!-- Fill/justify -->
+<ul class="nav nav-pills nav-fill">...</ul>
+<ul class="nav nav-pills nav-justified">...</ul>
+
+<!-- Vertical -->
+<ul class="nav flex-column">...</ul>
+
+<!-- Tabs with content -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab">Home</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab">Profile</button>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade show active" id="home" role="tabpanel">Home content...</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel">Profile content...</div>
+</div>
+
+<!-- Pills with content -->
+<ul class="nav nav-pills" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-home" type="button" role="tab">Home</button>
+  </li>
+</ul>
+```
+
 ## Offcanvas
 
 Slide-out sidebars:
@@ -463,6 +581,111 @@ Slide-out sidebars:
 <ul class="pagination justify-content-end">...</ul>
 ```
 
+## Placeholders
+
+Loading placeholders for content that hasn't loaded yet:
+
+```html
+<!-- Basic placeholder -->
+<p class="placeholder-glow">
+  <span class="placeholder col-6"></span>
+</p>
+
+<!-- Card with placeholders -->
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title placeholder-glow">
+      <span class="placeholder col-6"></span>
+    </h5>
+    <p class="card-text placeholder-glow">
+      <span class="placeholder col-7"></span>
+      <span class="placeholder col-4"></span>
+      <span class="placeholder col-4"></span>
+      <span class="placeholder col-6"></span>
+      <span class="placeholder col-8"></span>
+    </p>
+    <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+  </div>
+</div>
+
+<!-- Sizing -->
+<span class="placeholder col-12"></span>
+<span class="placeholder placeholder-lg col-12"></span>
+<span class="placeholder placeholder-sm col-12"></span>
+<span class="placeholder placeholder-xs col-12"></span>
+
+<!-- Colors -->
+<span class="placeholder col-12 bg-primary"></span>
+<span class="placeholder col-12 bg-secondary"></span>
+<span class="placeholder col-12 bg-success"></span>
+<span class="placeholder col-12 bg-danger"></span>
+
+<!-- Animation types -->
+<p class="placeholder-glow">
+  <span class="placeholder col-12"></span>
+</p>
+<p class="placeholder-wave">
+  <span class="placeholder col-12"></span>
+</p>
+```
+
+## Popovers
+
+Overlay with rich content, triggered on click:
+
+```html
+<!-- Basic popover -->
+<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"
+  title="Popover title" data-bs-content="And here's some amazing content.">
+  Click to toggle popover
+</button>
+
+<!-- Directions -->
+<button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+  data-bs-placement="top" data-bs-content="Top popover">
+  Popover on top
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+  data-bs-placement="right" data-bs-content="Right popover">
+  Popover on right
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+  data-bs-placement="bottom" data-bs-content="Bottom popover">
+  Popover on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+  data-bs-placement="left" data-bs-content="Left popover">
+  Popover on left
+</button>
+
+<!-- Dismiss on next click -->
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover"
+  data-bs-trigger="focus" title="Dismissible popover"
+  data-bs-content="Click anywhere to dismiss.">
+  Dismissible popover
+</a>
+
+<!-- Hover trigger -->
+<button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+  data-bs-trigger="hover focus" data-bs-content="Hover popover">
+  Hover me
+</button>
+
+<!-- HTML content -->
+<button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+  data-bs-html="true" title="<em>HTML</em> title"
+  data-bs-content="<b>Bold</b> and <u>underlined</u> content.">
+  HTML Popover
+</button>
+```
+
+Popovers require JavaScript initialization:
+
+```javascript
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+const popoverList = [...popoverTriggerList].map(el => new bootstrap.Popover(el));
+```
+
 ## Progress
 
 ```html
@@ -487,6 +710,73 @@ Slide-out sidebars:
 <!-- Animated stripes -->
 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
 ```
+
+## Scrollspy
+
+Automatically update navigation based on scroll position:
+
+```html
+<!-- Navbar with scrollspy -->
+<nav id="navbar-example" class="navbar bg-body-tertiary px-3 mb-3">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading1">First</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#scrollspyHeading2">Second</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+        <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- Scrollable content area with data attributes -->
+<div data-bs-spy="scroll" data-bs-target="#navbar-example" data-bs-root-margin="0px 0px -40%"
+  data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+  <h4 id="scrollspyHeading1">First heading</h4>
+  <p>Content for first section...</p>
+  <h4 id="scrollspyHeading2">Second heading</h4>
+  <p>Content for second section...</p>
+  <h4 id="scrollspyHeading3">Third heading</h4>
+  <p>Content for third section...</p>
+  <h4 id="scrollspyHeading4">Fourth heading</h4>
+  <p>Content for fourth section...</p>
+</div>
+
+<!-- List group with scrollspy -->
+<div class="row">
+  <div class="col-4">
+    <div id="list-example" class="list-group">
+      <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+      class="scrollspy-example" tabindex="0">
+      <h4 id="list-item-1">Item 1</h4>
+      <p>Content...</p>
+      <h4 id="list-item-2">Item 2</h4>
+      <p>Content...</p>
+      <h4 id="list-item-3">Item 3</h4>
+      <p>Content...</p>
+    </div>
+  </div>
+</div>
+```
+
+Key data attributes:
+- `data-bs-spy="scroll"` - Enable scrollspy on element
+- `data-bs-target` - Navigation element to highlight
+- `data-bs-root-margin` - Intersection Observer rootMargin
+- `data-bs-smooth-scroll="true"` - Enable smooth scrolling
 
 ## Spinners
 
