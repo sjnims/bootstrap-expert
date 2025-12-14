@@ -38,8 +38,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install markdownlint-cli
-        run: npm install -g markdownlint-cli
+      - name: Install linters
+        run: |
+          npm install -g markdownlint-cli
+          pip install yamllint
 
       - name: Review PR with Claude
         uses: anthropics/claude-code-action@f0c8eb29807907de7f5412d04afceb5e24817127 # v1.0.23
@@ -56,7 +58,10 @@ jobs:
 
             ## Instructions
             1. Get the PR diff to understand what changed
-            2. If any `.md` files were changed, run `markdownlint --config .markdownlint.json <files>` to check for style issues
+            2. Run linters on changed files:
+               - If any `.md` files were changed, run `markdownlint --config .markdownlint.json <files>`
+               - If any `.html` files were changed, run `npx htmlhint <files>`
+               - If any `.yml`/`.yaml` files were changed, run `yamllint -c .yamllint.yml <files>`
             3. Review the changes against the criteria below
             4. Post a summary comment with your findings
 
@@ -75,6 +80,21 @@ jobs:
             - Fenced code blocks (not indented)
             Include any lint errors in your review under a "Markdown Linting" section.
 
+            ### HTML Quality (run htmlhint)
+            Run `npx htmlhint` on changed `.html` files (Bootstrap examples in `skills/**/examples/`). Key rules:
+            - Tag pairs must match (no unclosed tags)
+            - Attribute values use double quotes
+            - Images require `alt` attributes
+            - Special characters escaped (`<` → `&lt;`)
+            Include any lint errors in your review under an "HTML Linting" section.
+
+            ### YAML Quality (run yamllint)
+            Run `yamllint -c .yamllint.yml` on changed `.yml`/`.yaml` files. Key rules:
+            - 2-space indentation
+            - No trailing whitespace
+            - Newline at end of file
+            Include any lint errors in your review under a "YAML Linting" section.
+
             ### Documentation
             - README.md updates if user-facing changes
             - CLAUDE.md updates if development process changes
@@ -89,4 +109,4 @@ jobs:
             Be constructive and helpful. Focus on significant issues, not nitpicks.
             If the PR looks good, say so briefly - don't invent problems.
           claude_args: |
-            --allowedTools "Bash(gh pr:*),Bash(markdownlint:*),Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment"
+            --allowedTools "Bash(gh pr:*),Bash(markdownlint:*),Bash(npx htmlhint:*),Bash(yamllint:*),Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment"
