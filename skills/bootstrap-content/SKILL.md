@@ -1,6 +1,6 @@
 ---
 name: bootstrap-content
-description: This skill should be used when the user asks about Bootstrap typography, Bootstrap headings, Bootstrap display headings, Bootstrap lead text, Bootstrap text alignment, Bootstrap images, Bootstrap responsive images, Bootstrap figures, Bootstrap tables, Bootstrap Reboot, Bootstrap blockquotes, Bootstrap lists, or needs help with Bootstrap text and content styling.
+description: This skill should be used when the user asks about Bootstrap typography, Bootstrap headings, Bootstrap display headings, Bootstrap lead text, Bootstrap text alignment, Bootstrap images, Bootstrap responsive images, Bootstrap figures, Bootstrap tables, Bootstrap Reboot, Bootstrap blockquotes, Bootstrap lists, Bootstrap code blocks, Bootstrap inline code, Bootstrap kbd element, Bootstrap keyboard input styling, Bootstrap var element, Bootstrap samp element, Bootstrap address element, Bootstrap horizontal rules, Bootstrap abbreviations, or needs help with Bootstrap text and content styling.
 ---
 
 # Bootstrap 5.3 Content
@@ -152,6 +152,76 @@ Make a paragraph stand out:
 </ul>
 ```
 
+## Reboot
+
+Bootstrap Reboot normalizes default browser styles for consistent cross-browser rendering. Beyond the typography elements above, Reboot styles several important HTML elements.
+
+### Code Elements
+
+```html
+<!-- Inline code -->
+<p>Use <code>&lt;section&gt;</code> for page sections.</p>
+
+<!-- Code blocks (use pre for preformatted text) -->
+<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line.&lt;/p&gt;</code></pre>
+
+<!-- Scrollable code blocks -->
+<pre class="pre-scrollable"><code>Very long code content...</code></pre>
+
+<!-- Variables -->
+<var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+
+<!-- User input (keyboard) -->
+<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.</p>
+<p>Or type <kbd>cd</kbd> to change directory.</p>
+
+<!-- Nested kbd for key combinations -->
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd></kbd>
+
+<!-- Sample output -->
+<samp>This text is meant to be sample output from a program.</samp>
+```
+
+### Address
+
+```html
+<address>
+  <strong>Company Name</strong><br>
+  123 Main Street<br>
+  City, State 12345<br>
+  <abbr title="Phone">P:</abbr> (123) 456-7890
+</address>
+
+<address>
+  <strong>Full Name</strong><br>
+  <a href="mailto:email@example.com">email@example.com</a>
+</address>
+```
+
+### Horizontal Rules
+
+```html
+<!-- Basic horizontal rule -->
+<hr>
+
+<!-- Styled with border utilities -->
+<hr class="border border-danger border-2 opacity-50">
+<hr class="border border-primary border-3 opacity-75">
+
+<!-- With margins -->
+<hr class="my-5">
+```
+
+### Abbreviations
+
+```html
+<p><abbr title="Hypertext Markup Language">HTML</abbr> is the foundation of the web.</p>
+
+<!-- Slightly smaller font size -->
+<p><abbr title="Cascading Style Sheets" class="initialism">CSS</abbr> for styling.</p>
+```
+
 ## Images
 
 ### Responsive Images
@@ -294,3 +364,4 @@ See `references/typography-reference.md` for complete text utilities.
 For content examples, see:
 
 - `examples/tables.html` - Table styling examples
+- `examples/reboot-elements.html` - Code, address, and hr styling examples
