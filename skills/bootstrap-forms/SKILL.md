@@ -25,6 +25,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 
 ### Sizing
 
+To match input size with surrounding elements or emphasize important fields, use sizing classes. Use `.form-control-lg` for hero sections or primary CTAs. Use `.form-control-sm` for compact UIs like toolbars or inline forms.
+
 ```html
 <input class="form-control form-control-lg" type="text" placeholder="Large input">
 <input class="form-control" type="text" placeholder="Default input">
@@ -32,6 +34,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 ```
 
 ### Disabled and Readonly
+
+Use `disabled` for fields users cannot interact with at all. Use `readonly` when values should be visible and selectable but not editable. Use `.form-control-plaintext` with `readonly` to display values without form styling.
 
 ```html
 <input class="form-control" type="text" disabled value="Disabled input">
@@ -121,6 +125,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 
 ### Switches
 
+Prefer switches over checkboxes for on/off settings that take effect immediately, like enabling notifications or toggling dark mode. Use checkboxes for multi-select options or when changes require a submit action.
+
 ```html
 <div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" role="switch" id="switch1">
@@ -156,6 +162,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 ```
 
 ## Input Groups
+
+Use input groups to visually attach related elements to form controls. Common patterns include currency symbols, units of measurement, or action buttons alongside inputs.
 
 ### Basic
 
@@ -206,6 +214,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 
 ## Floating Labels
 
+Use floating labels for a cleaner, more compact form design where labels animate into the input on focus. They work best in simple forms like login or signup. Avoid them when you need help text or complex validation messages alongside inputs.
+
 ```html
 <div class="form-floating mb-3">
   <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
@@ -225,7 +235,11 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 
 ## Form Layout
 
+Choose your layout based on form complexity and available space.
+
 ### Vertical (Default)
+
+Use vertical layout for most forms—it's the simplest and works well on mobile. Labels stack above inputs for easy scanning.
 
 ```html
 <form>
@@ -238,6 +252,8 @@ Bootstrap provides comprehensive form styling including controls, layouts, valid
 ```
 
 ### Horizontal
+
+Use horizontal layout when you have ample width and want a more compact appearance. Best for settings pages or admin panels with many short fields.
 
 ```html
 <form>
