@@ -136,11 +136,14 @@ Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsin
 ## Example Files
 
 - `examples/accordion-patterns.html` - Accordion and FAQ patterns
+- `examples/alert-patterns.html` - Alert variants, dismissible alerts, live region patterns
+- `examples/badge-button-patterns.html` - Badges, buttons, button groups, and close buttons
 - `examples/card-grid-patterns.html` - Responsive card grid layouts
 - `examples/carousel-patterns.html` - Carousel implementation patterns
 - `examples/modal-patterns.html` - Modal dialog patterns
 - `examples/navbar-patterns.html` - Navigation bar layouts
 - `examples/offcanvas-patterns.html` - Offcanvas sidebar patterns
+- `examples/pagination-patterns.html` - Pagination variants, alignment, and responsive patterns
 - `examples/popovers-tooltips-patterns.html` - Tooltip and popover patterns (requires JS init)
 - `examples/tabs-patterns.html` - Tab navigation patterns
 - `examples/toasts-patterns.html` - Toast notification patterns (requires JS init)
