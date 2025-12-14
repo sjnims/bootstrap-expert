@@ -1,0 +1,97 @@
+// Minimal Bootstrap Build - Import Only What You Need
+//
+// This example demonstrates how to create a lean Bootstrap build
+// by importing only the components your project actually uses.
+// A selective build can reduce CSS output by 50-80%.
+
+// ==========================================================================
+// REQUIRED CORE (always include these in order)
+// ==========================================================================
+
+@import "bootstrap/scss/functions";    // Required: Sass functions
+@import "bootstrap/scss/variables";    // Required: Default variable values
+@import "bootstrap/scss/variables-dark"; // Required for dark mode support
+@import "bootstrap/scss/maps";         // Required: Sass maps
+@import "bootstrap/scss/mixins";       // Required: Mixins
+@import "bootstrap/scss/root";         // Required: CSS custom properties
+
+// ==========================================================================
+// CORE STYLES (pick what you need)
+// ==========================================================================
+
+@import "bootstrap/scss/reboot";       // Recommended: CSS reset/normalize
+@import "bootstrap/scss/type";         // Typography: headings, lists, etc.
+@import "bootstrap/scss/containers";   // Layout: .container classes
+@import "bootstrap/scss/grid";         // Layout: row/col grid system
+
+// ==========================================================================
+// COMPONENTS (only import what you use)
+// ==========================================================================
+
+// Forms
+@import "bootstrap/scss/forms";        // All form components
+
+// Buttons
+@import "bootstrap/scss/buttons";      // .btn classes
+// @import "bootstrap/scss/button-group"; // .btn-group (if grouping buttons)
+
+// Navigation
+@import "bootstrap/scss/navbar";       // .navbar component
+@import "bootstrap/scss/nav";          // .nav, .nav-tabs, .nav-pills
+
+// Content containers
+@import "bootstrap/scss/card";         // .card component
+// @import "bootstrap/scss/list-group";  // .list-group component
+// @import "bootstrap/scss/accordion";   // .accordion component
+
+// Feedback
+@import "bootstrap/scss/alert";        // .alert component
+// @import "bootstrap/scss/badge";       // .badge component
+// @import "bootstrap/scss/progress";    // .progress bars
+
+// Overlays (require JavaScript)
+@import "bootstrap/scss/modal";        // .modal component
+@import "bootstrap/scss/dropdown";     // .dropdown component
+// @import "bootstrap/scss/offcanvas";   // .offcanvas component
+// @import "bootstrap/scss/tooltip";     // .tooltip component
+// @import "bootstrap/scss/popover";     // .popover component
+// @import "bootstrap/scss/toast";       // .toast notifications
+
+// Other components
+// @import "bootstrap/scss/breadcrumb";  // .breadcrumb navigation
+// @import "bootstrap/scss/pagination";  // .pagination component
+// @import "bootstrap/scss/carousel";    // .carousel slideshow
+// @import "bootstrap/scss/spinners";    // .spinner-* loading indicators
+// @import "bootstrap/scss/close";       // .btn-close component
+// @import "bootstrap/scss/tables";      // .table styles
+// @import "bootstrap/scss/images";      // .img-fluid, .img-thumbnail
+
+// ==========================================================================
+// HELPERS (optional utilities)
+// ==========================================================================
+
+@import "bootstrap/scss/helpers";      // Clearfix, visually-hidden, etc.
+
+// ==========================================================================
+// UTILITIES (required for utility classes)
+// ==========================================================================
+
+@import "bootstrap/scss/utilities";    // Utility definitions
+@import "bootstrap/scss/utilities/api"; // Generates utility classes
+
+// ==========================================================================
+// NOTES
+// ==========================================================================
+//
+// After building, run PurgeCSS to remove any remaining unused styles:
+//
+//   npx purgecss --css dist/styles.css \
+//                --content src/**/*.html src/**/*.js \
+//                --safelist show fade modal-open collapse collapsing \
+//                --output dist/styles.purged.css
+//
+// Expected size reductions (approximate):
+//   Full Bootstrap:     ~230KB unminified
+//   Selective imports:  ~80-120KB (depends on components)
+//   After PurgeCSS:     ~20-50KB (depends on usage)
+//   After gzip:         ~5-15KB
