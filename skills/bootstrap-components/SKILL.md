@@ -138,4 +138,6 @@ Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsin
 - `examples/modal-patterns.html` - Modal dialog patterns
 - `examples/navbar-patterns.html` - Navigation bar layouts
 - `examples/offcanvas-patterns.html` - Offcanvas sidebar patterns
+- `examples/popovers-tooltips-patterns.html` - Tooltip and popover patterns (requires JS init)
 - `examples/tabs-patterns.html` - Tab navigation patterns
+- `examples/toasts-patterns.html` - Toast notification patterns (requires JS init)
