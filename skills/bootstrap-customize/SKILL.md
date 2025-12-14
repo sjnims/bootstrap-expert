@@ -295,6 +295,66 @@ $input-focus-border-color: tint-color($primary, 50%);
 $input-focus-box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
 ```
 
+## Component Architecture
+
+Bootstrap uses a **base-modifier pattern** for component styling. Understanding this architecture helps you customize existing components and create new ones that integrate seamlessly.
+
+### Base and Modifier Classes
+
+Components start with a base class providing core styling, then modifier classes add variants:
+
+```html
+<!-- Base class provides core styling -->
+<button class="btn">Base button</button>
+
+<!-- Modifier classes add variants -->
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-lg">Large</button>
+<button class="btn btn-primary btn-lg">Primary Large</button>
+```
+
+### Variant Generation with @each Loops
+
+Bootstrap generates color variants by iterating over `$theme-colors`:
+
+```scss
+// How Bootstrap generates .alert-primary, .alert-danger, etc.
+@each $state in map-keys($theme-colors) {
+  .alert-#{$state} {
+    --#{$prefix}alert-color: var(--#{$prefix}#{$state}-text-emphasis);
+    --#{$prefix}alert-bg: var(--#{$prefix}#{$state}-bg-subtle);
+    --#{$prefix}alert-border-color: var(--#{$prefix}#{$state}-border-subtle);
+  }
+}
+```
+
+**Key insight:** Adding a color to `$theme-colors` automatically generates variants for alerts, buttons, badges, list-groups, and more.
+
+### Custom Component with Variants
+
+Apply the same pattern for consistent custom components:
+
+```scss
+// Base class
+.callout {
+  padding: var(--bs-callout-padding, 1rem);
+  border-left: 4px solid var(--bs-callout-border-color, currentcolor);
+  background: var(--bs-callout-bg, transparent);
+}
+
+// Generate variants from theme colors
+@each $state, $value in $theme-colors {
+  .callout-#{$state} {
+    --bs-callout-border-color: var(--bs-#{$state});
+    --bs-callout-bg: var(--bs-#{$state}-bg-subtle);
+  }
+}
+```
+
+This generates `.callout-primary`, `.callout-danger`, etc., all inheriting from the base `.callout` styles.
+
+See `references/sass-functions-mixins.md` for `button-variant()` and other mixins that follow this pattern.
+
 ## Creating Custom Components
 
 Use Bootstrap's mixins and functions for consistent components:
