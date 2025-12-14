@@ -80,7 +80,7 @@ Fixes # (issue)
 ### Bootstrap Compatibility
 
 - [ ] Changes align with Bootstrap 5.3.8 documentation
-- [ ] Bootstrap Icons references use version 1.11.x conventions
+- [ ] Bootstrap Icons references use version 1.13.x conventions
 - [ ] Generated HTML/CSS uses valid Bootstrap 5.3.x classes
 - [ ] Responsive breakpoints use correct Bootstrap values (sm/md/lg/xl/xxl)
 

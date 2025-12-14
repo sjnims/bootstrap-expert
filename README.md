@@ -1,7 +1,7 @@
 # Bootstrap Expert Plugin
 
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.8-7952B3?logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![Bootstrap Icons](https://img.shields.io/badge/Bootstrap%20Icons-1.11.x-7952B3?logo=bootstrap&logoColor=white)](https://icons.getbootstrap.com/)
+[![Bootstrap Icons](https://img.shields.io/badge/Bootstrap%20Icons-1.13.x-7952B3?logo=bootstrap&logoColor=white)](https://icons.getbootstrap.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin-5A67D8)](https://claude.ai/code)
 
@@ -130,7 +130,7 @@ The `bootstrap-expert` agent triggers proactively when Bootstrap-related work is
 
 ## Bootstrap Version
 
-This plugin targets **Bootstrap 5.3.8** and **Bootstrap Icons 1.11.x**.
+This plugin targets **Bootstrap 5.3.8** and **Bootstrap Icons 1.13.x**.
 
 All generated code, class names, and documentation align with these versions. When Bootstrap releases updates, this plugin will be updated accordingly.
 

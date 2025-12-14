@@ -7,14 +7,14 @@ description: This skill should be used when the user asks about Bootstrap Icons,
 
 Bootstrap Icons is an official open-source icon library with over 2,000 icons designed to work with Bootstrap components and documentation.
 
-**Current Version**: 1.11.x (check <https://icons.getbootstrap.com> for latest)
+**Current Version**: 1.13.x (check <https://icons.getbootstrap.com> for latest)
 
 ## Installation Methods
 
 ### CDN (Quickest)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 ```
 
 ### npm
