@@ -1,6 +1,6 @@
 ---
 name: bootstrap-content
-description: This skill should be used when the user asks about Bootstrap typography, Bootstrap headings, Bootstrap display headings, Bootstrap lead text, Bootstrap text alignment, Bootstrap images, Bootstrap responsive images, Bootstrap figures, Bootstrap tables, Bootstrap Reboot, Bootstrap blockquotes, Bootstrap lists, Bootstrap code blocks, Bootstrap inline code, Bootstrap kbd element, Bootstrap keyboard input styling, Bootstrap var element, Bootstrap samp element, Bootstrap address element, Bootstrap horizontal rules, Bootstrap abbreviations, or needs help with Bootstrap text and content styling.
+description: This skill should be used when the user asks about Bootstrap typography, Bootstrap headings, Bootstrap display headings, Bootstrap lead text, Bootstrap text alignment, Bootstrap text transform, Bootstrap text-lowercase, Bootstrap text-uppercase, Bootstrap text-capitalize, Bootstrap monospace font, Bootstrap font-monospace, Bootstrap text-reset, Bootstrap secondary heading text, Bootstrap RFS, Bootstrap responsive font sizes, Bootstrap images, Bootstrap responsive images, Bootstrap figures, Bootstrap tables, Bootstrap Reboot, Bootstrap blockquotes, Bootstrap lists, Bootstrap code blocks, Bootstrap inline code, Bootstrap kbd element, Bootstrap keyboard input styling, Bootstrap var element, Bootstrap samp element, Bootstrap address element, Bootstrap horizontal rules, Bootstrap abbreviations, or needs help with Bootstrap text and content styling.
 ---
 
 # Bootstrap 5.3 Content
@@ -151,6 +151,49 @@ Make a paragraph stand out:
   <li class="list-inline-item">Third</li>
 </ul>
 ```
+
+### Text Transform
+
+```html
+<p class="text-lowercase">LOWERCASED TEXT</p>
+<p class="text-uppercase">uppercased text</p>
+<p class="text-capitalize">capitalized text</p>
+```
+
+### Monospace Font
+
+```html
+<p class="font-monospace">This is in monospace</p>
+```
+
+### Reset Color
+
+```html
+<!-- Inherit color from parent instead of link styling -->
+<p class="text-muted">
+  Muted text with a <a href="#" class="text-reset">reset link</a>.
+</p>
+```
+
+### Customizing Headings
+
+Add secondary, faded text to headings:
+
+```html
+<h3>
+  Fancy display heading
+  <small class="text-body-secondary">With faded secondary text</small>
+</h3>
+
+<h1 class="display-4">
+  Display heading
+  <small class="text-body-secondary">Secondary text</small>
+</h1>
+```
+
+### Responsive Font Sizes
+
+Bootstrap 5 enables RFS (Responsive Font Sizes) by default. This automatically scales `font-size` based on viewport dimensions, preventing text from becoming too large or too small on different devices. RFS applies to headings, display headings, and lead text.
 
 ## Reboot
 

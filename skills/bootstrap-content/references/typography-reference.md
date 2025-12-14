@@ -24,6 +24,22 @@ Complete reference for Bootstrap 5.3 typography classes and styles.
 | `.display-5` | 3rem (48px) | 300 |
 | `.display-6` | 2.5rem (40px) | 300 |
 
+## Customizing Headings
+
+Add secondary text within headings using `<small>` with `.text-body-secondary`:
+
+```html
+<h1>
+  Main heading
+  <small class="text-body-secondary">Secondary text</small>
+</h1>
+
+<h1 class="display-4">
+  Display heading
+  <small class="text-body-secondary">With subtitle</small>
+</h1>
+```
+
 ## Font Size Classes
 
 | Class | Size |
@@ -34,6 +50,18 @@ Complete reference for Bootstrap 5.3 typography classes and styles.
 | `.fs-4` | 1.5rem (24px) |
 | `.fs-5` | 1.25rem (20px) |
 | `.fs-6` | 1rem (16px) |
+
+## Responsive Font Sizes (RFS)
+
+Bootstrap 5 uses RFS (Responsive Font Sizes) by default. RFS automatically scales `font-size` based on viewport width, ensuring text remains readable across all devices.
+
+**Key points:**
+
+- Enabled by default in Bootstrap 5
+- Applies to headings, display headings, and lead text
+- Prevents text from becoming too large on big screens or too small on mobile
+- Uses a combination of `calc()` and viewport units
+- Can be customized via Sass variables: `$enable-rfs`, `$rfs-base-value`, `$rfs-breakpoint`
 
 ## Font Weight Classes
 
