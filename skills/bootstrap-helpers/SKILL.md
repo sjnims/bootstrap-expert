@@ -64,6 +64,26 @@ Link colors with hover states:
 <a href="#" class="link-primary link-offset-3">More offset</a>
 ```
 
+### Hover Variants
+
+Link utilities include hover variants for dynamic effects:
+
+```html
+<!-- Opacity changes on hover -->
+<a href="#" class="link-primary link-opacity-50 link-opacity-100-hover">Brightens on hover</a>
+
+<!-- Underline appears on hover -->
+<a href="#" class="link-primary link-underline-opacity-0 link-underline-opacity-100-hover">Underline on hover</a>
+
+<!-- Offset changes on hover -->
+<a href="#" class="link-primary link-offset-2 link-offset-3-hover">Offset increases on hover</a>
+
+<!-- Combined hover effect -->
+<a href="#" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+  Underline appears on hover
+</a>
+```
+
 ## Focus Ring
 
 Custom focus ring styling:
