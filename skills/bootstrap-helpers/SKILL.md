@@ -185,8 +185,7 @@ Quick flexbox layouts:
 <!-- With spacer -->
 <div class="vstack gap-2">
   <button class="btn btn-secondary">Top</button>
-  <div class="vr ms-auto"></div>  <!-- Spacer -->
-  <button class="btn btn-secondary">Bottom</button>
+  <button class="btn btn-secondary mt-auto">Bottom</button>
 </div>
 ```
 
