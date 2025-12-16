@@ -44,6 +44,11 @@ Complete reference for Bootstrap 5.3 helper classes.
 | `.link-opacity-50` | 50% |
 | `.link-opacity-75` | 75% |
 | `.link-opacity-100` | 100% |
+| `.link-opacity-10-hover` | 10% on hover |
+| `.link-opacity-25-hover` | 25% on hover |
+| `.link-opacity-50-hover` | 50% on hover |
+| `.link-opacity-75-hover` | 75% on hover |
+| `.link-opacity-100-hover` | 100% on hover |
 
 ### Link Underline
 
@@ -57,6 +62,12 @@ Complete reference for Bootstrap 5.3 helper classes.
 | `.link-underline-opacity-50` | 50% underline opacity |
 | `.link-underline-opacity-75` | 75% underline opacity |
 | `.link-underline-opacity-100` | 100% underline opacity |
+| `.link-underline-opacity-0-hover` | No underline on hover |
+| `.link-underline-opacity-10-hover` | 10% underline opacity on hover |
+| `.link-underline-opacity-25-hover` | 25% underline opacity on hover |
+| `.link-underline-opacity-50-hover` | 50% underline opacity on hover |
+| `.link-underline-opacity-75-hover` | 75% underline opacity on hover |
+| `.link-underline-opacity-100-hover` | 100% underline opacity on hover |
 
 ### Link Offset
 
@@ -65,6 +76,9 @@ Complete reference for Bootstrap 5.3 helper classes.
 | `.link-offset-1` | 0.125em offset |
 | `.link-offset-2` | 0.25em offset |
 | `.link-offset-3` | 0.375em offset |
+| `.link-offset-1-hover` | 0.125em offset on hover |
+| `.link-offset-2-hover` | 0.25em offset on hover |
+| `.link-offset-3-hover` | 0.375em offset on hover |
 
 ## Focus Ring
 
