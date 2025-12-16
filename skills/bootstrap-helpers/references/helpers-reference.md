@@ -94,7 +94,16 @@ Complete reference for Bootstrap 5.3 helper classes.
 | `.focus-ring-light` | Light focus ring |
 | `.focus-ring-dark` | Dark focus ring |
 
-CSS variable: `--bs-focus-ring-color`
+### CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bs-focus-ring-width` | `.25rem` | Ring width |
+| `--bs-focus-ring-opacity` | `.25` | Ring opacity |
+| `--bs-focus-ring-color` | `rgba(var(--bs-primary-rgb), var(--bs-focus-ring-opacity))` | Ring color |
+| `--bs-focus-ring-x` | `0` | Horizontal offset |
+| `--bs-focus-ring-y` | `0` | Vertical offset |
+| `--bs-focus-ring-blur` | `0` | Blur radius |
 
 ## Icon Link
 
@@ -103,7 +112,12 @@ CSS variable: `--bs-focus-ring-color`
 | `.icon-link` | Base icon link styling |
 | `.icon-link-hover` | Add hover animation |
 
-CSS variable: `--bs-icon-link-transform`
+### CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bs-icon-link-transform` | `translate3d(.25em, 0, 0)` | Icon transform on hover |
+| `--bs-link-hover-color-rgb` | Varies by theme | Customize hover color |
 
 ## Position
 
