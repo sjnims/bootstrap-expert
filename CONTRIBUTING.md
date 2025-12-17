@@ -158,6 +158,35 @@ markdownlint '**/*.md' --ignore node_modules --fix
 - No line length limits
 - Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`, `<details>`, `<summary>`, `<strong>`
 
+### GitHub Actions Version Pinning
+
+This repository pins GitHub Actions by their full commit SHA rather than version tags. This prevents supply chain attacks where a malicious actor compromises an action's tag.
+
+**Format**: `owner/action@SHA # vX.Y.Z`
+
+```yaml
+# Good - pinned by SHA with version comment
+- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v4.3.0
+
+# Bad - pinned by tag (vulnerable to tag manipulation)
+- uses: actions/checkout@v4
+```
+
+**How to find the SHA for an action version:**
+
+1. Go to the action's GitHub repository (e.g., `github.com/actions/checkout`)
+2. Click on "Releases" or "Tags"
+3. Find the version you want (e.g., `v4.3.0`)
+4. Click on the commit hash next to the tag
+5. Copy the full 40-character SHA
+
+**When adding new workflows or updating actions:**
+
+1. Find the latest stable version of the action
+2. Get the full commit SHA for that version
+3. Use the SHA in the `uses:` field with a version comment
+4. Example: `- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v4.3.0`
+
 ### Shell Pattern Escaping
 
 When documenting bash execution patterns in skill files, use `[BANG]` instead of `!` to prevent unintended execution during skill loading ([Claude Code #12781](https://github.com/anthropics/claude-code/issues/12781)).

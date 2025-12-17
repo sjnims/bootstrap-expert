@@ -156,3 +156,11 @@ When troubleshooting:
 - Popper.js is included in `bootstrap.bundle.js`
 - Color mode support (dark/light) uses `data-bs-theme` attribute
 - RTL support available via `bootstrap.rtl.css`
+
+## Production Considerations
+
+When generating components for production deployment:
+
+- **CDN Usage**: Include `integrity` and `crossorigin="anonymous"` attributes on CDN links for security (Subresource Integrity)
+- **Content Security Policy**: If the deployment uses CSP headers, ensure the policy allows `cdn.jsdelivr.net` for CDN-hosted styles/scripts, or recommend self-hosted Bootstrap files
+- **Inline Styles**: Bootstrap components that use inline styles may require `style-src 'unsafe-inline'` in CSP, or refactoring to external stylesheets

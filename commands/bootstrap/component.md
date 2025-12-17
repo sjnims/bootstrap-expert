@@ -80,3 +80,9 @@ Generate clean, production-ready HTML that:
 - Includes data-bs-* attributes for JavaScript components
 - Has descriptive placeholder content
 - Works standalone or can be integrated into existing markup
+
+## Production Notes
+
+When generating standalone templates with CDN links, include:
+- `integrity` and `crossorigin="anonymous"` attributes for security (SRI)
+- A note about CSP: if using Content Security Policy headers, ensure `cdn.jsdelivr.net` is allowed, or switch to self-hosted Bootstrap files
