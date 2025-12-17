@@ -346,4 +346,10 @@ Many helpers support build-time customization via Sass variables:
 - **Icon Link**: `$icon-link-gap`, `$icon-link-icon-size`, `$icon-link-icon-transform`
 - **Ratio**: `$aspect-ratios` map for custom aspect ratios
 
+## Examples
+
+For complete working examples, see:
+
+- `examples/stack-patterns.html` - Comprehensive vstack/hstack patterns including gap variations, nested layouts, and responsive alternatives
+
 See `references/helpers-reference.md` for complete helper class reference and Sass customization options.
