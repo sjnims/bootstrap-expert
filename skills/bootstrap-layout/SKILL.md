@@ -1,6 +1,6 @@
 ---
 name: bootstrap-layout
-description: This skill should be used when the user asks about Bootstrap grid system, Bootstrap containers, Bootstrap breakpoints, Bootstrap columns, Bootstrap rows, Bootstrap gutters, Bootstrap responsive layout, Bootstrap flexbox utilities, Bootstrap CSS Grid, Bootstrap z-index, how to create responsive layouts with Bootstrap, how to use Bootstrap grid, Bootstrap column sizing, Bootstrap auto-layout columns, or needs help with Bootstrap page layout and responsiveness.
+description: This skill should be used when the user asks about Bootstrap grid system, Bootstrap containers, Bootstrap breakpoints, Bootstrap columns, Bootstrap rows, Bootstrap gutters, Bootstrap responsive layout, Bootstrap CSS Grid, Bootstrap z-index, Bootstrap row-cols, Bootstrap offset classes, Bootstrap column ordering, how to create responsive layouts with Bootstrap, how to use Bootstrap grid, Bootstrap column sizing, Bootstrap auto-layout columns, or needs help with Bootstrap page layout and responsiveness.
 ---
 
 # Bootstrap 5.3 Layout System
@@ -51,6 +51,8 @@ Containers are the fundamental building block for layouts.
 | `.container-sm` | 100% | 540px | 720px | 960px | 1140px | 1320px |
 | `.container-md` | 100% | 100% | 720px | 960px | 1140px | 1320px |
 | `.container-lg` | 100% | 100% | 100% | 960px | 1140px | 1320px |
+| `.container-xl` | 100% | 100% | 100% | 100% | 1140px | 1320px |
+| `.container-xxl` | 100% | 100% | 100% | 100% | 100% | 1320px |
 | `.container-fluid` | 100% | 100% | 100% | 100% | 100% | 100% |
 
 ## Grid System
@@ -279,6 +281,8 @@ Columns can be nested:
 
 ## CSS Grid (Alternative)
 
+> **Note:** Bootstrap's CSS Grid system is experimental and opt-in as of v5.1.0. It's disabled by default and requires enabling in your Sass configuration.
+
 Bootstrap 5.3 also supports CSS Grid:
 
 ```html
@@ -293,6 +297,20 @@ Bootstrap 5.3 also supports CSS Grid:
   <div class="g-col-2">2/3</div>
 </div>
 ```
+
+## Z-Index Utilities
+
+Bootstrap provides z-index utility classes for controlling stacking order:
+
+| Class | Value |
+|-------|-------|
+| `.z-n1` | -1 |
+| `.z-0` | 0 |
+| `.z-1` | 1 |
+| `.z-2` | 2 |
+| `.z-3` | 3 |
+
+See `references/grid-reference.md` for position utilities that work with z-index.
 
 ## Common Layout Patterns
 
