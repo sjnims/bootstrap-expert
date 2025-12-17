@@ -259,6 +259,46 @@ Include icons via CSS background-image or mask:
 </style>
 ```
 
+## Accessibility
+
+### Icons with Meaning
+
+When icons convey meaning, provide accessible text:
+
+```html
+<!-- Option 1: Visually hidden text -->
+<button class="btn btn-danger">
+  <i class="bi bi-trash" aria-hidden="true"></i>
+  <span class="visually-hidden">Delete</span>
+</button>
+
+<!-- Option 2: aria-label on parent -->
+<button class="btn btn-danger" aria-label="Delete">
+  <i class="bi bi-trash" aria-hidden="true"></i>
+</button>
+
+<!-- Option 3: title attribute (tooltip) -->
+<i class="bi bi-info-circle" title="More information" role="img" aria-label="More information"></i>
+```
+
+### Decorative Icons
+
+Hide purely decorative icons from screen readers:
+
+```html
+<i class="bi bi-star-fill" aria-hidden="true"></i>
+```
+
+### Icon with Visible Text
+
+When text is visible, hide icon from screen readers:
+
+```html
+<button class="btn btn-primary">
+  <i class="bi bi-download" aria-hidden="true"></i> Download
+</button>
+```
+
 ## Common Patterns
 
 ### Button with Icon
@@ -341,46 +381,6 @@ Include icons via CSS background-image or mask:
 </button>
 ```
 
-## Accessibility
-
-### Icons with Meaning
-
-When icons convey meaning, provide accessible text:
-
-```html
-<!-- Option 1: Visually hidden text -->
-<button class="btn btn-danger">
-  <i class="bi bi-trash" aria-hidden="true"></i>
-  <span class="visually-hidden">Delete</span>
-</button>
-
-<!-- Option 2: aria-label on parent -->
-<button class="btn btn-danger" aria-label="Delete">
-  <i class="bi bi-trash" aria-hidden="true"></i>
-</button>
-
-<!-- Option 3: title attribute (tooltip) -->
-<i class="bi bi-info-circle" title="More information" role="img" aria-label="More information"></i>
-```
-
-### Decorative Icons
-
-Hide purely decorative icons from screen readers:
-
-```html
-<i class="bi bi-star-fill" aria-hidden="true"></i>
-```
-
-### Icon with Visible Text
-
-When text is visible, hide icon from screen readers:
-
-```html
-<button class="btn btn-primary">
-  <i class="bi bi-download" aria-hidden="true"></i> Download
-</button>
-```
-
 ## Popular Icon Names
 
 ### Actions
@@ -412,6 +412,22 @@ When text is visible, hide icon from screen readers:
 ### Reference Files
 
 - **`references/icon-categories.md`** - Full icon list organized by category (Actions, Navigation, UI Elements, Status, Files, Media, Social, Devices, Weather, E-commerce, Development)
+
+**Quick category search patterns:**
+
+| Category | Search Pattern |
+|----------|----------------|
+| Actions | `grep "## Actions"` |
+| Navigation | `grep "## Navigation"` |
+| UI Elements | `grep "## UI Elements"` |
+| Status & Feedback | `grep "## Status"` |
+| Files & Folders | `grep "## Files"` |
+| Media Controls | `grep "## Media"` |
+| Social & Brands | `grep "## Social"` |
+| Devices | `grep "## Devices"` |
+| Weather | `grep "## Weather"` |
+| E-commerce | `grep "## E-commerce"` |
+| Development | `grep "## Development"` |
 
 ### Example Files
 
