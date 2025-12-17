@@ -106,6 +106,73 @@ Or reference external sprite file:
 </svg>
 ```
 
+### External Image
+
+Reference icon SVG files directly via `<img>` element:
+
+```html
+<!-- Via CDN -->
+<img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart.svg" alt="Heart" width="32" height="32">
+
+<!-- Local file -->
+<img src="/assets/icons/heart.svg" alt="Heart" width="32" height="32">
+```
+
+**When to use:**
+
+- Email templates (no CSS/font dependencies)
+- Simple static pages
+- Content management systems
+- When caching individual icons
+
+**Trade-offs:**
+
+- Cannot inherit text color (use CSS method for that)
+- Each icon is a separate HTTP request (unless using HTTP/2)
+- Requires explicit width/height attributes
+
+### CSS Method
+
+Include icons via CSS background-image or mask:
+
+```css
+/* Background-image approach (fixed color) */
+.icon-heart {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Mask approach (inherits currentColor) */
+.icon-heart-mask {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+}
+```
+
+**When to use:**
+
+- Decorative icons applied via CSS classes
+- Icons that need to inherit text color (use mask approach)
+- Avoiding markup changes
+
+**Trade-offs:**
+
+- Background-image: Cannot change color dynamically
+- Mask approach: Requires vendor prefixes for Safari (`-webkit-mask-*`)
+- Both: Not accessible without additional ARIA markup
+
 ## Styling Icons
 
 ### Sizing

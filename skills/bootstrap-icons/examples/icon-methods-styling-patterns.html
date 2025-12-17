@@ -32,6 +32,51 @@
     .icon-lg { font-size: 3rem; }
     .icon-md { font-size: 1.5rem; }
     .icon-sm { font-size: 0.875rem; }
+
+    /* CSS Method: Background-image approach (fixed color) */
+    .icon-css-bg {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .icon-css-bg-heart {
+      background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart-fill.svg");
+    }
+    .icon-css-bg-star {
+      background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/star-fill.svg");
+    }
+    .icon-css-bg-check {
+      background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/check-circle-fill.svg");
+    }
+
+    /* CSS Method: Mask approach (inherits currentColor) */
+    .icon-css-mask {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+    }
+    .icon-css-mask-heart {
+      mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart-fill.svg");
+      -webkit-mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart-fill.svg");
+    }
+    .icon-css-mask-star {
+      mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/star-fill.svg");
+      -webkit-mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/star-fill.svg");
+    }
+    .icon-css-mask-check {
+      mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/check-circle-fill.svg");
+      -webkit-mask-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/check-circle-fill.svg");
+    }
   </style>
 </head>
 <body class="p-4">
@@ -94,6 +139,146 @@
           <i class="bi bi-star-fill"></i>
           <span>Filled</span>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         EXTERNAL IMAGE METHOD
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">External Image Method</h2>
+      <p class="text-muted">
+        Reference icon SVG files directly via <code>&lt;img&gt;</code> element. Ideal for email templates,
+        static pages, and content management systems where CSS/font dependencies should be avoided.
+      </p>
+
+      <!-- CDN Usage -->
+      <h3 class="h5 mt-4 mb-3">Via CDN</h3>
+      <p class="text-muted">
+        Reference icons directly from jsDelivr CDN.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/heart-fill.svg" alt="Heart" width="32" height="32">
+          <span>heart-fill (32x32)</span>
+        </div>
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/star-fill.svg" alt="Star" width="32" height="32">
+          <span>star-fill (32x32)</span>
+        </div>
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/check-circle-fill.svg" alt="Check" width="32" height="32">
+          <span>check-circle-fill (32x32)</span>
+        </div>
+      </div>
+
+      <!-- Different Sizes -->
+      <h3 class="h5 mt-4 mb-3">Size Variations</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/envelope.svg" alt="Envelope" width="16" height="16">
+          <span class="size-label">16x16</span>
+        </div>
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/envelope.svg" alt="Envelope" width="24" height="24">
+          <span class="size-label">24x24</span>
+        </div>
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/envelope.svg" alt="Envelope" width="32" height="32">
+          <span class="size-label">32x32</span>
+        </div>
+        <div class="demo-item">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/icons/envelope.svg" alt="Envelope" width="48" height="48">
+          <span class="size-label">48x48</span>
+        </div>
+      </div>
+
+      <!-- Trade-offs Note -->
+      <div class="alert alert-info mt-4" role="alert">
+        <strong>Trade-offs:</strong> External images cannot inherit text color and each icon requires
+        a separate HTTP request. For color inheritance, use the CSS mask method below.
+      </div>
+    </section>
+
+    <!-- ============================================
+         CSS METHOD
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">CSS Method</h2>
+      <p class="text-muted">
+        Include icons via CSS <code>background-image</code> or <code>mask-image</code>.
+        Useful for decorative icons applied via CSS classes without markup changes.
+      </p>
+
+      <!-- Background-image Approach -->
+      <h3 class="h5 mt-4 mb-3">Background-image Approach</h3>
+      <p class="text-muted">
+        Icons display as background images with fixed colors. Cannot inherit text color.
+      </p>
+      <div class="demo-row fs-4">
+        <div class="demo-item">
+          <span class="icon-css-bg icon-css-bg-heart"></span>
+          <span>icon-css-bg-heart</span>
+        </div>
+        <div class="demo-item">
+          <span class="icon-css-bg icon-css-bg-star"></span>
+          <span>icon-css-bg-star</span>
+        </div>
+        <div class="demo-item">
+          <span class="icon-css-bg icon-css-bg-check"></span>
+          <span>icon-css-bg-check</span>
+        </div>
+      </div>
+
+      <!-- Mask Approach -->
+      <h3 class="h5 mt-4 mb-3">Mask Approach (Inherits currentColor)</h3>
+      <p class="text-muted">
+        Icons inherit the parent's text color via <code>currentColor</code>.
+        Requires vendor prefixes for Safari (<code>-webkit-mask-*</code>).
+      </p>
+      <div class="demo-row fs-4">
+        <div class="demo-item text-danger">
+          <span class="icon-css-mask icon-css-mask-heart"></span>
+          <span>text-danger parent</span>
+        </div>
+        <div class="demo-item text-warning">
+          <span class="icon-css-mask icon-css-mask-star"></span>
+          <span>text-warning parent</span>
+        </div>
+        <div class="demo-item text-success">
+          <span class="icon-css-mask icon-css-mask-check"></span>
+          <span>text-success parent</span>
+        </div>
+      </div>
+
+      <!-- Color Inheritance Demo -->
+      <h3 class="h5 mt-4 mb-3">Color Inheritance Demonstration</h3>
+      <p class="text-muted">
+        Same icon class with different parent text colors.
+      </p>
+      <div class="demo-row fs-3">
+        <div class="demo-item text-primary">
+          <span class="icon-css-mask icon-css-mask-heart"></span>
+          <span>text-primary</span>
+        </div>
+        <div class="demo-item text-secondary">
+          <span class="icon-css-mask icon-css-mask-heart"></span>
+          <span>text-secondary</span>
+        </div>
+        <div class="demo-item text-success">
+          <span class="icon-css-mask icon-css-mask-heart"></span>
+          <span>text-success</span>
+        </div>
+        <div class="demo-item text-danger">
+          <span class="icon-css-mask icon-css-mask-heart"></span>
+          <span>text-danger</span>
+        </div>
+      </div>
+
+      <!-- Trade-offs Note -->
+      <div class="alert alert-warning mt-4" role="alert">
+        <strong>Accessibility Note:</strong> CSS-based icons are decorative by default.
+        Add <code>role="img"</code> and <code>aria-label</code> if the icon conveys meaning.
       </div>
     </section>
 
