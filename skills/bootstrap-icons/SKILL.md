@@ -38,6 +38,24 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 Download from <https://icons.getbootstrap.com> and include files locally.
 
+### Composer (PHP)
+
+For PHP projects using Composer:
+
+```bash
+composer require twbs/bootstrap-icons
+```
+
+Then reference icons from the vendor directory:
+
+```php
+// Laravel Blade example
+<img src="{{ asset('vendor/twbs/bootstrap-icons/icons/heart.svg') }}" alt="Heart">
+
+// Symfony Twig example
+<img src="{{ asset('bundles/bootstrap-icons/icons/heart.svg') }}" alt="Heart">
+```
+
 ## Usage Methods
 
 ### Icon Fonts (Recommended for Most Cases)
