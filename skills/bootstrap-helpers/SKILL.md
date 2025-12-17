@@ -234,6 +234,8 @@ Quick flexbox layouts:
 </div>
 ```
 
+**Browser Support Note:** Gap utilities (`.gap-*`) with flexbox aren't fully supported in Safari versions prior to 14.5. Grid layout is unaffected. For broader browser support, consider using margin utilities instead.
+
 ## Stretched Link
 
 Make entire container clickable:

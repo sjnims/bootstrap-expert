@@ -161,6 +161,8 @@ CSS variable: `--bs-aspect-ratio`
 | `.hstack` | Horizontal stack (flex-row) |
 | `.gap-{0-5}` | Gap between items |
 
+⚠️ **Browser Support:** Gap with flexbox requires Safari 14.5+. Use margins or grid for older browser support.
+
 ## Stretched Link
 
 | Class | Description |
