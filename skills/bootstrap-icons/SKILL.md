@@ -322,4 +322,15 @@ When text is visible, hide icon from screen readers:
 
 `bi-facebook`, `bi-twitter-x`, `bi-instagram`, `bi-linkedin`, `bi-github`, `bi-youtube`, `bi-discord`, `bi-slack`
 
-See `references/icon-categories.md` for the full icon list organized by category.
+## Additional Resources
+
+### Reference Files
+
+- **`references/icon-categories.md`** - Full icon list organized by category (Actions, Navigation, UI Elements, Status, Files, Media, Social, Devices, Weather, E-commerce, Development)
+
+### Example Files
+
+Working examples in `examples/`:
+
+- **`examples/icon-methods-styling-patterns.html`** - Icon fonts, embedded SVG, SVG sprites, sizing, coloring, and vertical alignment techniques
+- **`examples/icon-ui-accessibility-patterns.html`** - Buttons, navigation, lists, social icons, badges, and accessibility patterns

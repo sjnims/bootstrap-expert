@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Icons - Methods & Styling Patterns</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    /* Demo styling to visualize icon containers */
+    .demo-item {
+      background-color: var(--bs-primary-bg-subtle);
+      border: 1px solid var(--bs-primary-border-subtle);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .size-label {
+      font-size: 0.75rem;
+      color: var(--bs-secondary-color);
+      min-width: 4rem;
+    }
+    /* Custom icon size classes for demonstration */
+    .icon-lg { font-size: 3rem; }
+    .icon-md { font-size: 1.5rem; }
+    .icon-sm { font-size: 0.875rem; }
+  </style>
+</head>
+<body class="p-4">
+  <div class="container">
+    <h1 class="mb-4">Bootstrap Icons - Methods & Styling Patterns</h1>
+    <p class="lead text-muted mb-5">
+      Working examples demonstrating icon usage methods, sizing, coloring, and alignment techniques.
+    </p>
+
+    <!-- ============================================
+         ICON FONTS (Primary Method)
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">Icon Fonts (Primary Method)</h2>
+      <p class="text-muted">
+        Use <code>&lt;i class="bi bi-*"&gt;</code> for icon fonts. This is the recommended method
+        for most use cases due to simplicity and automatic sizing with text.
+      </p>
+
+      <!-- Basic Usage -->
+      <h3 class="h5 mt-4 mb-3">Basic Usage</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <i class="bi bi-alarm"></i>
+          <span>bi-alarm</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-heart-fill"></i>
+          <span>bi-heart-fill</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-check-circle"></i>
+          <span>bi-check-circle</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-star"></i>
+          <span>bi-star</span>
+        </div>
+      </div>
+
+      <!-- Class Naming Convention -->
+      <h3 class="h5 mt-4 mb-3">Class Naming Convention</h3>
+      <p class="text-muted">
+        Icons use <code>bi bi-{name}</code> pattern. Add <code>-fill</code> suffix for filled variants.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item">
+          <i class="bi bi-heart"></i>
+          <span>Outline</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-heart-fill"></i>
+          <span>Filled</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-star"></i>
+          <span>Outline</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-star-fill"></i>
+          <span>Filled</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SIZING VARIATIONS
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">Sizing Variations</h2>
+      <p class="text-muted">
+        Icons scale with font-size. Use inline styles, Bootstrap utilities, or custom CSS classes.
+      </p>
+
+      <!-- Inline Style Sizing -->
+      <h3 class="h5 mt-4 mb-3">Inline Style Sizing</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <span class="size-label">16px</span>
+          <i class="bi bi-heart-fill" style="font-size: 16px;"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">24px</span>
+          <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">32px</span>
+          <i class="bi bi-heart-fill" style="font-size: 32px;"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">2rem</span>
+          <i class="bi bi-heart-fill" style="font-size: 2rem;"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">3rem</span>
+          <i class="bi bi-heart-fill" style="font-size: 3rem;"></i>
+        </div>
+      </div>
+
+      <!-- Bootstrap Font Size Utilities -->
+      <h3 class="h5 mt-4 mb-3">Bootstrap Font Size Utilities</h3>
+      <p class="text-muted">
+        Use <code>.fs-1</code> through <code>.fs-6</code> utilities for consistent sizing.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item">
+          <span class="size-label">fs-1</span>
+          <i class="bi bi-star-fill fs-1"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">fs-2</span>
+          <i class="bi bi-star-fill fs-2"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">fs-3</span>
+          <i class="bi bi-star-fill fs-3"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">fs-4</span>
+          <i class="bi bi-star-fill fs-4"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">fs-5</span>
+          <i class="bi bi-star-fill fs-5"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">fs-6</span>
+          <i class="bi bi-star-fill fs-6"></i>
+        </div>
+      </div>
+
+      <!-- Custom CSS Classes -->
+      <h3 class="h5 mt-4 mb-3">Custom CSS Classes</h3>
+      <p class="text-muted">
+        Define reusable size classes: <code>.icon-lg</code>, <code>.icon-md</code>, <code>.icon-sm</code>.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item">
+          <span class="size-label">icon-lg</span>
+          <i class="bi bi-gear-fill icon-lg"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">icon-md</span>
+          <i class="bi bi-gear-fill icon-md"></i>
+        </div>
+        <div class="demo-item">
+          <span class="size-label">icon-sm</span>
+          <i class="bi bi-gear-fill icon-sm"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         COLORING TECHNIQUES
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">Coloring Techniques</h2>
+      <p class="text-muted">
+        Icons inherit text color. Use Bootstrap utilities, inline styles, or CSS classes.
+      </p>
+
+      <!-- Bootstrap Text Utilities -->
+      <h3 class="h5 mt-4 mb-3">Bootstrap Text Utilities</h3>
+      <div class="demo-row fs-4">
+        <div class="demo-item">
+          <i class="bi bi-circle-fill text-primary"></i>
+          <span>text-primary</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-circle-fill text-secondary"></i>
+          <span>text-secondary</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-circle-fill text-success"></i>
+          <span>text-success</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-circle-fill text-danger"></i>
+          <span>text-danger</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-circle-fill text-warning"></i>
+          <span>text-warning</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-circle-fill text-info"></i>
+          <span>text-info</span>
+        </div>
+      </div>
+
+      <!-- Inline Color Styles -->
+      <h3 class="h5 mt-4 mb-3">Inline Color Styles</h3>
+      <div class="demo-row fs-4">
+        <div class="demo-item">
+          <i class="bi bi-heart-fill" style="color: #ff6b6b;"></i>
+          <span>#ff6b6b</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-heart-fill" style="color: #4ecdc4;"></i>
+          <span>#4ecdc4</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-heart-fill" style="color: #ffe66d;"></i>
+          <span>#ffe66d</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-heart-fill" style="color: #95e1d3;"></i>
+          <span>#95e1d3</span>
+        </div>
+      </div>
+
+      <!-- currentColor Inheritance -->
+      <h3 class="h5 mt-4 mb-3">currentColor Inheritance</h3>
+      <p class="text-muted">
+        Icons automatically inherit the parent element's text color.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item text-primary fs-4">
+          <i class="bi bi-folder-fill"></i>
+          <span>Parent is text-primary</span>
+        </div>
+        <div class="demo-item text-danger fs-4">
+          <i class="bi bi-folder-fill"></i>
+          <span>Parent is text-danger</span>
+        </div>
+        <div class="demo-item text-success fs-4">
+          <i class="bi bi-folder-fill"></i>
+          <span>Parent is text-success</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         VERTICAL ALIGNMENT
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">Vertical Alignment</h2>
+      <p class="text-muted">
+        Icons may need alignment adjustments when placed inline with text.
+      </p>
+
+      <!-- Bootstrap Alignment Utilities -->
+      <h3 class="h5 mt-4 mb-3">Bootstrap Alignment Utilities</h3>
+      <div class="demo-row fs-4">
+        <div class="demo-item">
+          <i class="bi bi-envelope align-baseline"></i>
+          <span>align-baseline</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-envelope align-middle"></i>
+          <span>align-middle</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-envelope align-text-bottom"></i>
+          <span>align-text-bottom</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-envelope align-text-top"></i>
+          <span>align-text-top</span>
+        </div>
+      </div>
+
+      <!-- CSS Vertical Centering Fix -->
+      <h3 class="h5 mt-4 mb-3">CSS Vertical Centering Fix</h3>
+      <p class="text-muted">
+        Use <code>vertical-align: -0.125em</code> for precise baseline alignment with text.
+      </p>
+      <div class="demo-row fs-4">
+        <div class="demo-item">
+          <i class="bi bi-check-circle" style="vertical-align: -0.125em;"></i>
+          <span>Aligned with -0.125em</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-check-circle"></i>
+          <span>Default alignment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         EMBEDDED SVG
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">Embedded SVG</h2>
+      <p class="text-muted">
+        Copy SVG code directly from <a href="https://icons.getbootstrap.com">icons.getbootstrap.com</a>
+        for maximum control. Uses <code>currentColor</code> for automatic color inheritance.
+      </p>
+
+      <!-- Basic SVG Embedding -->
+      <h3 class="h5 mt-4 mb-3">Basic SVG Embedding</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+          </svg>
+          <span>Embedded SVG (32x32)</span>
+        </div>
+      </div>
+
+      <!-- SVG Sizing with width/height -->
+      <h3 class="h5 mt-4 mb-3">SVG Sizing with width/height Attributes</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+          </svg>
+          <span class="size-label">16x16</span>
+        </div>
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+          </svg>
+          <span class="size-label">24x24</span>
+        </div>
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+          </svg>
+          <span class="size-label">32x32</span>
+        </div>
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+          </svg>
+          <span class="size-label">48x48</span>
+        </div>
+      </div>
+
+      <!-- SVG with fill Attribute -->
+      <h3 class="h5 mt-4 mb-3">SVG with fill Attribute</h3>
+      <div class="demo-row">
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg>
+          <span>fill="#0d6efd"</span>
+        </div>
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#dc3545" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg>
+          <span>fill="#dc3545"</span>
+        </div>
+        <div class="demo-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#198754" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+          <span>fill="#198754"</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SVG SPRITE
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">SVG Sprite</h2>
+      <p class="text-muted">
+        Define icons once as symbols, reference multiple times with <code>&lt;use&gt;</code>.
+        Ideal for pages with many repeated icons.
+      </p>
+
+      <!-- Inline Sprite Definition -->
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-heart" viewBox="0 0 16 16">
+          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 16 16">
+          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+      </svg>
+
+      <h3 class="h5 mt-4 mb-3">Internal Sprite Reference</h3>
+      <p class="text-muted">
+        Reference symbols defined in the same document with <code>&lt;use href="#id"&gt;</code>.
+      </p>
+      <div class="demo-row">
+        <div class="demo-item">
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href="#icon-heart"/>
+          </svg>
+          <span>href="#icon-heart"</span>
+        </div>
+        <div class="demo-item">
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href="#icon-star"/>
+          </svg>
+          <span>href="#icon-star"</span>
+        </div>
+        <div class="demo-item">
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href="#icon-check"/>
+          </svg>
+          <span>href="#icon-check"</span>
+        </div>
+      </div>
+
+      <!-- Colored Sprite Icons -->
+      <h3 class="h5 mt-4 mb-3">Colored Sprite Icons</h3>
+      <div class="demo-row">
+        <div class="demo-item text-danger">
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href="#icon-heart"/>
+          </svg>
+          <span>text-danger parent</span>
+        </div>
+        <div class="demo-item text-warning">
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href="#icon-star"/>
+          </svg>
+          <span>text-warning parent</span>
+        </div>
+        <div class="demo-item text-success">
+          <svg class="bi" width="32" height="32" fill="currentColor">
+            <use href="#icon-check"/>
+          </svg>
+          <span>text-success parent</span>
+        </div>
+      </div>
+
+      <!-- External Sprite Reference -->
+      <h3 class="h5 mt-4 mb-3">External Sprite Reference (Syntax)</h3>
+      <p class="text-muted">
+        Reference an external sprite file with <code>&lt;use href="path/bootstrap-icons.svg#icon-name"&gt;</code>.
+      </p>
+      <pre class="bg-body-secondary p-3 rounded"><code>&lt;svg class="bi" width="32" height="32" fill="currentColor"&gt;
+  &lt;use href="bootstrap-icons.svg#heart"/&gt;
+&lt;/svg&gt;</code></pre>
+    </section>
+
+    <!-- ============================================
+         COMBINED PATTERNS
+         ============================================ -->
+    <section class="mb-5">
+      <h2 class="mb-3">Combined Patterns</h2>
+      <p class="text-muted">
+        Practical examples combining sizing, coloring, and alignment techniques.
+      </p>
+
+      <!-- Status Indicators -->
+      <h3 class="h5 mt-4 mb-3">Status Indicators</h3>
+      <div class="demo-row fs-5">
+        <div class="demo-item">
+          <i class="bi bi-check-circle-fill text-success" style="vertical-align: -0.125em;"></i>
+          <span>Success</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-exclamation-triangle-fill text-warning" style="vertical-align: -0.125em;"></i>
+          <span>Warning</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-x-circle-fill text-danger" style="vertical-align: -0.125em;"></i>
+          <span>Error</span>
+        </div>
+        <div class="demo-item">
+          <i class="bi bi-info-circle-fill text-info" style="vertical-align: -0.125em;"></i>
+          <span>Info</span>
+        </div>
+      </div>
+
+      <!-- Icon with Different Sizes in Context -->
+      <h3 class="h5 mt-4 mb-3">Icons in Different Contexts</h3>
+      <div class="vstack gap-3">
+        <p class="mb-0">
+          <i class="bi bi-envelope text-primary" style="vertical-align: -0.125em;"></i>
+          Inline with body text (inherits size)
+        </p>
+        <h4 class="mb-0">
+          <i class="bi bi-envelope text-primary" style="vertical-align: -0.125em;"></i>
+          Inline with heading (inherits size)
+        </h4>
+        <small class="text-muted">
+          <i class="bi bi-envelope text-primary" style="vertical-align: -0.125em;"></i>
+          Inline with small text (inherits size)
+        </small>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
