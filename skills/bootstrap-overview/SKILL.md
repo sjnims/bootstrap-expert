@@ -207,7 +207,7 @@ Bootstrap's default colors may not meet WCAG contrast requirements in all contex
 - Large text (18pt+) requires 3:1 ratio
 - Non-text elements (icons, borders) require 3:1 ratio
 
-Always test color combinations. The default `.text-muted` on light backgrounds may need adjustment for compliance.
+Always test color combinations. The default `.text-muted` on light backgrounds may need adjustment for compliance. Consider using `.text-body` or `.text-body-emphasis` for better contrast when needed.
 
 **Reduced Motion Support:**
 
@@ -324,7 +324,7 @@ $rfs-breakpoint: 1200px;          // Max viewport for scaling
 $rfs-factor: 10;                  // Scaling intensity
 ```
 
-Lower `$rfs-factor` values create more dramatic scaling; higher values reduce the effect.
+Lower `$rfs-factor` values (e.g., 5) create more dramatic scaling; higher values (e.g., 15) reduce the effect. The default is 10.
 
 ## RTL (Right-to-Left) Support
 
