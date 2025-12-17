@@ -1,6 +1,6 @@
 ---
 name: bootstrap-icons
-description: This skill should be used when the user asks about Bootstrap Icons, Bootstrap icon library, how to install Bootstrap Icons, how to use Bootstrap Icons, Bootstrap icon fonts, Bootstrap icon SVGs, Bootstrap icon sprites, Bootstrap Icons CDN, Bootstrap Icons npm, how to style Bootstrap icons, Bootstrap icon sizing, Bootstrap icon colors, Bootstrap icon accessibility, or needs help using icons in Bootstrap projects.
+description: This skill should be used when the user asks about Bootstrap Icons, Bootstrap icon library, how to install Bootstrap Icons, how to use Bootstrap Icons, Bootstrap icon fonts, Bootstrap icon SVGs, Bootstrap icon sprites, Bootstrap Icons CDN, Bootstrap Icons npm, Bootstrap Icons Composer, PHP Bootstrap Icons, Laravel icons, external image icons, img tag icons, CSS background icons, CSS mask icons, how to style Bootstrap icons, Bootstrap icon sizing, Bootstrap icon colors, Bootstrap icon accessibility, or needs help using icons in Bootstrap projects.
 ---
 
 # Bootstrap Icons
@@ -59,6 +59,15 @@ Then reference icons from the vendor directory:
 ## Usage Methods
 
 ### Icon Fonts (Recommended for Most Cases)
+
+Icon fonts are the simplest method for most projects:
+
+- **Easy syntax**: Just add `<i class="bi bi-*"></i>`
+- **Automatic sizing**: Icons scale with surrounding text
+- **Color inheritance**: Icons use the parent's `color` property
+- **Single dependency**: One CSS file provides all icons
+
+For advanced use cases (color gradients, animation, or offline/email), consider SVG methods instead.
 
 ```html
 <!-- Basic usage -->
