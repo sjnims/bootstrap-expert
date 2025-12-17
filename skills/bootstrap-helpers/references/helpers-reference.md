@@ -52,16 +52,19 @@ Complete reference for Bootstrap 5.3 helper classes.
 
 ### Link Underline
 
+The `.link-underline` base class (or `.link-underline-{color}`) must be applied for underline opacity classes to work. Alternatively, `.link-{color}` classes also set the underline color.
+
 | Class | Description |
 |-------|-------------|
+| `.link-underline` | Base class - sets underline to body color (required for opacity) |
 | `.link-underline-primary` | Primary underline color |
-| `.link-underline-{color}` | Other color underlines |
-| `.link-underline-opacity-0` | No underline |
-| `.link-underline-opacity-10` | 10% underline opacity |
-| `.link-underline-opacity-25` | 25% underline opacity |
-| `.link-underline-opacity-50` | 50% underline opacity |
-| `.link-underline-opacity-75` | 75% underline opacity |
-| `.link-underline-opacity-100` | 100% underline opacity |
+| `.link-underline-{color}` | Other color underlines (secondary, success, etc.) |
+| `.link-underline-opacity-0` | No underline (requires base class) |
+| `.link-underline-opacity-10` | 10% underline opacity (requires base class) |
+| `.link-underline-opacity-25` | 25% underline opacity (requires base class) |
+| `.link-underline-opacity-50` | 50% underline opacity (requires base class) |
+| `.link-underline-opacity-75` | 75% underline opacity (requires base class) |
+| `.link-underline-opacity-100` | 100% underline opacity (requires base class) |
 | `.link-underline-opacity-0-hover` | No underline on hover |
 | `.link-underline-opacity-10-hover` | 10% underline opacity on hover |
 | `.link-underline-opacity-25-hover` | 25% underline opacity on hover |
