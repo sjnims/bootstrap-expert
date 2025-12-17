@@ -236,3 +236,95 @@ Requires `display: block` or `display: inline-block` and fixed width.
   <button type="submit" class="btn btn-primary">Search</button>
 </form>
 ```
+
+## Sass Customization
+
+Bootstrap helpers can be customized at build time using Sass variables and mixins.
+
+### Visually Hidden Mixins
+
+Apply visually-hidden behavior to custom classes:
+
+```scss
+@import "bootstrap/scss/mixins/visually-hidden";
+
+.custom-sr-only {
+  @include visually-hidden;
+}
+
+.custom-skip-link {
+  @include visually-hidden-focusable;
+}
+```
+
+| Mixin | Description |
+|-------|-------------|
+| `visually-hidden` | Hide visually while keeping accessible to screen readers |
+| `visually-hidden-focusable` | Show element when focused (for skip links) |
+
+### Focus Ring Variables
+
+Customize default focus ring appearance before importing Bootstrap:
+
+```scss
+// Override defaults before importing Bootstrap
+$focus-ring-width: .5rem;
+$focus-ring-opacity: .5;
+$focus-ring-blur: 4px;
+
+@import "bootstrap/scss/bootstrap";
+```
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$focus-ring-width` | `.25rem` | Ring width |
+| `$focus-ring-opacity` | `.25` | Ring opacity |
+| `$focus-ring-color` | `rgba($primary, $focus-ring-opacity)` | Ring color |
+| `$focus-ring-blur` | `0` | Blur radius |
+| `$focus-ring-box-shadow` | `0 0 $focus-ring-blur $focus-ring-width $focus-ring-color` | Complete box-shadow |
+
+### Icon Link Variables
+
+Adjust icon link defaults:
+
+```scss
+// Override defaults before importing Bootstrap
+$icon-link-gap: .5rem;
+$icon-link-icon-transform: translate3d(.5em, 0, 0);
+
+@import "bootstrap/scss/bootstrap";
+```
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$icon-link-gap` | `.375rem` | Gap between icon and text |
+| `$icon-link-underline-offset` | `.25em` | Underline offset |
+| `$icon-link-icon-size` | `1em` | Icon size |
+| `$icon-link-icon-transition` | `.2s ease-in-out transform` | Hover animation timing |
+| `$icon-link-icon-transform` | `translate3d(.25em, 0, 0)` | Icon transform on hover |
+
+### Custom Aspect Ratios
+
+Add custom ratios via the Sass map:
+
+```scss
+// Extend the default aspect ratios
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+  "3x2": calc(2 / 3 * 100%)  // Custom ratio
+);
+
+@import "bootstrap/scss/bootstrap";
+```
+
+| Ratio Key | Value | Result |
+|-----------|-------|--------|
+| `"1x1"` | `100%` | Square |
+| `"4x3"` | `calc(3 / 4 * 100%)` | 75% |
+| `"16x9"` | `calc(9 / 16 * 100%)` | 56.25% |
+| `"21x9"` | `calc(9 / 21 * 100%)` | 42.86% |
+
+Custom ratios generate classes like `.ratio-3x2` automatically.

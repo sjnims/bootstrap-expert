@@ -313,9 +313,28 @@ Hide content visually but keep accessible to screen readers:
 ```
 
 **Use cases:**
+
 - Skip navigation links
 - Form labels when visual context is sufficient
 - Additional context for icons/images
 - Headings for document structure
 
-See `references/helpers-reference.md` for complete helper class reference.
+**Sass mixins** available for custom classes:
+
+```scss
+@import "bootstrap/scss/mixins/visually-hidden";
+
+.custom-sr-only {
+  @include visually-hidden;
+}
+```
+
+## Sass Customization
+
+Many helpers support build-time customization via Sass variables:
+
+- **Focus Ring**: `$focus-ring-width`, `$focus-ring-opacity`, `$focus-ring-blur`
+- **Icon Link**: `$icon-link-gap`, `$icon-link-icon-size`, `$icon-link-icon-transform`
+- **Ratio**: `$aspect-ratios` map for custom aspect ratios
+
+See `references/helpers-reference.md` for complete helper class reference and Sass customization options.
