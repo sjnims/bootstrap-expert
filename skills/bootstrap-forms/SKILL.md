@@ -151,6 +151,57 @@ Prefer switches over checkboxes for on/off settings that take effect immediately
 </div>
 ```
 
+## Toggle Buttons
+
+Use `.btn-check` to create button-styled checkboxes and radios. Unlike standard form checks, toggle buttons use `.btn` classes on the label for a button appearance while maintaining checkbox/radio semantics. Use them for segmented controls, filter toggles, and option selectors.
+
+### Checkbox Toggle
+
+```html
+<input type="checkbox" class="btn-check" id="btn-check" autocomplete="off">
+<label class="btn btn-primary" for="btn-check">Single toggle</label>
+
+<input type="checkbox" class="btn-check" id="btn-check-2" checked autocomplete="off">
+<label class="btn btn-primary" for="btn-check-2">Checked</label>
+
+<input type="checkbox" class="btn-check" id="btn-check-3" disabled autocomplete="off">
+<label class="btn btn-primary" for="btn-check-3">Disabled</label>
+```
+
+### Radio Toggle
+
+Group radio toggles with the `name` attribute for single-select behavior:
+
+```html
+<input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+<label class="btn btn-secondary" for="option1">Checked</label>
+
+<input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+<label class="btn btn-secondary" for="option2">Radio</label>
+
+<input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+<label class="btn btn-secondary" for="option3">Radio</label>
+```
+
+### Outlined Styles
+
+Use `.btn-outline-*` for a lighter, bordered appearance:
+
+```html
+<input type="checkbox" class="btn-check" id="btn-outlined" autocomplete="off">
+<label class="btn btn-outline-primary" for="btn-outlined">Toggle</label>
+
+<input type="radio" class="btn-check" name="opts" id="success" autocomplete="off" checked>
+<label class="btn btn-outline-success" for="success">Success</label>
+
+<input type="radio" class="btn-check" name="opts" id="danger" autocomplete="off">
+<label class="btn btn-outline-danger" for="danger">Danger</label>
+```
+
+### Accessibility
+
+Toggle buttons are announced by screen readers as "checked"/"not checked" since they are fundamentally checkboxes or radios. This differs from button plugin toggles announced as "button"/"button pressed". Choose based on semantics—use toggle buttons when the control represents a true on/off or selection state.
+
 ## Range
 
 ```html
@@ -430,3 +481,4 @@ Mark invalid fields for assistive technology:
 - `examples/floating-labels-form.html` - Signup and login forms with floating labels
 - `examples/horizontal-form.html` - Horizontal layouts, sizing, radios, readonly display
 - `examples/inline-search-form.html` - Navbar search, filters, toolbars, newsletter forms
+- `examples/toggle-buttons.html` - Checkbox and radio toggle buttons, outlined styles

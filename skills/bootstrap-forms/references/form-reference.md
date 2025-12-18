@@ -45,6 +45,21 @@ Complete reference for Bootstrap 5.3 form classes.
 |-------|-------------|
 | `.form-switch` | Add to `.form-check` for switch style |
 
+## Toggle Button Classes
+
+| Class | Description |
+|-------|-------------|
+| `.btn-check` | Hide input, enable toggle behavior |
+
+Use with `.btn` and `.btn-*` classes on the associated `<label>`:
+
+```html
+<input type="checkbox" class="btn-check" id="toggle" autocomplete="off">
+<label class="btn btn-primary" for="toggle">Toggle</label>
+```
+
+Outlined variants work with `.btn-outline-*` classes for a lighter appearance.
+
 ## Range Classes
 
 | Class | Description |
