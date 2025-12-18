@@ -491,9 +491,17 @@ Add a thicker border between table sections:
 </figure>
 ```
 
-See `references/typography-reference.md` for complete text utilities and `references/tables-reference.md` for complete table class reference.
+## Additional Resources
 
-For content examples, see:
+### Reference Files
+
+- `references/reboot-reference.md` - CSS variables, page defaults, native font stack, Sass customization
+- `references/typography-reference.md` - Complete text utilities, RFS details, Sass customization
+- `references/images-reference.md` - Complete image class reference and Sass customization
+- `references/tables-reference.md` - Complete table class reference
+- `references/figures-reference.md` - Complete figure class reference
+
+### Example Files
 
 - `examples/reboot-elements.html` - Code, kbd, var, samp, abbr, hr elements
 - `examples/typography-patterns.html` - Typography, headings, text utilities

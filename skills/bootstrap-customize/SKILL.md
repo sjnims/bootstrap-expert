@@ -552,14 +552,6 @@ gzip_types text/css application/javascript;
 
 **HTTPS**: Always serve Bootstrap over HTTPS. CDN links require secure connections and modern browsers may block mixed content.
 
-See `references/sass-variables.md` for complete variable reference.
-
-For customization examples, see:
-
-- `examples/color-mode-toggle.js` - Dark/light mode toggle implementation
-- `examples/custom-theme.scss` - Custom theme Sass file
-- `examples/selective-imports.scss` - Minimal Bootstrap build example
-
 ## Security Considerations
 
 ### Content Security Policy (CSP)
@@ -598,3 +590,16 @@ $form-check-input-checked-bg-image: url("/assets/icons/check.svg");
 For strict CSP environments, audit Bootstrap's SVG usage during customization planning.
 
 See: [Bootstrap CSP Documentation](https://getbootstrap.com/docs/5.3/customize/overview/#csps-and-embedded-svgs)
+
+## Additional Resources
+
+### Reference Files
+
+- `references/sass-variables.md` - Complete Sass variable reference
+- `references/sass-functions-mixins.md` - Complete function and mixin reference
+
+### Example Files
+
+- `examples/color-mode-toggle.js` - Dark/light mode toggle implementation
+- `examples/custom-theme.scss` - Custom theme Sass file
+- `examples/selective-imports.scss` - Minimal Bootstrap build example

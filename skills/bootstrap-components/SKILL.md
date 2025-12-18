@@ -124,16 +124,16 @@ Progress indicators for tasks. Use `.progress` wrapper with `.progress-bar` insi
 
 Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsing). Sizes: `.spinner-border-sm`, `.spinner-grow-sm`. Colors: `.text-{color}`. Include `role="status"` and `.visually-hidden` loading text.
 
----
+## Additional Resources
 
-## Reference Files
+### Reference Files
 
 - `references/components-reference.md` - Quick reference tables for all component classes
 - `references/css-custom-properties.md` - CSS custom properties for runtime component theming
 - `references/interactive-components.md` - Detailed documentation for JS-dependent components
 - `references/static-components.md` - Detailed documentation for CSS/HTML components
 
-## Example Files
+### Example Files
 
 - `examples/accordion-patterns.html` - Accordion and FAQ patterns
 - `examples/alert-patterns.html` - Alert variants, dismissible alerts, live region patterns

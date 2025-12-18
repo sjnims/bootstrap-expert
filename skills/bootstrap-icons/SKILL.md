@@ -420,27 +420,9 @@ When text is visible, hide icon from screen readers:
 
 ### Reference Files
 
-- **`references/icon-categories.md`** - Full icon list organized by category (Actions, Navigation, UI Elements, Status, Files, Media, Social, Devices, Weather, E-commerce, Development)
-
-**Quick category search patterns:**
-
-| Category | Search Pattern |
-|----------|----------------|
-| Actions | `grep "## Actions"` |
-| Navigation | `grep "## Navigation"` |
-| UI Elements | `grep "## UI Elements"` |
-| Status & Feedback | `grep "## Status"` |
-| Files & Folders | `grep "## Files"` |
-| Media Controls | `grep "## Media"` |
-| Social & Brands | `grep "## Social"` |
-| Devices | `grep "## Devices"` |
-| Weather | `grep "## Weather"` |
-| E-commerce | `grep "## E-commerce"` |
-| Development | `grep "## Development"` |
+- `references/icon-categories.md` - Full icon list organized by category (Actions, Navigation, UI Elements, Status, Files, Media, Social, Devices, Weather, E-commerce, Development)
 
 ### Example Files
 
-Working examples in `examples/`:
-
-- **`examples/icon-methods-styling-patterns.html`** - Icon fonts, embedded SVG, SVG sprites, sizing, coloring, and vertical alignment techniques
-- **`examples/icon-ui-accessibility-patterns.html`** - Buttons, navigation, lists, social icons, badges, and accessibility patterns
+- `examples/icon-methods-styling-patterns.html` - Icon fonts, embedded SVG, SVG sprites, sizing, coloring, and vertical alignment techniques
+- `examples/icon-ui-accessibility-patterns.html` - Buttons, navigation, lists, social icons, badges, and accessibility patterns

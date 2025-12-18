@@ -324,4 +324,8 @@ Bootstrap provides extensive utility classes for rapid styling without custom CS
 <div class="pe-auto">Pointer events auto</div>
 ```
 
-See `references/utilities-reference.md` for the complete utility class reference.
+## Additional Resources
+
+### Reference Files
+
+- `references/utilities-reference.md` - Complete utility class reference
