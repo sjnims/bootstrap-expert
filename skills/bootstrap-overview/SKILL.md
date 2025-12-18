@@ -98,18 +98,7 @@ Create `src/scss/styles.scss`:
 @import "bootstrap/scss/bootstrap";
 ```
 
-### Parcel Setup
-
-```bash
-mkdir my-project && cd my-project
-npm init -y
-npm install bootstrap @popperjs/core
-npm install -D parcel sass
-```
-
-### Webpack Setup
-
-See `references/build-tools.md` for complete Webpack configuration.
+See `references/build-tools.md` for Parcel and Webpack setup guides.
 
 ## JavaScript Components
 
@@ -151,29 +140,7 @@ All components follow consistent patterns:
 - `dispose()` - Destroy instance and clean up
 - Component-specific methods (show, hide, toggle, etc.)
 
-### JavaScript Events
-
-Bootstrap components emit custom events at key moments in their lifecycle:
-
-```javascript
-const myModal = document.getElementById('myModal');
-
-// Listen for show event (before animation starts)
-myModal.addEventListener('show.bs.modal', event => {
-  // Prevent modal from opening if needed
-  if (someCondition) {
-    event.preventDefault();
-  }
-});
-
-// Listen for shown event (after animation completes)
-myModal.addEventListener('shown.bs.modal', event => {
-  // Focus an input or perform other actions
-  document.getElementById('myInput').focus();
-});
-```
-
-Events follow consistent naming: `{action}.bs.{component}` for before transitions and `{action}ed.bs.{component}` for after. Common pairs include `show`/`shown`, `hide`/`hidden`, `slide`/`slid`.
+See `references/javascript-api.md` for the complete JavaScript API including events, methods, and options for all components.
 
 ## Accessibility
 
@@ -414,6 +381,17 @@ node_modules/bootstrap/
     ├── _variables.scss
     └── ...
 ```
+
+**Available CSS builds:**
+
+| File | Contents |
+|------|----------|
+| `bootstrap.css` | Complete framework (default) |
+| `bootstrap-grid.css` | Grid system and flex utilities only |
+| `bootstrap-utilities.css` | Utility classes only |
+| `bootstrap-reboot.css` | Reboot normalization only |
+
+Each variant is available in `.min.css` (minified) and `.rtl.css` (right-to-left) versions.
 
 ## Key Concepts
 
