@@ -23,6 +23,8 @@ Apply to `<table>`, `<tr>`, `<th>`, or `<td>`:
 | `.table-light` | Light background |
 | `.table-dark` | Dark background |
 
+> **Note:** Table color variants won't see color mode adaptive styling until Bootstrap v6. In v5.3, tables with color variants maintain their assigned colors regardless of light/dark mode settings.
+
 ## Style Modifiers
 
 | Class | Description |

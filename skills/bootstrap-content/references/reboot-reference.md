@@ -34,6 +34,14 @@ Bootstrap Reboot sets CSS custom properties on the `:root` element:
 | `--bs-link-color` | Link color | `#0d6efd` |
 | `--bs-link-hover-color` | Link hover color | `#0a58ca` |
 | `--bs-link-decoration` | Link text decoration | `underline` |
+| `--bs-link-opacity` | Link color opacity | `1` |
+
+Customize link opacity inline:
+
+```html
+<a href="#" style="--bs-link-opacity: .5">Link with 50% opacity</a>
+<a href="#" style="--bs-link-opacity: .75">Link with 75% opacity</a>
+```
 
 ### Border Variables
 
