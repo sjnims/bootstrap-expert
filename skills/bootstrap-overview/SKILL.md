@@ -468,3 +468,10 @@ Containers provide horizontal padding (`--bs-gutter-x: 1.5rem` by default) and c
 ### Example Files
 
 - `examples/starter-template.html` - Basic HTML starter
+- `examples/rtl-starter.html` - RTL-enabled starter template with Arabic content
+
+### Related Skills
+
+- [bootstrap-customize](../bootstrap-customize/) - Sass variables, theming, color modes
+- [bootstrap-layout](../bootstrap-layout/) - Grid system, containers, breakpoints detail
+- [bootstrap-content](../bootstrap-content/) - Reboot and typography

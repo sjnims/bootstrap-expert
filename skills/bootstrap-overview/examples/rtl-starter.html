@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 5.3 RTL Starter Template</title>
+
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons (optional) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">تطبيقي</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">المميزات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">حول</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold">مرحبا بوتستراب!</h1>
+          <p class="lead text-body-secondary">
+            هذا قالب بداية بسيط مع دعم RTL في Bootstrap 5.3.
+            يتضمن شريط تنقل متجاوب وقسم البطل والتذييل.
+          </p>
+          <div class="d-grid gap-2 d-md-flex">
+            <button type="button" class="btn btn-primary btn-lg">ابدأ الآن</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg">اعرف المزيد</button>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <i class="bi bi-bootstrap display-1 text-primary" style="font-size: 10rem;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-lightning-charge fs-1 text-warning"></i>
+              <h5 class="card-title mt-3">سريع</h5>
+              <p class="card-text">مبني للأداء مع CSS محسن وجافاسكريبت بسيط.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-phone fs-1 text-info"></i>
+              <h5 class="card-title mt-3">متجاوب</h5>
+              <p class="card-text">تصميم الجوال أولا يبدو رائعا على أي جهاز.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="bi bi-translate fs-1 text-success"></i>
+              <h5 class="card-title mt-3">دعم RTL</h5>
+              <p class="card-text">دعم كامل للغات من اليمين إلى اليسار مثل العربية والعبرية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RTL-specific Demo Section -->
+    <div class="container py-5">
+      <h2 class="mb-4">عناصر RTL التوضيحية</h2>
+      <div class="row g-4">
+        <!-- Aligned text -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">محاذاة النص</div>
+            <div class="card-body">
+              <p class="text-start">هذا النص محاذى للبداية (يمين في RTL)</p>
+              <p class="text-end">هذا النص محاذى للنهاية (يسار في RTL)</p>
+              <p class="text-center">هذا النص في المنتصف</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Margin/Padding utilities -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">أدوات الهوامش</div>
+            <div class="card-body">
+              <div class="bg-primary text-white p-2 mb-2 ms-auto" style="width: fit-content;">
+                ms-auto (هامش بداية تلقائي)
+              </div>
+              <div class="bg-secondary text-white p-2 mb-2 me-auto" style="width: fit-content;">
+                me-auto (هامش نهاية تلقائي)
+              </div>
+              <div class="bg-info text-white p-2 ps-5">
+                ps-5 (حشوة بداية)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form example -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">نموذج RTL</div>
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="email" class="form-label">البريد الإلكتروني</label>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">الرسالة</label>
+                  <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">إرسال</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button group -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">مجموعة الأزرار</div>
+            <div class="card-body">
+              <div class="btn-group mb-3" role="group">
+                <button type="button" class="btn btn-outline-primary">يسار</button>
+                <button type="button" class="btn btn-outline-primary">وسط</button>
+                <button type="button" class="btn btn-outline-primary">يمين</button>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-success"><i class="bi bi-check-lg"></i> تأكيد</button>
+                <button class="btn btn-danger"><i class="bi bi-x-lg"></i> إلغاء</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-body-tertiary py-4 mt-auto">
+      <div class="container text-center">
+        <p class="text-body-secondary mb-0">
+          &copy; 2024 تطبيقي. مبني باستخدام Bootstrap 5.3 RTL.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Initialize tooltips (if used) -->
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+    </script>
+  </body>
+</html>
