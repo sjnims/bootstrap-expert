@@ -55,6 +55,71 @@ Quick reference for all Bootstrap 5.3 utility classes.
 Responsive: `d-{breakpoint}-{value}`
 Print: `d-print-{value}`
 
+## Text
+
+### Alignment
+
+| Class | Alignment |
+|-------|-----------|
+| `text-start` | Left (LTR) |
+| `text-center` | Center |
+| `text-end` | Right (LTR) |
+
+Responsive: `text-{breakpoint}-{start\|center\|end}`
+
+### Transform
+
+| Class | Transform |
+|-------|-----------|
+| `text-lowercase` | lowercase |
+| `text-uppercase` | UPPERCASE |
+| `text-capitalize` | Capitalize |
+
+### Decoration
+
+| Class | Decoration |
+|-------|------------|
+| `text-decoration-none` | None |
+| `text-decoration-underline` | Underline |
+| `text-decoration-line-through` | Strikethrough |
+
+### Wrapping
+
+| Class | Behavior |
+|-------|----------|
+| `text-wrap` | Normal wrapping |
+| `text-nowrap` | No wrapping |
+| `text-break` | Break long words |
+| `text-truncate` | Truncate with ellipsis |
+
+### Font Weight
+
+| Class | Weight |
+|-------|--------|
+| `fw-bold` | 700 |
+| `fw-bolder` | Bolder (relative) |
+| `fw-semibold` | 600 |
+| `fw-medium` | 500 |
+| `fw-normal` | 400 |
+| `fw-light` | 300 |
+| `fw-lighter` | Lighter (relative) |
+
+### Font Style
+
+| Class | Style |
+|-------|-------|
+| `fst-italic` | Italic |
+| `fst-normal` | Normal |
+
+### Line Height
+
+| Class | Line Height |
+|-------|-------------|
+| `lh-1` | 1 |
+| `lh-sm` | 1.25 |
+| `lh-base` | 1.5 |
+| `lh-lg` | 2 |
+
 ## Flexbox
 
 ### Direction

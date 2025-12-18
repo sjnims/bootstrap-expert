@@ -88,6 +88,71 @@ Bootstrap provides extensive utility classes for rapid styling without custom CS
 <div class="d-none d-print-block">Only visible in print</div>
 ```
 
+## Text Utilities
+
+### Alignment
+
+```html
+<p class="text-start">Left aligned (start)</p>
+<p class="text-center">Center aligned</p>
+<p class="text-end">Right aligned (end)</p>
+
+<!-- Responsive alignment -->
+<p class="text-start text-md-center text-lg-end">
+  Left on xs/sm, center on md, right on lg+
+</p>
+```
+
+### Transform
+
+```html
+<p class="text-lowercase">lowercased text</p>
+<p class="text-uppercase">UPPERCASED TEXT</p>
+<p class="text-capitalize">Capitalized Text</p>
+```
+
+### Decoration
+
+```html
+<a href="#" class="text-decoration-none">No underline</a>
+<p class="text-decoration-underline">Underlined text</p>
+<p class="text-decoration-line-through">Strikethrough text</p>
+```
+
+### Wrapping and Overflow
+
+```html
+<div class="text-wrap">Text that wraps normally</div>
+<div class="text-nowrap">Text that won't wrap</div>
+<p class="text-break">Longwordthatwillbreaktopreventoverflow</p>
+<p class="text-truncate" style="max-width: 150px;">
+  This text is truncated with ellipsis...
+</p>
+```
+
+### Font Weight and Style
+
+```html
+<p class="fw-bold">Bold text</p>
+<p class="fw-bolder">Bolder text (relative)</p>
+<p class="fw-semibold">Semibold text</p>
+<p class="fw-medium">Medium text</p>
+<p class="fw-normal">Normal weight</p>
+<p class="fw-light">Light text</p>
+<p class="fw-lighter">Lighter text (relative)</p>
+<p class="fst-italic">Italic text</p>
+<p class="fst-normal">Normal style</p>
+```
+
+### Line Height
+
+```html
+<p class="lh-1">Line height 1</p>
+<p class="lh-sm">Small line height</p>
+<p class="lh-base">Base line height</p>
+<p class="lh-lg">Large line height</p>
+```
+
 ## Flexbox Utilities
 
 ### Direction
@@ -263,6 +328,59 @@ Bootstrap provides extensive utility classes for rapid styling without custom CS
 <div class="min-vh-100">Min 100vh</div>
 ```
 
+## Position Utilities
+
+### Position Values
+
+```html
+<div class="position-static">Static (default)</div>
+<div class="position-relative">Relative</div>
+<div class="position-absolute">Absolute</div>
+<div class="position-fixed">Fixed</div>
+<div class="position-sticky">Sticky</div>
+```
+
+### Placement
+
+```html
+<!-- Edge positioning (0%, 50%, 100%) -->
+<div class="position-absolute top-0 start-0">Top left</div>
+<div class="position-absolute top-0 end-0">Top right</div>
+<div class="position-absolute bottom-0 start-0">Bottom left</div>
+<div class="position-absolute bottom-0 end-0">Bottom right</div>
+<div class="position-absolute top-50 start-50">Center (needs transform)</div>
+```
+
+### Centering with Translate
+
+```html
+<!-- Center an element -->
+<div class="position-absolute top-50 start-50 translate-middle">
+  Perfectly centered
+</div>
+
+<!-- Center horizontally only -->
+<div class="position-absolute start-50 translate-middle-x">
+  Horizontally centered
+</div>
+
+<!-- Center vertically only -->
+<div class="position-absolute top-50 translate-middle-y">
+  Vertically centered
+</div>
+```
+
+### Common Pattern: Badge Positioning
+
+```html
+<button class="btn btn-primary position-relative">
+  Notifications
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+  </span>
+</button>
+```
+
 ## Overflow Utilities
 
 ```html
@@ -322,6 +440,74 @@ Bootstrap provides extensive utility classes for rapid styling without custom CS
 <div class="user-select-none">Cannot select</div>
 <div class="pe-none">Pointer events none</div>
 <div class="pe-auto">Pointer events auto</div>
+```
+
+## Utilities API
+
+Bootstrap's utilities are generated via a Sass-based API, allowing full customization.
+
+### API Structure
+
+Each utility is defined as a map with these key options:
+
+| Option | Description |
+|--------|-------------|
+| `property` | CSS property name (required) |
+| `values` | List or map of values (required) |
+| `class` | Custom class prefix (optional) |
+| `responsive` | Generate responsive variants (default: false) |
+| `print` | Generate print variants (default: false) |
+| `state` | Generate state variants like `:hover` |
+| `css-var` | Output as CSS variables instead of rules |
+
+### Adding Custom Utilities
+
+```scss
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab grabbing not-allowed
+    )
+  )
+);
+
+@import "bootstrap/scss/utilities/api";
+```
+
+### Modifying Existing Utilities
+
+```scss
+// Add responsive variants to an existing utility
+$utilities: map-merge(
+  $utilities,
+  (
+    "overflow": map-merge(
+      map-get($utilities, "overflow"),
+      (responsive: true)
+    )
+  )
+);
+```
+
+### Removing Utilities
+
+```scss
+// Remove entirely
+$utilities: map-remove($utilities, "float");
+
+// Or set to null
+$utilities: map-merge($utilities, ("float": null));
 ```
 
 ## Additional Resources
