@@ -249,6 +249,29 @@ Bootstrap provides extensive utility classes for rapid styling without custom CS
 <div class="bg-primary bg-gradient">Gradient</div>
 ```
 
+## Text Color Utilities
+
+```html
+<p class="text-primary">Primary text</p>
+<p class="text-secondary">Secondary text</p>
+<p class="text-success">Success text</p>
+<p class="text-danger">Danger text</p>
+<p class="text-warning">Warning text</p>
+<p class="text-info">Info text</p>
+<p class="text-muted">Muted text</p>
+<p class="text-body">Body text</p>
+<p class="text-body-secondary">Body secondary</p>
+<p class="text-body-tertiary">Body tertiary</p>
+<p class="text-body-emphasis">Body emphasis</p>
+<p class="text-black">Black text</p>
+<p class="text-white bg-dark">White text</p>
+
+<!-- Opacity -->
+<p class="text-primary text-opacity-75">75% opacity</p>
+<p class="text-primary text-opacity-50">50% opacity</p>
+<p class="text-primary text-opacity-25">25% opacity</p>
+```
+
 ## Border Utilities
 
 ```html
@@ -591,6 +614,7 @@ Frequently-used utility combinations for real-world scenarios.
 ### Reference Files
 
 - `references/utilities-reference.md` - Complete utility class reference
+- `references/api-customization.md` - Advanced Sass customization examples
 
 ### Example Files
 
