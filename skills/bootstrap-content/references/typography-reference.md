@@ -82,6 +82,25 @@ Bootstrap 5 uses RFS (Responsive Font Sizes) by default. RFS automatically scale
 | `.fst-italic` | italic |
 | `.fst-normal` | normal |
 
+## Inline Text Utility Classes
+
+Apply element-equivalent styles without semantic meaning:
+
+| Class | Equivalent Element | Description |
+|-------|-------------------|-------------|
+| `.mark` | `<mark>` | Highlighted/marked text |
+| `.small` | `<small>` | Smaller, secondary text |
+
+```html
+<!-- Use element when semantics matter -->
+<p>This is <mark>semantically highlighted</mark> text.</p>
+<p>This is <small>semantically small</small> text.</p>
+
+<!-- Use class when only visual styling is needed -->
+<span class="mark">Highlighted without semantic meaning</span>
+<span class="small">Small without semantic meaning</span>
+```
+
 ## Line Height Classes
 
 | Class | Value |
