@@ -424,6 +424,14 @@ Bootstrap is built mobile-first. Base styles target mobile devices, with respons
 - Use `min-width` media queries (styles apply at breakpoint and up)
 - Avoid `max-width` queries unless specifically targeting smaller screens
 
+### Box-sizing
+
+Bootstrap sets `box-sizing: border-box` globally for simpler sizing calculations. This may conflict with third-party widgets (e.g., Google Maps). Override with `.selector { box-sizing: content-box; }` when needed.
+
+### Reboot
+
+Bootstrap's Reboot provides opinionated CSS normalization for consistent cross-browser rendering. See the [bootstrap-content skill](../bootstrap-content/) for details.
+
 ### Breakpoints
 
 Default responsive breakpoints:
