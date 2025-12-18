@@ -426,7 +426,7 @@ Bootstrap is built mobile-first. Base styles target mobile devices, with respons
 
 ### Box-sizing
 
-Bootstrap sets `box-sizing: border-box` globally for simpler sizing calculations. This may conflict with third-party widgets (e.g., Google Maps). Override with `.selector { box-sizing: content-box; }` when needed.
+Bootstrap sets `box-sizing: border-box` globally, switching from the default `content-box`. This ensures padding doesn't affect the final computed width of an element, simplifying sizing calculations. This may conflict with third-party widgets (e.g., Google Maps). Override with `.selector { box-sizing: content-box; }` when needed.
 
 ### Reboot
 
