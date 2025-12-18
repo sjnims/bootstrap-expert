@@ -459,6 +459,12 @@ Each utility is defined as a map with these key options:
 | `print` | Generate print variants (default: false) |
 | `state` | Generate state variants like `:hover` |
 | `css-var` | Output as CSS variables instead of rules |
+| `css-variable-name` | Custom CSS variable name (with css-var) |
+| `local-vars` | Map of local CSS variables |
+| `rfs` | Enable fluid rescaling (default: false) |
+| `rtl` | Include in RTL output (default: true) |
+
+**Note**: All utilities include `!important` by default. Disable globally with `$enable-important-utilities: false`.
 
 ### Adding Custom Utilities
 
