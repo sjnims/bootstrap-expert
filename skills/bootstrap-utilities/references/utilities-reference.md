@@ -379,3 +379,61 @@ primary, secondary, success, danger, warning, info, light, dark, black, white
 | `user-select-none` | No select |
 | `pe-none` | No pointer events |
 | `pe-auto` | Auto pointer events |
+
+## Float
+
+| Class | Float |
+|-------|-------|
+| `float-start` | Left (LTR) |
+| `float-end` | Right (LTR) |
+| `float-none` | None |
+
+Responsive: `float-{breakpoint}-{start|end|none}`
+
+## Vertical Align
+
+| Class | Alignment |
+|-------|-----------|
+| `align-baseline` | Baseline |
+| `align-top` | Top |
+| `align-middle` | Middle |
+| `align-bottom` | Bottom |
+| `align-text-top` | Text top |
+| `align-text-bottom` | Text bottom |
+
+## Link
+
+### Opacity
+
+| Class | Opacity |
+|-------|---------|
+| `link-opacity-10` | 10% |
+| `link-opacity-25` | 25% |
+| `link-opacity-50` | 50% |
+| `link-opacity-75` | 75% |
+| `link-opacity-100` | 100% |
+| `link-opacity-{value}-hover` | On hover |
+
+### Underline Color
+
+`link-underline-{color}` where color is:
+primary, secondary, success, danger, warning, info, light, dark
+
+### Underline Offset
+
+| Class | Offset |
+|-------|--------|
+| `link-offset-1` | 1 |
+| `link-offset-2` | 2 |
+| `link-offset-3` | 3 |
+
+### Underline Opacity
+
+| Class | Opacity |
+|-------|---------|
+| `link-underline-opacity-0` | 0% |
+| `link-underline-opacity-10` | 10% |
+| `link-underline-opacity-25` | 25% |
+| `link-underline-opacity-50` | 50% |
+| `link-underline-opacity-75` | 75% |
+| `link-underline-opacity-100` | 100% |

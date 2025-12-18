@@ -1,6 +1,6 @@
 ---
 name: bootstrap-utilities
-description: This skill should be used when the user asks about Bootstrap utilities, Bootstrap spacing utilities, Bootstrap margin utilities, Bootstrap padding utilities, Bootstrap display utilities, Bootstrap flex utilities, Bootstrap text utilities, Bootstrap color utilities, Bootstrap background utilities, Bootstrap border utilities, Bootstrap shadow utilities, Bootstrap sizing utilities, Bootstrap position utilities, Bootstrap visibility utilities, Bootstrap overflow utilities, Bootstrap opacity utilities, or needs help with Bootstrap utility classes.
+description: This skill should be used when the user asks about Bootstrap utilities, Bootstrap spacing utilities, Bootstrap margin utilities, Bootstrap padding utilities, Bootstrap display utilities, Bootstrap flex utilities, Bootstrap text utilities, Bootstrap color utilities, Bootstrap background utilities, Bootstrap border utilities, Bootstrap shadow utilities, Bootstrap sizing utilities, Bootstrap position utilities, Bootstrap visibility utilities, Bootstrap overflow utilities, Bootstrap opacity utilities, Bootstrap float utilities, Bootstrap vertical align utilities, Bootstrap link utilities, or needs help with Bootstrap utility classes.
 ---
 
 # Bootstrap 5.3 Utilities
@@ -464,6 +464,99 @@ Bootstrap provides extensive utility classes for rapid styling without custom CS
 <div class="pe-none">Pointer events none</div>
 <div class="pe-auto">Pointer events auto</div>
 ```
+
+## Float Utilities
+
+Float utilities position elements to the left or right of their container, allowing text to wrap around them.
+
+```html
+<div class="float-start">Float start (left in LTR)</div>
+<div class="float-end">Float end (right in LTR)</div>
+<div class="float-none">No float</div>
+
+<!-- Responsive floats -->
+<div class="float-sm-start">Float start on sm+</div>
+<div class="float-md-end">Float end on md+</div>
+<div class="float-lg-none">No float on lg+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `float-start` | Float left (LTR) |
+| `float-end` | Float right (LTR) |
+| `float-none` | Remove float |
+
+Responsive: `float-{breakpoint}-{start|end|none}`
+
+**Note**: Modern layouts typically use flexbox or grid instead of floats. Floats remain useful for wrapping text around images.
+
+## Vertical Align Utilities
+
+Control vertical alignment of inline, inline-block, inline-table, and table cell elements.
+
+```html
+<span class="align-baseline">baseline</span>
+<span class="align-top">top</span>
+<span class="align-middle">middle</span>
+<span class="align-bottom">bottom</span>
+<span class="align-text-top">text-top</span>
+<span class="align-text-bottom">text-bottom</span>
+```
+
+| Class | Alignment |
+|-------|-----------|
+| `align-baseline` | Baseline (default) |
+| `align-top` | Top of line |
+| `align-middle` | Middle of line |
+| `align-bottom` | Bottom of line |
+| `align-text-top` | Top of parent's font |
+| `align-text-bottom` | Bottom of parent's font |
+
+**Note**: These work on inline/inline-block elements and table cells, not block elements. For block vertical alignment, use flexbox (`align-items-*`).
+
+## Link Utilities
+
+Style links with opacity, underline color, offset, and hover effects. Added in Bootstrap 5.3.
+
+```html
+<!-- Link opacity -->
+<a href="#" class="link-opacity-10">10% opacity</a>
+<a href="#" class="link-opacity-25">25% opacity</a>
+<a href="#" class="link-opacity-50">50% opacity</a>
+<a href="#" class="link-opacity-75">75% opacity</a>
+<a href="#" class="link-opacity-100">100% opacity</a>
+
+<!-- Hover opacity -->
+<a href="#" class="link-opacity-50-hover">50% on hover</a>
+
+<!-- Underline color -->
+<a href="#" class="link-underline-primary">Primary underline</a>
+<a href="#" class="link-underline-secondary">Secondary underline</a>
+<a href="#" class="link-underline-success">Success underline</a>
+
+<!-- Underline offset -->
+<a href="#" class="link-offset-1">1 offset</a>
+<a href="#" class="link-offset-2">2 offset</a>
+<a href="#" class="link-offset-3">3 offset</a>
+
+<!-- Underline opacity -->
+<a href="#" class="link-underline-opacity-0">No underline</a>
+<a href="#" class="link-underline-opacity-25">25% underline</a>
+<a href="#" class="link-underline-opacity-50">50% underline</a>
+
+<!-- Combined styling -->
+<a href="#" class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+  Styled link
+</a>
+```
+
+| Class | Description |
+|-------|-------------|
+| `link-opacity-{10\|25\|50\|75\|100}` | Link text opacity |
+| `link-opacity-{value}-hover` | Opacity on hover |
+| `link-underline-{color}` | Underline color |
+| `link-offset-{1\|2\|3}` | Underline distance |
+| `link-underline-opacity-{0\|10\|25\|50\|75\|100}` | Underline opacity |
 
 ## Utilities API
 
