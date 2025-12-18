@@ -463,8 +463,8 @@ Containers provide horizontal padding (`--bs-gutter-x: 1.5rem` by default) and c
 
 - `references/build-tools.md` - Complete Vite, Parcel, and Webpack setup guides
 - `references/javascript-api.md` - Full JavaScript component API reference
+- `references/vite-setup.md` - Detailed Vite project structure and configuration
 
 ### Example Files
 
 - `examples/starter-template.html` - Basic HTML starter
-- `examples/vite-setup.md` - Vite project structure
