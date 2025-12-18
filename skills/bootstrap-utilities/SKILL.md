@@ -510,8 +510,84 @@ $utilities: map-remove($utilities, "float");
 $utilities: map-merge($utilities, ("float": null));
 ```
 
+## Common Patterns
+
+Frequently-used utility combinations for real-world scenarios.
+
+### Centered Container (Full Viewport)
+
+```html
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="text-center">
+    <h1>Perfectly Centered</h1>
+    <p>Both horizontally and vertically</p>
+  </div>
+</div>
+```
+
+### Sticky Footer Layout
+
+```html
+<div class="d-flex flex-column min-vh-100">
+  <header class="bg-dark text-white p-3">Header</header>
+  <main class="flex-grow-1 p-3">Main content</main>
+  <footer class="bg-body-secondary p-3">Footer stays at bottom</footer>
+</div>
+```
+
+### Card with Spacing and Shadow
+
+```html
+<div class="card shadow-sm border-0 rounded-3">
+  <div class="card-body p-4">
+    <h5 class="card-title mb-3">Title</h5>
+    <p class="card-text text-muted mb-0">Content</p>
+  </div>
+</div>
+```
+
+### Responsive Hide/Show
+
+```html
+<!-- Hidden on mobile, visible on desktop -->
+<div class="d-none d-md-block">Desktop only</div>
+
+<!-- Visible on mobile, hidden on desktop -->
+<div class="d-block d-md-none">Mobile only</div>
+```
+
+### Icon + Text Alignment
+
+```html
+<div class="d-flex align-items-center gap-2">
+  <svg>...</svg>
+  <span>Text aligned with icon</span>
+</div>
+```
+
+## When to Use Utilities vs Custom CSS
+
+| Scenario | Recommended Approach |
+|----------|---------------------|
+| One-off spacing adjustment | Utility classes (`mt-3`, `p-4`) |
+| Consistent component styling | Custom component class |
+| Responsive show/hide | Display utilities (`d-none d-md-block`) |
+| Complex hover/focus states | Custom CSS |
+| Values not in Bootstrap scale | Extend via Utilities API or custom CSS |
+| Repeated pattern (3+ times) | Extract to custom class |
+| Quick prototype | Utilities for speed |
+| Production component | Consider extracting repeated utilities |
+
+**Rule of thumb**: If you're applying the same combination of 4+ utilities to multiple elements, consider creating a custom class.
+
 ## Additional Resources
 
 ### Reference Files
 
 - `references/utilities-reference.md` - Complete utility class reference
+
+### Example Files
+
+- `examples/card-layout.html` - Card styling with spacing, shadows, and borders
+- `examples/responsive-utilities.html` - Responsive display and spacing patterns
+- `examples/flex-centering.html` - Flexbox centering techniques
