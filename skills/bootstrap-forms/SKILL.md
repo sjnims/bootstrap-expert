@@ -110,6 +110,21 @@ Use `disabled` for fields users cannot interact with at all. Use `readonly` when
 </div>
 ```
 
+### Indeterminate Checkboxes
+
+Use the indeterminate state for checkboxes representing a "partially checked" condition. This is useful for "select all" patterns where some but not all child items are checked. The state must be set via JavaScript—there is no HTML attribute for it.
+
+```html
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" id="checkIndeterminate">
+  <label class="form-check-label" for="checkIndeterminate">Select all items</label>
+</div>
+
+<script>
+  document.getElementById('checkIndeterminate').indeterminate = true;
+</script>
+```
+
 ### Radios
 
 ```html
@@ -138,6 +153,15 @@ Prefer switches over checkboxes for on/off settings that take effect immediately
 </div>
 ```
 
+For iOS 17.4+ Safari, add the `switch` attribute to enable native haptic feedback:
+
+```html
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="nativeSwitch" switch>
+  <label class="form-check-label" for="nativeSwitch">Native haptics (iOS 17.4+)</label>
+</div>
+```
+
 ### Inline
 
 ```html
@@ -148,6 +172,22 @@ Prefer switches over checkboxes for on/off settings that take effect immediately
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="checkbox" id="inline2">
   <label class="form-check-label" for="inline2">2</label>
+</div>
+```
+
+### Reverse Layout
+
+Use `.form-check-reverse` to position the input on the opposite side—label first, checkbox/radio second. This creates a right-aligned input style useful for settings interfaces or RTL layouts.
+
+```html
+<div class="form-check form-check-reverse">
+  <input class="form-check-input" type="checkbox" id="reverseCheck">
+  <label class="form-check-label" for="reverseCheck">Reverse checkbox</label>
+</div>
+
+<div class="form-check form-check-reverse">
+  <input class="form-check-input" type="radio" name="reverseRadios" id="reverseRadio1">
+  <label class="form-check-label" for="reverseRadio1">First reverse radio</label>
 </div>
 ```
 

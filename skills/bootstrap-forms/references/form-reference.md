@@ -39,11 +39,23 @@ Complete reference for Bootstrap 5.3 form classes.
 | `.form-check-inline` | Inline checkboxes/radios |
 | `.form-check-reverse` | Reverse order (label first) |
 
+Set indeterminate state via JavaScript for "select all" patterns:
+
+```javascript
+document.getElementById('checkbox').indeterminate = true;
+```
+
 ## Switch Classes
 
 | Class | Description |
 |-------|-------------|
 | `.form-switch` | Add to `.form-check` for switch style |
+
+For iOS 17.4+ Safari, add the `switch` attribute for native haptic feedback:
+
+```html
+<input class="form-check-input" type="checkbox" role="switch" switch>
+```
 
 ## Toggle Button Classes
 
