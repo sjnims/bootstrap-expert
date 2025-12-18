@@ -35,6 +35,14 @@ Bootstrap's docs call these "CSS variables" (technically CSS custom properties).
 }
 ```
 
+#### CSS Variable Prefix
+
+Customize the `bs-` prefix via the `$prefix` Sass variable to avoid conflicts in projects embedding Bootstrap alongside other frameworks:
+
+```scss
+$prefix: "myapp-"; // Results in --myapp-primary, --myapp-body-bg, etc.
+```
+
 ### 2. Sass Variables (Compile-time)
 
 For comprehensive theming, override Sass variables before importing Bootstrap:
@@ -89,6 +97,24 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 ```
 
 This generates all utilities: `.bg-custom`, `.text-brand`, `.btn-custom`, etc.
+
+### Adding Colors with Dark Mode Support
+
+Adding a color to `$theme-colors` alone won't generate proper dark mode styles for alerts, badges, and list-groups. Define variants in additional maps:
+
+```scss
+// Light mode variants
+$theme-colors-text: map-merge($theme-colors-text, ("custom": #712cf9));
+$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, ("custom": #e1d2fe));
+$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, ("custom": #bfa1fc));
+
+// Dark mode variants
+$theme-colors-text-dark: map-merge($theme-colors-text-dark, ("custom": #e1d2f2));
+$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, ("custom": #8951fa));
+$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, ("custom": #e1d2f2));
+```
+
+Without these definitions, components using `*-text-emphasis`, `*-bg-subtle`, and `*-border-subtle` patterns won't display correctly in dark mode.
 
 ### Removing Colors
 
@@ -307,6 +333,18 @@ $enable-container-classes: true;
 $enable-negative-margins: false;
 $enable-dark-mode: true;
 $color-mode-type: data; // 'data' or 'media'
+```
+
+### Focus Ring
+
+Bootstrap 5.3 provides variables to customize `:focus` styles across all components:
+
+```scss
+$focus-ring-width: .25rem;
+$focus-ring-opacity: .25;
+$focus-ring-color: rgba($primary, $focus-ring-opacity);
+$focus-ring-blur: 0;
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
 ```
 
 ## Component Customization
