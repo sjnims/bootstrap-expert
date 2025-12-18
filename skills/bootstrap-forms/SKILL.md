@@ -418,9 +418,13 @@ Mark invalid fields for assistive technology:
 <div class="invalid-feedback">Please provide a valid value.</div>
 ```
 
-See `references/form-reference.md` for complete form class reference.
+## Additional Resources
 
-For form examples, see:
+### Reference Files
+
+- `references/form-reference.md` - Complete form class reference
+
+### Example Files
 
 - `examples/validation-form.html` - Form validation patterns
 - `examples/floating-labels-form.html` - Signup and login forms with floating labels

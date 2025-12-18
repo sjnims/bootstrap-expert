@@ -343,8 +343,12 @@ See `references/grid-reference.md` for position utilities that work with z-index
 </div>
 ```
 
-See `references/grid-reference.md` for complete grid class reference.
+## Additional Resources
 
-For layout examples, see:
+### Reference Files
+
+- `references/grid-reference.md` - Complete grid class reference
+
+### Example Files
 
 - `examples/responsive-layouts.html` - Responsive layout patterns
