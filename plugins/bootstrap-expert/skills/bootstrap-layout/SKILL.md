@@ -279,6 +279,98 @@ Columns can be nested:
 </div>
 ```
 
+## Advanced Grid Behaviors
+
+### Column Wrapping
+
+When more than 12 columns are placed within a single row, the extra columns wrap onto a new line as one unit:
+
+```html
+<div class="row">
+  <div class="col-9">.col-9</div>
+  <div class="col-4">.col-4 (wraps to new line since 9 + 4 = 13 > 12)</div>
+  <div class="col-6">.col-6 (continues on the new line)</div>
+</div>
+```
+
+### Column Breaks
+
+Force columns to a new line by inserting a full-width element:
+
+```html
+<div class="row">
+  <div class="col-6">Column 1</div>
+  <div class="col-6">Column 2</div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+  <div class="col-6">Column 3 (on new line)</div>
+  <div class="col-6">Column 4 (on new line)</div>
+</div>
+```
+
+Apply breaks at specific breakpoints using display utilities:
+
+```html
+<div class="row">
+  <div class="col-6 col-sm-4">Column 1</div>
+  <div class="col-6 col-sm-4">Column 2</div>
+  <!-- Force break only at md breakpoint and up -->
+  <div class="w-100 d-none d-md-block"></div>
+  <div class="col-6 col-sm-4">Column 3</div>
+</div>
+```
+
+### Standalone Column Classes
+
+Use `.col-*` classes outside a `.row` to give elements a specific width. When used outside a row, column padding is omitted:
+
+```html
+<!-- Element with 25% width (no row wrapper needed) -->
+<div class="col-3 p-3 mb-2">
+  .col-3: width of 25%
+</div>
+
+<!-- Responsive width -->
+<div class="col-sm-9 p-3">
+  .col-sm-9: width of 75% above sm breakpoint
+</div>
+```
+
+Combine with float utilities for responsive floated images:
+
+```html
+<div class="clearfix">
+  <img src="..." class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+  <p>Text wraps around the floated image...</p>
+</div>
+```
+
+### Handling Gutter Overflow
+
+Large gutters (like `.gx-5`) can cause horizontal overflow. Two solutions:
+
+Add matching padding to the container:
+
+```html
+<div class="container px-4">
+  <div class="row gx-5">
+    <div class="col">Column with large gutter</div>
+    <div class="col">Column with large gutter</div>
+  </div>
+</div>
+```
+
+Or use an `overflow-hidden` wrapper:
+
+```html
+<div class="container overflow-hidden">
+  <div class="row gx-5">
+    <div class="col">Column with large gutter</div>
+    <div class="col">Column with large gutter</div>
+  </div>
+</div>
+```
+
 ## CSS Grid (Alternative)
 
 > **Note:** Bootstrap's CSS Grid system is experimental and opt-in as of v5.1.0. It's disabled by default and requires enabling in your Sass configuration.
