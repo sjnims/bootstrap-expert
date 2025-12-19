@@ -73,6 +73,30 @@ Use `disabled` for fields users cannot interact with at all. Use `readonly` when
 </div>
 ```
 
+### Help Text
+
+Use `.form-text` for supplemental instructions. Connect help text to inputs with `aria-describedby` so screen readers announce it when the input is focused:
+
+```html
+<div class="mb-3">
+  <label for="password" class="form-label">Password</label>
+  <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+  <div id="passwordHelp" class="form-text">Must be 8+ characters with one uppercase letter.</div>
+</div>
+```
+
+When an input has both help text and validation feedback, reference both in `aria-describedby`:
+
+```html
+<div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input type="email" class="form-control is-invalid" id="email"
+         aria-describedby="emailHelp emailError" aria-invalid="true">
+  <div id="emailHelp" class="form-text">We'll never share your email.</div>
+  <div id="emailError" class="invalid-feedback">Please enter a valid email address.</div>
+</div>
+```
+
 ## Select
 
 ```html
@@ -621,11 +645,27 @@ Use `.valid-tooltip` and `.invalid-tooltip` as alternatives to feedback messages
 
 Tooltips are useful when feedback messages would disrupt form layout or when you want a more prominent visual indicator. Use them consistently within a form—avoid mixing tooltips and feedback messages.
 
+## Common Mistakes
+
+| Mistake | Problem | Fix |
+|---------|---------|-----|
+| Using placeholder as label | Not accessible, disappears on input | Always use `<label>` elements |
+| Missing `novalidate` with custom validation | Browser shows default + custom feedback | Add `novalidate` to `<form>` |
+| Forgetting `.has-validation` on input groups | Border radius breaks with validation | Add `.has-validation` to `.input-group` |
+| Labels without `for` attribute | Screen readers can't associate label | Match `for` with input `id` |
+| Missing `aria-describedby` for help text | Help text not announced | Connect with `aria-describedby` |
+| Omitting `aria-invalid="true"` | Screen readers miss error state | Add `aria-invalid` with `.is-invalid` |
+| Using `display: none` on first/last input group item | Border radius breaks on adjacent elements | Use `.visually-hidden` or move outside group |
+
+See `references/validation-approaches.md` for validation method comparison and `references/accessibility-checklist.md` for complete accessibility requirements.
+
 ## Additional Resources
 
 ### Reference Files
 
 - `references/form-reference.md` - Complete form class reference
+- `references/validation-approaches.md` - Browser vs custom vs server-side validation comparison
+- `references/accessibility-checklist.md` - Required attributes and testing procedures
 
 ### Example Files
 
@@ -634,3 +674,4 @@ Tooltips are useful when feedback messages would disrupt form layout or when you
 - `examples/horizontal-form.html` - Horizontal layouts, sizing, radios, readonly display
 - `examples/inline-search-form.html` - Navbar search, filters, toolbars, newsletter forms
 - `examples/toggle-buttons.html` - Checkbox and radio toggle buttons, outlined styles
+- `examples/accessibility-patterns.html` - Accessible forms with ARIA attributes
