@@ -392,7 +392,9 @@ Bootstrap 5.3 also supports CSS Grid:
 
 ## Z-Index Utilities
 
-Bootstrap provides z-index utility classes for controlling stacking order:
+Bootstrap provides z-index utility classes for controlling stacking order.
+
+### Utility Classes
 
 | Class | Value |
 |-------|-------|
@@ -401,6 +403,31 @@ Bootstrap provides z-index utility classes for controlling stacking order:
 | `.z-1` | 1 |
 | `.z-2` | 2 |
 | `.z-3` | 3 |
+
+These low single-digit values (1, 2, 3) are useful for controlling component states like
+default, hover, and active within the same stacking context.
+
+### Component Stacking Order
+
+Bootstrap components use a standardized z-index scale with large gaps to prevent conflicts:
+
+| Component | z-index |
+|-----------|---------|
+| Dropdown | 1000 |
+| Sticky | 1020 |
+| Fixed | 1030 |
+| Offcanvas backdrop | 1040 |
+| Offcanvas | 1045 |
+| Modal backdrop | 1050 |
+| Modal | 1055 |
+| Popover | 1070 |
+| Tooltip | 1080 |
+| Toast | 1090 |
+
+> **Warning:** Avoid customizing individual z-index values. The scale is designed as a
+> cohesive system—if you change one value, you likely need to adjust others to maintain
+> proper layering. Use Sass variables (`$zindex-dropdown`, `$zindex-modal`, etc.) to
+> customize these values consistently.
 
 See `references/grid-reference.md` for position utilities that work with z-index.
 
