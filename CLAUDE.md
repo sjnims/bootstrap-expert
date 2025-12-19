@@ -8,7 +8,19 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 
 ## Quick Reference
 
-**Current Version**: See `plugins/bootstrap-expert/.claude-plugin/plugin.json`
+**Current Version**: v0.1.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
+
+### Quick Links
+
+| Topic | Location |
+|-------|----------|
+| Testing locally | [Testing the Plugin](#testing-the-plugin) |
+| Version release | [Publishing & Version Management](#publishing--version-management) |
+| Linting | [Run All Lints](#run-all-lints) |
+| Architecture | [Architecture](#architecture) |
+| CI/CD | [CI Workflows](#ci-workflows) |
+
+### Commands
 
 | Task | Command |
 |------|---------|
@@ -278,9 +290,142 @@ To find the SHA for an action version:
 2. Check command file exists at `plugins/bootstrap-expert/commands/bootstrap/component.md`
 3. Verify command has valid YAML frontmatter with `name` field
 
-## Version Release Procedure
+## Publishing & Version Management
 
-1. Update version in `plugins/bootstrap-expert/.claude-plugin/plugin.json`
-2. Update `CHANGELOG.md` with changes
-3. Ensure all CI checks pass
-4. Create GitHub release with tag matching version (e.g., `v0.1.0`)
+### Version Files
+
+Version must be synchronized across these files on release:
+
+- `plugins/bootstrap-expert/.claude-plugin/plugin.json` (source of truth)
+- `.claude-plugin/marketplace.json` (metadata.version AND plugins[0].version)
+- `CLAUDE.md` (Quick Reference section)
+
+```bash
+# Verify version consistency
+rg '"version"' plugins/bootstrap-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg 'Current Version.*v[0-9]' CLAUDE.md
+```
+
+### Version Release Procedure
+
+When releasing a new version (e.g., v0.x.x), follow this procedure:
+
+#### 1. Create Release Branch
+
+```bash
+# Ensure main is up to date
+git checkout main
+git pull origin main
+
+# Create release branch
+git checkout -b release/v0.x.x
+```
+
+#### 2. Update Version Numbers
+
+Update version in **all version files** (must match):
+
+- `plugins/bootstrap-expert/.claude-plugin/plugin.json` (source of truth)
+- `.claude-plugin/marketplace.json` (metadata.version AND plugins[0].version)
+- `CLAUDE.md` (Quick Reference section)
+
+```bash
+# Find current version to replace
+rg '"version"' plugins/bootstrap-expert/.claude-plugin/plugin.json
+
+# Update all version files, then verify
+rg '"version"' plugins/bootstrap-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg 'Current Version.*v[0-9]' CLAUDE.md
+```
+
+#### 3. Update Documentation
+
+- `CHANGELOG.md` - Add release notes following Keep a Changelog format:
+  1. Review commits since last release: `git log v0.x.x..HEAD --oneline`
+  2. Organize into sections: Added, Changed, Fixed, Security, Performance, Documentation
+  3. Group related changes and reference PR numbers
+  4. Add version comparison links at bottom of file
+- Any other relevant documentation
+
+> **Note**: The README.md version badge updates automatically from GitHub releases.
+
+#### 4. Test and Validate
+
+```bash
+# Run all linters
+markdownlint '**/*.md' --ignore node_modules && \
+npx htmlhint 'plugins/**/examples/*.html' && \
+erb_lint --lint-all && \
+uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
+
+# Verify version consistency
+rg '"version"' plugins/bootstrap-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
+rg 'Current Version.*v[0-9]' CLAUDE.md
+
+# Load plugin locally and test (in separate directory)
+mkdir /tmp/test-bootstrap-plugin && cd /tmp/test-bootstrap-plugin && git init
+claude --plugin-dir /path/to/bootstrap-expert
+
+# Test skills load correctly by asking trigger questions
+# Test command: /bootstrap-expert:component navbar
+# Test agent triggers appropriately for Bootstrap tasks
+
+# Clean up
+rm -rf /tmp/test-bootstrap-plugin
+```
+
+#### 5. Commit and Create PR
+
+```bash
+# Commit version bump and documentation updates
+git add .
+git commit -m "chore: prepare release v0.x.x"
+
+# Push release branch
+git push origin release/v0.x.x
+
+# Create pull request
+gh pr create --title "chore: prepare release v0.x.x" \
+  --body "Version bump to v0.x.x
+
+## Changes
+- [List major changes]
+- [List bug fixes]
+- [List documentation updates]
+
+## Checklist
+- [x] Version updated in plugin.json, marketplace.json, CLAUDE.md
+- [x] CHANGELOG.md updated with release notes
+- [x] All linters pass
+- [x] Plugin tested locally
+"
+```
+
+#### 6. Merge and Create Release
+
+After PR review and approval:
+
+```bash
+# Merge PR via GitHub UI or:
+gh pr merge --squash --delete-branch
+
+# Create GitHub Release (this also creates the tag atomically)
+gh release create v0.x.x \
+  --target main \
+  --title "v0.x.x" \
+  --notes-file - <<'EOF'
+## Summary
+
+Brief description of the release focus.
+
+## What's Changed
+
+[Copy relevant sections from CHANGELOG.md]
+
+**Full Changelog**: https://github.com/sjnims/bootstrap-expert/compare/v0.x-1.x...v0.x.x
+EOF
+```
+
+**Note**: Main branch is protected and requires PRs. All version bumps must go through the release branch workflow. The `--target main` flag ensures the tag is created on the correct commit.
+
+**Publishing**: The entire repository acts as a marketplace. The `plugins/bootstrap-expert/` directory is the distributable plugin unit.
