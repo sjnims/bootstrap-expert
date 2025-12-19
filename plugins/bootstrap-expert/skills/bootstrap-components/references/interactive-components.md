@@ -574,34 +574,38 @@ To add hover hints that provide brief descriptions, use the tooltip component. T
 ```html
 <!-- Tooltip triggers -->
 <button type="button" class="btn btn-secondary"
-  data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
   Tooltip on top
 </button>
 <button type="button" class="btn btn-secondary"
-  data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
+  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
   Tooltip on right
 </button>
 <button type="button" class="btn btn-secondary"
-  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
   Tooltip on bottom
 </button>
 <button type="button" class="btn btn-secondary"
-  data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+  data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
   Tooltip on left
 </button>
 
 <!-- HTML content in tooltip -->
 <button type="button" class="btn btn-secondary"
   data-bs-toggle="tooltip" data-bs-html="true"
-  title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+  data-bs-title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
   Tooltip with HTML
 </button>
 
-<!-- Tooltip on disabled button (requires wrapper) -->
-<span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="Disabled tooltip">
+<!-- Tooltip on disabled button (requires wrapper with tabindex for keyboard accessibility) -->
+<span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="Disabled tooltip">
   <button class="btn btn-primary" type="button" disabled>Disabled button</button>
 </span>
 ```
+
+**Note:** Use `data-bs-title` instead of `title` when possible. Both attributes work, but `data-bs-title` is the modern approach that avoids conflicts with the browser's native tooltip behavior.
+
+**Disabled elements:** The `tabindex="0"` on the wrapper is essential—without it, keyboard users cannot focus the element to trigger the tooltip.
 
 **JavaScript initialization (required):**
 
