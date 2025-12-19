@@ -246,6 +246,14 @@ To display dialog boxes, confirmations, or focused content that requires user in
 <div class="modal-dialog modal-lg">...</div>  <!-- 800px -->
 <div class="modal-dialog modal-xl">...</div>  <!-- 1140px -->
 
+<!-- Fullscreen variants -->
+<div class="modal-dialog modal-fullscreen">...</div>           <!-- Always fullscreen -->
+<div class="modal-dialog modal-fullscreen-sm-down">...</div>   <!-- Fullscreen below 576px -->
+<div class="modal-dialog modal-fullscreen-md-down">...</div>   <!-- Fullscreen below 768px -->
+<div class="modal-dialog modal-fullscreen-lg-down">...</div>   <!-- Fullscreen below 992px -->
+<div class="modal-dialog modal-fullscreen-xl-down">...</div>   <!-- Fullscreen below 1200px -->
+<div class="modal-dialog modal-fullscreen-xxl-down">...</div>  <!-- Fullscreen below 1400px -->
+
 <!-- Vertically centered -->
 <div class="modal-dialog modal-dialog-centered">...</div>
 
@@ -268,6 +276,7 @@ const modal = new bootstrap.Modal('#exampleModal', {
 modal.show();
 modal.hide();
 modal.toggle();
+modal.handleUpdate();  // Readjust position after dynamic height change
 
 // Events
 document.getElementById('exampleModal').addEventListener('shown.bs.modal', () => {

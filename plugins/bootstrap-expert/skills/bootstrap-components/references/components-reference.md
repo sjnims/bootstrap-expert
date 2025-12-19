@@ -179,6 +179,11 @@ Quick reference for all Bootstrap 5.3 component classes.
 | `.modal-lg` | Large modal |
 | `.modal-xl` | Extra large modal |
 | `.modal-fullscreen` | Fullscreen |
+| `.modal-fullscreen-sm-down` | Fullscreen below 576px |
+| `.modal-fullscreen-md-down` | Fullscreen below 768px |
+| `.modal-fullscreen-lg-down` | Fullscreen below 992px |
+| `.modal-fullscreen-xl-down` | Fullscreen below 1200px |
+| `.modal-fullscreen-xxl-down` | Fullscreen below 1400px |
 | `.modal-dialog-centered` | Vertically centered |
 | `.modal-dialog-scrollable` | Scrollable body |
 | `.fade` | Fade animation |
