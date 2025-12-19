@@ -167,7 +167,7 @@ markdownlint '**/*.md' --ignore node_modules --fix
 - Use 2-space indentation for lists
 - Use fenced code blocks (not indented)
 - No line length limits
-- Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`, `<details>`, `<summary>`, `<strong>`
+- Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`, `<details>`, `<summary>`, `<strong>`, `<br>`
 
 ### GitHub Actions Version Pinning
 
@@ -177,10 +177,10 @@ This repository pins GitHub Actions by their full commit SHA rather than version
 
 ```yaml
 # Good - pinned by SHA with version comment
-- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v4.3.0
+- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
 # Bad - pinned by tag (vulnerable to tag manipulation)
-- uses: actions/checkout@v4
+- uses: actions/checkout@v6
 ```
 
 **How to find the SHA for an action version:**
@@ -196,7 +196,7 @@ This repository pins GitHub Actions by their full commit SHA rather than version
 1. Find the latest stable version of the action
 2. Get the full commit SHA for that version
 3. Use the SHA in the `uses:` field with a version comment
-4. Example: `- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v4.3.0`
+4. Example: `- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1`
 
 ### Shell Pattern Escaping
 
@@ -334,7 +334,7 @@ Before submitting, verify:
 1. **Markdown linting passes**: `markdownlint '**/*.md' --ignore node_modules`
 2. **HTML linting passes**: `npx htmlhint 'plugins/**/examples/*.html'`
 3. **ERB linting passes**: `erb_lint --lint-all`
-4. **YAML linting passes**: `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/`
+4. **YAML linting passes**: `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/`
 5. **Generated Bootstrap code is valid**: Test in browser with Bootstrap 5.3.x CSS/JS
 6. **Accessibility**: Components include proper ARIA attributes
 7. **Responsive design**: Breakpoints use correct Bootstrap values
@@ -361,9 +361,9 @@ erb_lint --lint-all
 
 # Lint YAML configuration files
 # Using uv (https://docs.astral.sh/uv/):
-uvx yamllint -c .yamllint.yml .github/ .claude-plugin/
+uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
 # Or with pip:
-# pip install yamllint && yamllint -c .yamllint.yml .github/ .claude-plugin/
+# pip install yamllint && yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
 
 # Check specific markdown files
 markdownlint plugins/bootstrap-expert/skills/bootstrap-layout/SKILL.md

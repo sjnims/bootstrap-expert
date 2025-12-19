@@ -18,7 +18,7 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 | Fix markdown | `markdownlint '**/*.md' --ignore node_modules --fix` |
 | Lint HTML | `npx htmlhint 'plugins/**/examples/*.html'` |
 | Lint ERB | `erb_lint --lint-all` (requires `gem install erb_lint`) |
-| Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/` |
+| Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/` |
 | Check links | `lychee --exclude-file .lycheeignore '**/*.md'` |
 | Run all lints | See "Run All Lints" section below |
 
@@ -98,7 +98,7 @@ Each skill directory follows this pattern:
 - 2-space list indentation
 - Fenced code blocks (not indented)
 - No line length limits
-- Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`, `<details>`, `<summary>`, `<strong>`
+- Allowed HTML: `<p>`, `<img>`, `<example>`, `<commentary>`, `<details>`, `<summary>`, `<strong>`, `<br>`
 
 ### HTML Style (from `.htmlhintrc`)
 
@@ -142,7 +142,7 @@ The following paths are excluded from markdown linting:
 
 ### Shell Pattern Escaping
 
-In skill files, use `[BANG]` instead of `!` to prevent shell execution during skill loading:
+In skill files, use `[BANG]` instead of `!` to prevent shell execution during skill loading ([Claude Code #12781](https://github.com/anthropics/claude-code/issues/12781)):
 
 ```markdown
 <!-- In SKILL.md or references/ -->

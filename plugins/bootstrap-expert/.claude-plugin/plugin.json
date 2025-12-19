@@ -4,8 +4,10 @@
   "description": "Bootstrap 5.3.8 and Bootstrap Icons front-end development expert plugin providing comprehensive guidance, best practices, and code generation for Bootstrap development.",
   "author": {
     "name": "Steve Nims",
-    "email": "sjnims@gmail.com"
+    "email": "sjnims@gmail.com",
+    "url": "https://github.com/sjnims"
   },
+  "homepage": "https://github.com/sjnims/bootstrap-expert",
   "repository": "https://github.com/sjnims/bootstrap-expert",
   "license": "MIT",
   "keywords": [

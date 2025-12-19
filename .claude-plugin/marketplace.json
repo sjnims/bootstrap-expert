@@ -7,7 +7,8 @@
   },
   "metadata": {
     "description": "Marketplace for the Bootstrap Expert Claude Code plugin",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "pluginRoot": "./plugins"
   },
   "plugins": [
     {

@@ -142,8 +142,8 @@ _No security issues have been reported yet._
 
 ## Additional Resources
 
-- [Bootstrap Security](https://getbootstrap.com/docs/5.3/getting-started/introduction/#community)
-- [Claude Code Security](https://claude.ai/code)
+- [Bootstrap Security](https://github.com/twbs/bootstrap/security)
+- [Claude Code](https://github.com/anthropics/claude-code)
 - [Responsible Disclosure](https://en.wikipedia.org/wiki/Responsible_disclosure)
 
 ---

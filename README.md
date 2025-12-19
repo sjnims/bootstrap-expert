@@ -111,24 +111,30 @@ Generate Bootstrap component code interactively or with full arguments.
 
 **Supported components:**
 
-- `navbar` - Navigation bars with various configurations
-- `modal` - Modal dialogs with customizable options
-- `card` - Card layouts with images, headers, footers
 - `accordion` - Collapsible content panels
-- `carousel` - Image/content sliders
-- `dropdown` - Dropdown menus
-- `tabs` / `nav-tabs` - Tabbed navigation
-- `form` - Form layouts with validation
-- `table` - Responsive data tables
 - `alert` - Alert messages
-- `toast` - Toast notifications
+- `badge` - Contextual labels and counters
+- `breadcrumb` - Breadcrumb navigation
+- `button` / `buttons` - Button variants and styles
+- `button-group` - Grouped buttons
+- `card` - Card layouts with images, headers, footers
+- `carousel` - Image/content sliders
+- `collapse` - Collapsible content sections
+- `dropdown` - Dropdown menus
+- `form` - Form layouts with validation
+- `list-group` - List items with actions
+- `modal` - Modal dialogs with customizable options
+- `navbar` - Navigation bars with various configurations
 - `offcanvas` - Offcanvas sidebars
 - `pagination` - Page navigation
-- `breadcrumb` - Breadcrumb navigation
-- `button-group` - Grouped buttons
-- `list-group` - List items with actions
+- `placeholders` - Loading placeholder animations
+- `popover` - Pop-up information boxes
 - `progress` - Progress bars
 - `spinner` - Loading indicators
+- `table` - Responsive data tables
+- `tabs` / `nav-tabs` - Tabbed navigation
+- `toast` - Toast notifications
+- `tooltip` - Hover tooltips
 
 ## Agent
 
@@ -138,7 +144,6 @@ The `bootstrap-expert` agent triggers proactively when Bootstrap-related work is
 - **Layout Troubleshooting** - Solving grid system and responsive design issues
 - **Accessibility** - Ensuring components meet WCAG guidelines with proper ARIA attributes
 - **Code Review** - Reviewing Bootstrap code for best practices and optimization
-- **Migration Help** - Assistance upgrading from older Bootstrap versions
 
 **Example triggers:**
 
