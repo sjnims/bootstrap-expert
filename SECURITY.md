@@ -93,7 +93,7 @@ Current branch: [BANG]`git branch --show-current`
 
 - Do NOT "fix" `[BANG]` back to `!` - this is intentional
 - When adding new documentation with bash patterns, use `[BANG]`
-- Audit command: `rg '!\`' skills/ --glob '*.md' | rg -v '\[BANG\]'`
+- Audit command: `rg '!\`' plugins/ --glob '*.md' | rg -v '\[BANG\]'`
 - See [CONTRIBUTING.md](CONTRIBUTING.md) for documentation guidelines
 
 ## Scope

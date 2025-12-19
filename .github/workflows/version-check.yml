@@ -3,8 +3,8 @@ name: Version Consistency Check
 on:
   pull_request:
     paths:
-      - ".claude-plugin/plugin.json"
-      - "CLAUDE.md"
+      - "plugins/bootstrap-expert/.claude-plugin/plugin.json"
+      - ".claude-plugin/marketplace.json"
   workflow_dispatch: # Manual trigger for pre-release checks
 
 # Cancel any in-progress check for the same PR when new commits are pushed
@@ -35,22 +35,24 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
-            Check version consistency across plugin version files.
+            Check version consistency across plugin and marketplace files.
 
             ## Files to Check
 
-            1. `.claude-plugin/plugin.json` - Extract `version` field (source of truth)
-            2. `CLAUDE.md` - Extract version from Quick Reference section (pattern: `**Current Version**: vX.Y.Z`)
+            1. `plugins/bootstrap-expert/.claude-plugin/plugin.json` - Extract `version` field (source of truth)
+            2. `.claude-plugin/marketplace.json` - Extract `version` from the bootstrap-expert plugin entry and `metadata.version`
 
             ## Instructions
 
             1. Read plugin.json and extract the version (this is the expected version)
-            2. Read CLAUDE.md and extract version from the "Current Version" line in Quick Reference
-            3. Compare CLAUDE.md version against the plugin.json version
+            2. Read marketplace.json and extract:
+               - `metadata.version` (marketplace version)
+               - `plugins[0].version` (plugin entry version)
+            3. Compare all versions against the plugin.json version
             4. Return structured JSON with results
           claude_args: |
             --allowedTools "Read"
-            --json-schema '{"type":"object","properties":{"plugin_json_version":{"type":"string","description":"Version from plugin.json"},"claude_md_version":{"type":"string","description":"Version from CLAUDE.md Quick Reference"},"all_match":{"type":"boolean","description":"True if all versions match plugin.json"},"expected_version":{"type":"string","description":"The expected version (from plugin.json)"},"mismatches":{"type":"array","description":"List of files with mismatched versions","items":{"type":"string"}}},"required":["plugin_json_version","all_match","expected_version","mismatches"]}'
+            --json-schema '{"type":"object","properties":{"plugin_json_version":{"type":"string","description":"Version from plugin.json"},"marketplace_metadata_version":{"type":"string","description":"Version from marketplace.json metadata.version"},"marketplace_plugin_version":{"type":"string","description":"Version from marketplace.json plugins[0].version"},"all_match":{"type":"boolean","description":"True if all versions match plugin.json"},"expected_version":{"type":"string","description":"The expected version (from plugin.json)"},"mismatches":{"type":"array","description":"List of files with mismatched versions","items":{"type":"string"}}},"required":["plugin_json_version","all_match","expected_version","mismatches"]}'
 
       - name: Report version status
         if: always() && steps.version-check.outputs.structured_output != ''

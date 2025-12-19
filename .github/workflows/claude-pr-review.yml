@@ -75,9 +75,9 @@ jobs:
             ## Review Criteria
 
             ### Plugin Components (if changed)
-            - **Commands** (`commands/*.md`): Verify YAML frontmatter has name, description, allowed-tools. Check for imperative voice ("Do X" not "You should do X").
-            - **Skills** (`skills/*/SKILL.md`): Check trigger phrases in description, progressive disclosure pattern (name and description required in frontmatter; version is optional).
-            - **Agents** (`agents/*.md`): Verify <example> blocks for triggering, appropriate tool restrictions.
+            - **Commands** (`plugins/*/commands/**/*.md`): Verify YAML frontmatter has name, description, allowed-tools. Check for imperative voice ("Do X" not "You should do X").
+            - **Skills** (`plugins/*/skills/*/SKILL.md`): Check trigger phrases in description, progressive disclosure pattern (name and description required in frontmatter; version is optional).
+            - **Agents** (`plugins/*/agents/*.md`): Verify <example> blocks for triggering, appropriate tool restrictions.
 
             ### Markdown Quality (run markdownlint)
             Run `markdownlint --config .markdownlint.json` on changed `.md` files. Key rules enforced:
@@ -88,7 +88,7 @@ jobs:
             Include any lint errors in your review under a "Markdown Linting" section.
 
             ### HTML Quality (run htmlhint)
-            Run `npx htmlhint` on changed `.html` files (Bootstrap examples in `skills/**/examples/`). Key rules:
+            Run `npx htmlhint` on changed `.html` files (Bootstrap examples in `plugins/**/examples/`). Key rules:
             - Tag pairs must match (no unclosed tags)
             - Attribute values use double quotes
             - Images require `alt` attributes
@@ -96,7 +96,7 @@ jobs:
             Include any lint errors in your review under an "HTML Linting" section.
 
             ### ERB Quality (run erb_lint)
-            Run `erb_lint --lint-all` if any `.erb` files were changed (Rails examples in `skills/**/examples/`). Key rules:
+            Run `erb_lint --lint-all` if any `.erb` files were changed (Rails examples in `plugins/**/examples/`). Key rules:
             - No extra blank lines (single blank line between sections)
             - No trailing whitespace
             - Files must end with a newline

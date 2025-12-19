@@ -4,9 +4,9 @@ on:
   pull_request:
     types: [opened, synchronize, ready_for_review]
     paths:
-      - "commands/**"
-      - "skills/**"
-      - "agents/**"
+      - "plugins/**/commands/**"
+      - "plugins/**/skills/**"
+      - "plugins/**/agents/**"
 
 # Cancel any in-progress validation for the same PR when new commits are pushed
 concurrency:
@@ -42,7 +42,7 @@ jobs:
           # Get list of changed files in this PR, filtered to plugin components
           # Note: gh pr diff includes deleted files, so we filter to only existing files
           changed_files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only | \
-            grep -E '^(commands|skills|agents)/' | \
+            grep -E '^plugins/.+/(commands|skills|agents)/' | \
             grep -v '\-SUGGESTED\.md$' | \
             grep -v '\-BACKUP\.md$' | \
             grep -v '\-OLD\.md$' | \
@@ -90,7 +90,7 @@ jobs:
 
             ## Validation Rules
 
-            ### Commands (`commands/*.md`)
+            ### Commands (`plugins/*/commands/**/*.md`)
 
             For each changed command file, verify:
             - [ ] YAML frontmatter exists with `name`, `description`, `allowed-tools` fields
@@ -105,14 +105,14 @@ jobs:
             - [ ] Body uses imperative form ("Do X", "Create Y") not second person ("You should X")
             - [ ] No draft file patterns in filename (`*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md`)
 
-            ### Skills (`skills/*/SKILL.md`)
+            ### Skills (`plugins/*/skills/*/SKILL.md`)
 
             For each changed skill SKILL.md file, verify:
             - [ ] YAML frontmatter exists with `name`, `description` fields
             - [ ] `description` uses third-person with trigger phrases (starts with "This skill should be used when...")
             - [ ] Body length is reasonable (core concepts, not exhaustive documentation)
 
-            ### Agents (`agents/*.md`)
+            ### Agents (`plugins/*/agents/*.md`)
 
             For each changed agent file, verify:
             - [ ] YAML frontmatter exists with `name`, `description`, `model`, `color`, `tools` fields

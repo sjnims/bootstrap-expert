@@ -20,7 +20,7 @@
 
 <!-- Mark all that apply -->
 
-- [ ] Skills (`skills/bootstrap-*`)
+- [ ] Skills (`plugins/bootstrap-expert/skills/bootstrap-*`)
 - [ ] Agent (`bootstrap-expert`)
 - [ ] Commands (`/bootstrap-expert:component`)
 - [ ] Examples (HTML/CSS/JS/ERB samples in `examples/` folders)
@@ -139,7 +139,7 @@ Fixes # (issue)
 
 ### Version Management (if applicable)
 
-- [ ] I have updated version in `.claude-plugin/plugin.json`
+- [ ] I have updated version in `plugins/bootstrap-expert/.claude-plugin/plugin.json`
 - [ ] I have updated CHANGELOG.md with relevant changes
 
 ## Screenshots (if applicable)

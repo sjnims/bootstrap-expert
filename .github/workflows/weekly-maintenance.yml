@@ -68,8 +68,8 @@ jobs:
 
             ### 2. Version Consistency
             Check that version files match:
-            - `.claude-plugin/plugin.json` (source of truth)
-            - `CLAUDE.md` - Extract version from Quick Reference section (pattern: `**Current Version**: vX.Y.Z`)
+            - `plugins/bootstrap-expert/.claude-plugin/plugin.json` (source of truth)
+            - `.claude-plugin/marketplace.json` - Check `metadata.version` and `plugins[0].version`
 
             Read each file and extract the version. Report if any mismatch.
 
@@ -93,7 +93,7 @@ jobs:
 
             ### 6. Plugin Structure
             Check for draft files that shouldn't be in production directories:
-            - Search for `*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md` in commands/, skills/, agents/ directories
+            - Search for `*-SUGGESTED.md`, `*-BACKUP.md`, `*-OLD.md` in plugins/**/commands/, plugins/**/skills/, plugins/**/agents/ directories
             - Report any found
 
             ## Report Format

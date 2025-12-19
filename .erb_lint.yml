@@ -2,7 +2,7 @@
 # erb_lint configuration for Bootstrap ERB examples
 # https://github.com/Shopify/erb_lint
 
-glob: "skills/**/examples/**/*.erb"
+glob: "plugins/**/examples/**/*.erb"
 
 EnableDefaultLinters: true
 

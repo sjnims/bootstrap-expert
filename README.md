@@ -32,15 +32,28 @@ A comprehensive Claude Code plugin for Bootstrap 5.3.8 and Bootstrap Icons front
 
 ## Installation
 
+### From GitHub (Recommended)
+
+```bash
+# Add the marketplace
+/plugin marketplace add sjnims/bootstrap-expert
+
+# Install the plugin
+/plugin install bootstrap-expert@bootstrap-expert-marketplace
+```
+
+Or use the full URL:
+
+```bash
+/plugin marketplace add https://github.com/sjnims/bootstrap-expert
+/plugin install bootstrap-expert@bootstrap-expert-marketplace
+```
+
 ### Local Development
 
 ```bash
 claude --plugin-dir /path/to/bootstrap-expert
 ```
-
-### Project Installation
-
-Copy to your project's `.claude-plugin/` directory.
 
 ## Quick Start
 
