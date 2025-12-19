@@ -421,6 +421,8 @@ When text is visible, hide icon from screen readers:
 ### Reference Files
 
 - `references/icon-categories.md` - Full icon list organized by category (Actions, Navigation, UI Elements, Status, Files, Media, Social, Devices, Weather, E-commerce, Development)
+- `references/sass-integration.md` - Sass variables, bundler configuration (Vite, Parcel, Webpack), integration with Bootstrap Sass, and troubleshooting
+- `references/rails-integration.md` - Rails 8 Propshaft setup, cssbundling-rails, dartsass-rails, bootstrap-icons gem, and troubleshooting
 
 ### Example Files
 
