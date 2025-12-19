@@ -52,22 +52,26 @@ Before contributing, ensure you have:
    ```text
    bootstrap-expert/
    ├── .claude-plugin/
-   │   └── plugin.json       # Plugin manifest
-   ├── agents/
-   │   └── bootstrap-expert.md  # Proactive agent (1 agent)
-   ├── commands/
-   │   └── bootstrap/
-   │       └── component.md  # /bootstrap-expert:component command (1 command)
-   └── skills/               # 9 skills aligned with Bootstrap docs
-       ├── bootstrap-overview/
-       ├── bootstrap-customize/
-       ├── bootstrap-layout/
-       ├── bootstrap-content/
-       ├── bootstrap-forms/
-       ├── bootstrap-components/
-       ├── bootstrap-helpers/
-       ├── bootstrap-utilities/
-       └── bootstrap-icons/
+   │   └── marketplace.json    # Marketplace manifest
+   └── plugins/
+       └── bootstrap-expert/
+           ├── .claude-plugin/
+           │   └── plugin.json # Plugin manifest
+           ├── agents/
+           │   └── bootstrap-expert.md  # Proactive agent (1 agent)
+           ├── commands/
+           │   └── bootstrap/
+           │       └── component.md  # /bootstrap-expert:component (1 command)
+           └── skills/             # 9 skills aligned with Bootstrap docs
+               ├── bootstrap-overview/
+               ├── bootstrap-customize/
+               ├── bootstrap-layout/
+               ├── bootstrap-content/
+               ├── bootstrap-forms/
+               ├── bootstrap-components/
+               ├── bootstrap-helpers/
+               ├── bootstrap-utilities/
+               └── bootstrap-icons/
    ```
 
 3. **Understand the plugin components**:
@@ -138,9 +142,11 @@ claude --plugin-dir .
 
 ### File Organization
 
-- **Commands**: `commands/bootstrap/component.md`
-- **Skills**: `skills/bootstrap-*/SKILL.md`
-- **Agent**: `agents/bootstrap-expert.md`
+- **Marketplace**: `.claude-plugin/marketplace.json`
+- **Plugin Manifest**: `plugins/bootstrap-expert/.claude-plugin/plugin.json`
+- **Commands**: `plugins/bootstrap-expert/commands/bootstrap/component.md`
+- **Skills**: `plugins/bootstrap-expert/skills/bootstrap-*/SKILL.md`
+- **Agent**: `plugins/bootstrap-expert/agents/bootstrap-expert.md`
 
 ### Markdown Style
 
@@ -206,7 +212,7 @@ Current branch: [BANG]`git branch --show-current`
 **Important**:
 
 - This applies to skill files that get loaded into context
-- Command files (`commands/*.md`) use actual `!` syntax
+- Command files (`plugins/*/commands/**/*.md`) use actual `!` syntax
 - See [SECURITY.md](SECURITY.md#shell-pattern-escaping-with-bang-placeholder) for full details
 
 ## Component-Specific Guidelines
@@ -326,7 +332,7 @@ rm -rf /tmp/test-bootstrap-plugin
 Before submitting, verify:
 
 1. **Markdown linting passes**: `markdownlint '**/*.md' --ignore node_modules`
-2. **HTML linting passes**: `npx htmlhint 'skills/**/examples/*.html'`
+2. **HTML linting passes**: `npx htmlhint 'plugins/**/examples/*.html'`
 3. **ERB linting passes**: `erb_lint --lint-all`
 4. **YAML linting passes**: `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/`
 5. **Generated Bootstrap code is valid**: Test in browser with Bootstrap 5.3.x CSS/JS
@@ -348,7 +354,7 @@ Before submitting, verify:
 markdownlint '**/*.md' --ignore node_modules --fix
 
 # Lint HTML example files
-npx htmlhint 'skills/**/examples/*.html'
+npx htmlhint 'plugins/**/examples/*.html'
 
 # Lint ERB example files
 erb_lint --lint-all
@@ -360,7 +366,7 @@ uvx yamllint -c .yamllint.yml .github/ .claude-plugin/
 # pip install yamllint && yamllint -c .yamllint.yml .github/ .claude-plugin/
 
 # Check specific markdown files
-markdownlint skills/bootstrap-layout/SKILL.md
+markdownlint plugins/bootstrap-expert/skills/bootstrap-layout/SKILL.md
 ```
 
 ### 3. Commit Your Changes

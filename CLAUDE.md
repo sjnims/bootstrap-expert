@@ -8,7 +8,7 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 
 ## Quick Reference
 
-**Current Version**: v0.1.0
+**Current Version**: See `plugins/bootstrap-expert/.claude-plugin/plugin.json`
 
 | Task | Command |
 |------|---------|
@@ -16,10 +16,11 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 | Generate component | `/bootstrap-expert:component navbar` |
 | Lint markdown | `markdownlint '**/*.md' --ignore node_modules` |
 | Fix markdown | `markdownlint '**/*.md' --ignore node_modules --fix` |
-| Lint HTML | `npx htmlhint 'skills/**/examples/*.html'` |
-| Lint ERB | `erb_lint --lint-all` |
+| Lint HTML | `npx htmlhint 'plugins/**/examples/*.html'` |
+| Lint ERB | `erb_lint --lint-all` (requires `gem install erb_lint`) |
 | Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/` |
-| Check links | `lychee --config .lycheeignore '**/*.md'` |
+| Check links | `lychee --exclude-file .lycheeignore '**/*.md'` |
+| Run all lints | See "Run All Lints" section below |
 
 ## Testing the Plugin
 
@@ -36,27 +37,42 @@ claude --plugin-dir /path/to/bootstrap-expert
 rm -rf /tmp/test-bootstrap-plugin
 ```
 
+## Run All Lints
+
+Run all linters before committing:
+
+```bash
+markdownlint '**/*.md' --ignore node_modules && \
+npx htmlhint 'plugins/**/examples/*.html' && \
+erb_lint --lint-all && \
+uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
+```
+
 ## Architecture
 
 ```text
 bootstrap-expert/
 ├── .claude-plugin/
-│   └── plugin.json          # Plugin manifest
-├── agents/
-│   └── bootstrap-expert.md  # Proactive agent for Bootstrap tasks
-├── commands/
-│   └── bootstrap/
-│       └── component.md     # /bootstrap-expert:component generator command
-└── skills/                  # 9 skills aligned with Bootstrap docs structure
-    ├── bootstrap-overview/  # Installation, setup, starter templates
-    ├── bootstrap-customize/ # Sass variables, theming, color modes
-    ├── bootstrap-layout/    # Grid system, containers, breakpoints
-    ├── bootstrap-content/   # Typography, images, tables
-    ├── bootstrap-forms/     # Form controls, validation
-    ├── bootstrap-components/# UI components (modals, navbars, cards, etc.)
-    ├── bootstrap-helpers/   # Clearfix, ratios, stacks
-    ├── bootstrap-utilities/ # Spacing, colors, display, flex
-    └── bootstrap-icons/     # Icon library usage
+│   └── marketplace.json       # Marketplace manifest
+└── plugins/
+    └── bootstrap-expert/
+        ├── .claude-plugin/
+        │   └── plugin.json    # Plugin manifest
+        ├── agents/
+        │   └── bootstrap-expert.md  # Proactive agent for Bootstrap tasks
+        ├── commands/
+        │   └── bootstrap/
+        │       └── component.md     # /bootstrap-expert:component generator
+        └── skills/                  # 9 skills aligned with Bootstrap docs
+            ├── bootstrap-overview/  # Installation, setup, starter templates
+            ├── bootstrap-customize/ # Sass variables, theming, color modes
+            ├── bootstrap-layout/    # Grid system, containers, breakpoints
+            ├── bootstrap-content/   # Typography, images, tables
+            ├── bootstrap-forms/     # Form controls, validation
+            ├── bootstrap-components/# UI components (modals, navbars, cards)
+            ├── bootstrap-helpers/   # Clearfix, ratios, stacks
+            ├── bootstrap-utilities/ # Spacing, colors, display, flex
+            └── bootstrap-icons/     # Icon library usage
 ```
 
 ### Skill Structure
@@ -86,7 +102,7 @@ Each skill directory follows this pattern:
 
 ### HTML Style (from `.htmlhintrc`)
 
-Example HTML files in `skills/**/examples/` are validated with HTMLHint:
+Example HTML files in `plugins/**/examples/` are validated with HTMLHint:
 
 - Tag pairs must match (no unclosed tags)
 - Attribute values use double quotes
@@ -98,7 +114,7 @@ Example HTML files in `skills/**/examples/` are validated with HTMLHint:
 
 ### ERB Style (from `.erb_lint.yml`)
 
-Rails ERB example files in `skills/**/examples/` are validated with erb_lint:
+Rails ERB example files in `plugins/**/examples/` are validated with erb_lint:
 
 - Extra blank lines detected
 - Trailing whitespace detected
@@ -183,6 +199,31 @@ tools: Read, Write, Edit, Grep, Glob
 | `validate-workflows.yml` | GitHub Actions syntax validation |
 | `claude-pr-review.yml` | AI code review |
 | `ci-failure-analysis.yml` | Automated CI failure analysis |
+| `claude.yml` | Claude Code integration |
+| `greet.yml` | Welcome new contributors |
+| `stale.yml` | Stale issue/PR management |
+| `sync-labels.yml` | Label synchronization |
+| `semantic-labeler.yml` | Auto-label PRs by file paths |
+| `weekly-maintenance.yml` | Weekly maintenance tasks |
+| `dependabot-auto-merge.yml` | Auto-merge Dependabot PRs |
+
+### GitHub Actions SHA Pinning
+
+This repo pins actions by full commit SHA (not version tags) for supply chain security:
+
+```yaml
+# Correct - pinned by SHA with version comment
+- uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v4.3.0
+
+# Avoid - vulnerable to tag manipulation
+- uses: actions/checkout@v4
+```
+
+To find the SHA for an action version:
+
+1. Go to the action's GitHub repository
+2. Click "Releases" or "Tags"
+3. Find the version and copy the full 40-character commit SHA
 
 ## Common Mistakes
 
@@ -234,12 +275,12 @@ tools: Read, Write, Edit, Grep, Glob
 **Solutions:**
 
 1. Ensure plugin is loaded with `--plugin-dir` flag
-2. Check command file exists at `commands/bootstrap/component.md`
+2. Check command file exists at `plugins/bootstrap-expert/commands/bootstrap/component.md`
 3. Verify command has valid YAML frontmatter with `name` field
 
 ## Version Release Procedure
 
-1. Update version in `.claude-plugin/plugin.json`
+1. Update version in `plugins/bootstrap-expert/.claude-plugin/plugin.json`
 2. Update `CHANGELOG.md` with changes
 3. Ensure all CI checks pass
 4. Create GitHub release with tag matching version (e.g., `v0.1.0`)

@@ -31,7 +31,7 @@ body:
     attributes:
       label: Specific Location
       description: File path or section name
-      placeholder: "e.g., README.md - Installation section, skills/bootstrap-layout/SKILL.md"
+      placeholder: "e.g., README.md - Installation section, plugins/bootstrap-expert/skills/bootstrap-layout/SKILL.md"
 
   - type: textarea
     id: issue

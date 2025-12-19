@@ -38,4 +38,4 @@ jobs:
           node-version: '20'
 
       - name: Run HTMLHint
-        run: npx htmlhint 'skills/**/examples/*.html'
+        run: npx htmlhint 'plugins/**/examples/*.html'
