@@ -163,6 +163,11 @@ Position helpers for common patterns:
 <div class="sticky-xxl-top">Sticky top on xxl+</div>
 
 <div class="sticky-bottom">Sticky bottom</div>
+<div class="sticky-sm-bottom">Sticky bottom on sm+</div>
+<div class="sticky-md-bottom">Sticky bottom on md+</div>
+<div class="sticky-lg-bottom">Sticky bottom on lg+</div>
+<div class="sticky-xl-bottom">Sticky bottom on xl+</div>
+<div class="sticky-xxl-bottom">Sticky bottom on xxl+</div>
 ```
 
 ## Ratio
@@ -270,6 +275,8 @@ Make entire container clickable:
 ```
 
 **Note:** The parent must have `position: relative` (cards have this by default).
+
+**Identifying the containing block:** If the stretched link doesn't work as expected, check for these CSS properties on parent elements which also create containing blocks: `transform`, `perspective`, `filter` (Firefox only), or `will-change` set to `transform` or `perspective`.
 
 ## Text Truncation
 
