@@ -1,6 +1,6 @@
 ---
 name: bootstrap-overview
-description: This skill should be used when the user asks about Bootstrap 5 getting started, Bootstrap installation, Bootstrap CDN setup, Bootstrap npm installation, Bootstrap project setup, Bootstrap starter template, Bootstrap browser support, Bootstrap version compatibility, Bootstrap RTL support, Bootstrap Vite setup, Bootstrap Parcel setup, Bootstrap Webpack setup, Bootstrap accessibility, Bootstrap WCAG compliance, Bootstrap screen reader support, Bootstrap visually-hidden class, Bootstrap reduced motion, Bootstrap RFS, Bootstrap responsive font sizes, Bootstrap fluid typography, or needs help setting up a new Bootstrap project.
+description: This skill should be used when the user asks about Bootstrap 5 getting started, Bootstrap installation, Bootstrap CDN setup, Bootstrap npm installation, Bootstrap project setup, Bootstrap starter template, Bootstrap browser support, Bootstrap version compatibility, Bootstrap RTL support, Bootstrap Vite setup, Bootstrap Parcel setup, Bootstrap Webpack setup, Bootstrap Rails setup, Bootstrap Rails 8 integration, Bootstrap importmaps Rails, Bootstrap cssbundling-rails, Bootstrap Propshaft setup, Bootstrap dartsass-rails, Bootstrap Turbo integration, Bootstrap Stimulus controllers, Bootstrap Hotwire, Rails form helpers Bootstrap, Bootstrap Icons Rails, bootstrap gem Ruby, Bootstrap accessibility, Bootstrap WCAG compliance, Bootstrap screen reader support, Bootstrap visually-hidden class, Bootstrap reduced motion, Bootstrap RFS, Bootstrap responsive font sizes, Bootstrap fluid typography, or needs help setting up a new Bootstrap project.
 ---
 
 # Bootstrap 5.3 Overview
@@ -99,6 +99,31 @@ Create `src/scss/styles.scss`:
 ```
 
 See `references/build-tools.md` for Parcel and Webpack setup guides.
+
+### Ruby on Rails 8 Setup
+
+Rails 8 uses Propshaft as the default asset pipeline. Three integration approaches:
+
+**Approach 1: Importmaps + bootstrap gem (no Node.js):**
+
+```bash
+bundle add bootstrap -v "~> 5.3.8"
+bundle add dartsass-rails
+bin/rails dartsass:install
+```
+
+**Approach 2: cssbundling-rails (full Node.js):**
+
+```bash
+rails new myapp --css bootstrap
+# Or for existing apps:
+bundle add cssbundling-rails
+bin/rails css:install:bootstrap
+```
+
+**Approach 3: CDN only** — add CDN links directly to layout.
+
+See `references/rails-setup.md` for complete Rails 8 integration guides including Turbo/Stimulus patterns, form helpers, and Bootstrap Icons.
 
 ## JavaScript Components
 
@@ -440,6 +465,7 @@ Containers provide horizontal padding (`--bs-gutter-x: 1.5rem` by default) and c
 ### Reference Files
 
 - `references/build-tools.md` - Complete Vite, Parcel, and Webpack setup guides
+- `references/rails-setup.md` - Ruby on Rails 8 integration with Propshaft, Turbo, and Stimulus
 - `references/javascript-api.md` - Full JavaScript component API reference
 - `references/vite-setup.md` - Detailed Vite project structure and configuration
 
@@ -447,6 +473,11 @@ Containers provide horizontal padding (`--bs-gutter-x: 1.5rem` by default) and c
 
 - `examples/starter-template.html` - Basic HTML starter
 - `examples/rtl-starter.html` - RTL-enabled starter template with Arabic content
+- `examples/rails-application-layout.html.erb` - Rails 8 application layout with Bootstrap
+- `examples/rails-bootstrap-form.html.erb` - Bootstrap-styled Rails form helpers
+- `examples/rails-flash-messages.html.erb` - Flash messages as Bootstrap alerts
+- `examples/rails-navbar-partial.html.erb` - Responsive navbar partial for Rails
+- `examples/rails-turbo-modal.html.erb` - Turbo-compatible Bootstrap modal
 
 ### Related Skills
 

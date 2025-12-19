@@ -34,6 +34,11 @@ Before contributing, ensure you have:
   ```
 
 - **Python/uv**: For yamllint (optional, see [uv docs](https://docs.astral.sh/uv/))
+- **Ruby**: For erb_lint (optional, for ERB example files)
+
+  ```bash
+  gem install erb_lint
+  ```
 
 ### Understanding the Project
 
@@ -322,10 +327,11 @@ Before submitting, verify:
 
 1. **Markdown linting passes**: `markdownlint '**/*.md' --ignore node_modules`
 2. **HTML linting passes**: `npx htmlhint 'skills/**/examples/*.html'`
-3. **YAML linting passes**: `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/`
-4. **Generated Bootstrap code is valid**: Test in browser with Bootstrap 5.3.x CSS/JS
-5. **Accessibility**: Components include proper ARIA attributes
-6. **Responsive design**: Breakpoints use correct Bootstrap values
+3. **ERB linting passes**: `erb_lint --lint-all`
+4. **YAML linting passes**: `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/`
+5. **Generated Bootstrap code is valid**: Test in browser with Bootstrap 5.3.x CSS/JS
+6. **Accessibility**: Components include proper ARIA attributes
+7. **Responsive design**: Breakpoints use correct Bootstrap values
 
 ## Submitting Changes
 
@@ -343,6 +349,9 @@ markdownlint '**/*.md' --ignore node_modules --fix
 
 # Lint HTML example files
 npx htmlhint 'skills/**/examples/*.html'
+
+# Lint ERB example files
+erb_lint --lint-all
 
 # Lint YAML configuration files
 # Using uv (https://docs.astral.sh/uv/):
@@ -401,6 +410,7 @@ Your PR will automatically run these checks:
 |----------|----------------|
 | `markdownlint.yml` | Markdown style and formatting |
 | `html-lint.yml` | HTML example file validation |
+| `erb-lint.yml` | ERB example file validation |
 | `yaml-lint.yml` | YAML configuration consistency |
 | `links.yml` | Broken links in documentation |
 | `component-validation.yml` | Plugin component structure |

@@ -38,10 +38,16 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@ed55d55e820a01da7d3e4863a8c51a61d73c3228 # v1.274.0
+        with:
+          ruby-version: '3.4'
+
       - name: Install linters
         run: |
           npm install -g markdownlint-cli
           pip install yamllint
+          gem install erb_lint
 
       - name: Review PR with Claude
         uses: anthropics/claude-code-action@94e310eb2ce38c5bff2934c5858caf6cbde5ac01 # v1.0.26
@@ -61,6 +67,7 @@ jobs:
             2. Run linters on changed files:
                - If any `.md` files were changed, run `markdownlint --config .markdownlint.json <files>`
                - If any `.html` files were changed, run `npx htmlhint <files>`
+               - If any `.erb` files were changed, run `erb_lint --lint-all`
                - If any `.yml`/`.yaml` files were changed, run `yamllint -c .yamllint.yml <files>`
             3. Review the changes against the criteria below
             4. Post a summary comment with your findings
@@ -88,6 +95,14 @@ jobs:
             - Special characters escaped (`<` → `&lt;`)
             Include any lint errors in your review under an "HTML Linting" section.
 
+            ### ERB Quality (run erb_lint)
+            Run `erb_lint --lint-all` if any `.erb` files were changed (Rails examples in `skills/**/examples/`). Key rules:
+            - No extra blank lines (single blank line between sections)
+            - No trailing whitespace
+            - Files must end with a newline
+            - Consistent spacing around ERB tags
+            Include any lint errors in your review under an "ERB Linting" section.
+
             ### YAML Quality (run yamllint)
             Run `yamllint -c .yamllint.yml` on changed `.yml`/`.yaml` files. Key rules:
             - 2-space indentation
@@ -109,4 +124,4 @@ jobs:
             Be constructive and helpful. Focus on significant issues, not nitpicks.
             If the PR looks good, say so briefly - don't invent problems.
           claude_args: |
-            --allowedTools "Bash(gh pr:*),Bash(markdownlint:*),Bash(npx htmlhint:*),Bash(yamllint:*),Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment"
+            --allowedTools "Bash(gh pr:*),Bash(markdownlint:*),Bash(npx htmlhint:*),Bash(erb_lint:*),Bash(yamllint:*),Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment"

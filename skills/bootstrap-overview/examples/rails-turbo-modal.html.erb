@@ -1,0 +1,230 @@
+<%#
+  Rails Modal Pattern with Bootstrap 5.3.8, Turbo Frames, and Stimulus
+
+  This example demonstrates:
+  - Bootstrap modal with Turbo Frame for dynamic content
+  - Stimulus controller for modal lifecycle management
+  - Form submission within modal
+  - Proper cleanup for Turbo navigation
+
+  This pattern loads modal content dynamically via Turbo Frames,
+  avoiding full page reloads and enabling smooth UX.
+%>
+
+<%#
+  ============================================================
+  PART 1: Modal Container (place in application layout)
+  ============================================================
+  This empty modal wrapper stays in the layout and gets filled
+  by Turbo Frame responses.
+%>
+<%# app/views/layouts/application.html.erb - add before </body> %>
+<div id="modal-container">
+  <%= turbo_frame_tag "modal" %>
+</div>
+
+<%#
+  ============================================================
+  PART 2: Modal Trigger Link
+  ============================================================
+  Links that open content in the modal target the "modal" frame.
+%>
+<%# In any view where you want to trigger a modal %>
+<%= link_to new_task_path,
+            class: "btn btn-primary",
+            data: { turbo_frame: "modal" } do %>
+  <i class="bi bi-plus-lg me-1"></i>New Task
+<% end %>
+
+<%# Or for edit actions %>
+<%= link_to edit_task_path(task),
+            class: "btn btn-sm btn-outline-secondary",
+            data: { turbo_frame: "modal" } do %>
+  <i class="bi bi-pencil"></i>
+<% end %>
+
+<%#
+  ============================================================
+  PART 3: Modal Template (the response view)
+  ============================================================
+  This is rendered when the turbo frame request hits the controller.
+  Place in: app/views/tasks/new.html.erb (or _form_modal.html.erb partial)
+%>
+<%= turbo_frame_tag "modal" do %>
+  <%#
+    Stimulus controller handles:
+    - Opening modal on connect
+    - Closing on successful form submission
+    - Cleanup before Turbo cache
+  %>
+  <div class="modal fade"
+       id="taskModal"
+       tabindex="-1"
+       aria-labelledby="taskModalLabel"
+       aria-hidden="true"
+       data-controller="turbo-modal"
+       data-action="turbo:submit-end->turbo-modal#submitEnd">
+
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="taskModalLabel">
+            <i class="bi bi-plus-circle me-2"></i>New Task
+          </h5>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+
+        <%= form_with model: @task, class: "needs-validation", novalidate: true do |f| %>
+          <div class="modal-body">
+            <%# Form error display %>
+            <% if @task.errors.any? %>
+              <div class="alert alert-danger">
+                <ul class="mb-0">
+                  <% @task.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <%# Task name %>
+            <div class="mb-3">
+              <%= f.label :name, class: "form-label" %>
+              <%= f.text_field :name,
+                               class: "form-control #{'is-invalid' if @task.errors[:name].any?}",
+                               required: true,
+                               autofocus: true %>
+              <div class="invalid-feedback">Please enter a task name.</div>
+            </div>
+
+            <%# Description %>
+            <div class="mb-3">
+              <%= f.label :description, class: "form-label" %>
+              <%= f.text_area :description,
+                              class: "form-control",
+                              rows: 3 %>
+            </div>
+
+            <%# Due date %>
+            <div class="mb-3">
+              <%= f.label :due_date, class: "form-label" %>
+              <%= f.date_field :due_date, class: "form-control" %>
+            </div>
+
+            <%# Priority select %>
+            <div class="mb-3">
+              <%= f.label :priority, class: "form-label" %>
+              <%= f.select :priority,
+                           options_for_select([
+                             ["Low", "low"],
+                             ["Medium", "medium"],
+                             ["High", "high"]
+                           ], @task.priority || "medium"),
+                           {},
+                           class: "form-select" %>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <%= f.submit "Create Task", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%#
+  ============================================================
+  PART 4: Stimulus Controller
+  ============================================================
+  Place in: app/javascript/controllers/turbo_modal_controller.js
+%>
+<%#
+import { Controller } from "@hotwired/stimulus"
+import * as bootstrap from "bootstrap"
+
+// Connects to data-controller="turbo-modal"
+export default class extends Controller {
+  connect() {
+    // Create and show the modal
+    this.modal = new bootstrap.Modal(this.element)
+    this.modal.show()
+
+    // Clean up the frame when modal is hidden
+    this.element.addEventListener("hidden.bs.modal", this.handleHidden.bind(this))
+  }
+
+  disconnect() {
+    // Ensure modal is properly disposed
+    if (this.modal) {
+      this.modal.dispose()
+    }
+  }
+
+  // Called after Turbo form submission
+  submitEnd(event) {
+    // Close modal on successful submission (status 2xx)
+    if (event.detail.success) {
+      this.modal.hide()
+    }
+  }
+
+  // Clean up Turbo Frame content when modal closes
+  handleHidden() {
+    // Clear the turbo frame to prevent stale content
+    const frame = document.getElementById("modal")
+    if (frame) {
+      frame.innerHTML = ""
+    }
+  }
+
+  // Allow closing via Stimulus action
+  close() {
+    this.modal.hide()
+  }
+}
+%>
+
+<%#
+  ============================================================
+  PART 5: Controller Response for Turbo
+  ============================================================
+  In your Rails controller, respond appropriately for Turbo.
+%>
+<%#
+# app/controllers/tasks_controller.rb
+
+class TasksController < ApplicationController
+  def new
+    @task = Task.new
+    # Turbo Frame request will render just the modal content
+  end
+
+  def create
+    @task = Task.new(task_params)
+
+    if @task.save
+      respond_to do |format|
+        format.turbo_stream {
+          # Stream updates to the task list and closes modal
+          render turbo_stream: [
+            turbo_stream.prepend("tasks", partial: "tasks/task", locals: { task: @task }),
+            turbo_stream.update("modal", "")  # Clear the modal frame
+          ]
+        }
+        format.html { redirect_to tasks_path, notice: "Task created successfully." }
+      end
+    else
+      # Re-render the form with errors (stays in modal)
+      render :new, status: :unprocessable_entity
+    end
+  end
+end
+%>

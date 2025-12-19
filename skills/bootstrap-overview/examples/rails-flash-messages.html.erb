@@ -1,0 +1,99 @@
+<%#
+  Rails Flash Messages Partial with Bootstrap 5.3.8
+
+  This partial demonstrates:
+  - Mapping Rails flash types to Bootstrap alert classes
+  - Dismissible alerts
+  - Bootstrap Icons for visual indicators
+  - Turbo Stream compatibility
+
+  Place in: app/views/shared/_flash.html.erb
+  Render with: <%= render "shared/flash" %>
+
+  For Turbo Stream updates, wrap in a turbo_frame:
+  <%= turbo_frame_tag "flash" do %>
+    <%= render "shared/flash" %>
+  <% end %>
+%>
+
+<%#
+  Flash type to Bootstrap class mapping
+  Rails defaults: :notice, :alert
+  Additional common types: :success, :warning, :info, :danger, :error
+%>
+<% flash.each do |type, message| %>
+  <%
+    # Map flash type to Bootstrap alert class and icon
+    alert_config = case type.to_sym
+                   when :notice, :success
+                     { class: "alert-success", icon: "bi-check-circle-fill" }
+                   when :alert, :danger, :error
+                     { class: "alert-danger", icon: "bi-exclamation-triangle-fill" }
+                   when :warning
+                     { class: "alert-warning", icon: "bi-exclamation-circle-fill" }
+                   else
+                     { class: "alert-info", icon: "bi-info-circle-fill" }
+                   end
+  %>
+
+  <div class="alert <%= alert_config[:class] %> alert-dismissible fade show d-flex align-items-center"
+       role="alert"
+       data-controller="alert"
+       data-alert-dismiss-after-value="5000">
+    <%# Icon %>
+    <i class="bi <%= alert_config[:icon] %> flex-shrink-0 me-2" aria-hidden="true"></i>
+
+    <%# Message content %>
+    <div class="flex-grow-1">
+      <%# Support for both string and array messages %>
+      <% if message.is_a?(Array) %>
+        <ul class="mb-0 ps-3">
+          <% message.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= message %>
+      <% end %>
+    </div>
+
+    <%# Dismiss button %>
+    <button type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"></button>
+  </div>
+<% end %>
+
+<%#
+  Optional: Stimulus Controller for Auto-Dismiss
+  Place in app/javascript/controllers/alert_controller.js
+
+  import { Controller } from "@hotwired/stimulus"
+
+  export default class extends Controller {
+    static values = {
+      dismissAfter: { type: Number, default: 0 }
+    }
+
+    connect() {
+      if (this.dismissAfterValue > 0) {
+        this.timeout = setTimeout(() => {
+          this.dismiss()
+        }, this.dismissAfterValue)
+      }
+    }
+
+    disconnect() {
+      if (this.timeout) {
+        clearTimeout(this.timeout)
+      }
+    }
+
+    dismiss() {
+      // Use Bootstrap's alert dismiss
+      const alert = bootstrap.Alert.getOrCreateInstance(this.element)
+      alert.close()
+    }
+  }
+%>

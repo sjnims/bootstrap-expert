@@ -1,0 +1,71 @@
+---
+# erb_lint configuration for Bootstrap ERB examples
+# https://github.com/Shopify/erb_lint
+
+glob: "skills/**/examples/**/*.erb"
+
+EnableDefaultLinters: true
+
+linters:
+  # Ensures script tags have valid type attributes
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - "text/javascript"
+      - "module"
+    allow_blank: true
+
+  # Ensures closing ERB tags have proper indentation
+  # Disabled: Example files contain ERB snippets in comments for documentation
+  ClosingErbTagIndent:
+    enabled: false
+
+  # Detects extra blank lines
+  ExtraNewline:
+    enabled: true
+
+  # Ensures files end with a newline
+  FinalNewline:
+    enabled: true
+    present: true
+
+  # Prefers javascript_tag helper over script tags (disabled for examples)
+  NoJavascriptTagHelper:
+    enabled: false
+
+  # Reports ERB parsing errors
+  ParserErrors:
+    enabled: true
+
+  # Ensures consistent right trim style (-%> vs %>)
+  RightTrim:
+    enabled: true
+    enforced_style: "-"
+
+  # Ensures void elements are self-closing
+  SelfClosingTag:
+    enabled: true
+
+  # Ensures consistent spacing around ERB tags
+  SpaceAroundErbTag:
+    enabled: true
+
+  # Detects trailing whitespace
+  TrailingWhitespace:
+    enabled: true
+
+  # Requires autocomplete on input fields (disabled - not all inputs need it)
+  RequireInputAutocomplete:
+    enabled: false
+
+  # Requires nonce on script tags (disabled unless using CSP)
+  RequireScriptNonce:
+    enabled: false
+
+  # Detects deprecated Ruby syntax
+  DeprecatedClasses:
+    enabled: false
+
+  # Comment formatting
+  CommentSyntax:
+    enabled: true

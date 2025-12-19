@@ -1,0 +1,87 @@
+<%#
+  Rails 8 Application Layout with Bootstrap 5.3.8
+
+  This layout demonstrates Bootstrap integration using the Importmaps + bootstrap gem approach.
+  It includes:
+  - Responsive meta viewport
+  - Bootstrap CSS via dartsass-rails
+  - Bootstrap Icons via CDN
+  - Turbo-compatible asset tags
+  - Common partials structure
+
+  Prerequisites:
+  - gem "bootstrap", "~> 5.3.8"
+  - gem "dartsass-rails"
+  - Bootstrap imported in application.scss
+%>
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%# Page title with fallback %>
+    <title><%= content_for(:title) || "MyApp" %></title>
+
+    <%# Prevent Turbo preview flash %>
+    <meta name="turbo-cache-control" content="no-preview">
+
+    <%# Rails security meta tags %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%# Favicon %>
+    <%= favicon_link_tag "favicon.ico" %>
+
+    <%#
+      Bootstrap CSS compiled via dartsass-rails
+      The data-turbo-track attribute ensures styles reload on deployment
+    %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%#
+      Bootstrap Icons via CDN
+      Alternative: Use bootstrap_icons_rails gem for SVG icons
+    %>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
+          crossorigin="anonymous">
+
+    <%# Importmaps for JavaScript (includes Bootstrap JS) %>
+    <%= javascript_importmap_tags %>
+
+    <%# Page-specific head content %>
+    <%= yield :head %>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <%#
+      Skip navigation link for accessibility
+      Allows keyboard users to skip to main content
+    %>
+    <a href="#main-content" class="visually-hidden-focusable">
+      Skip to main content
+    </a>
+
+    <%# Navbar partial %>
+    <%= render "shared/navbar" %>
+
+    <%# Main content area %>
+    <main id="main-content" class="flex-grow-1">
+      <div class="container py-4">
+        <%# Flash messages with Bootstrap alerts %>
+        <%= render "shared/flash" %>
+
+        <%# Page content %>
+        <%= yield %>
+      </div>
+    </main>
+
+    <%# Footer partial %>
+    <%= render "shared/footer" %>
+
+    <%# Page-specific scripts %>
+    <%= yield :scripts %>
+  </body>
+</html>

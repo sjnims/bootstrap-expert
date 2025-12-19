@@ -17,6 +17,7 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 | Lint markdown | `markdownlint '**/*.md' --ignore node_modules` |
 | Fix markdown | `markdownlint '**/*.md' --ignore node_modules --fix` |
 | Lint HTML | `npx htmlhint 'skills/**/examples/*.html'` |
+| Lint ERB | `erb_lint --lint-all` |
 | Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/` |
 | Check links | `lychee --config .lycheeignore '**/*.md'` |
 
@@ -95,6 +96,17 @@ Example HTML files in `skills/**/examples/` are validated with HTMLHint:
 - `doctype-first` disabled (examples are often partials)
 - `attr-lowercase` disabled (allows Bootstrap's `data-bs-*` attributes)
 
+### ERB Style (from `.erb_lint.yml`)
+
+Rails ERB example files in `skills/**/examples/` are validated with erb_lint:
+
+- Extra blank lines detected
+- Trailing whitespace detected
+- Files must end with newline
+- Consistent spacing around ERB tags
+- Right trim style enforced (`-%>`)
+- `ClosingErbTagIndent` disabled (examples contain ERB snippets in comments)
+
 ### YAML Style (from `.yamllint.yml`)
 
 YAML configuration files are validated with yamllint:
@@ -163,6 +175,7 @@ tools: Read, Write, Edit, Grep, Glob
 |----------|---------|
 | `markdownlint.yml` | Markdown style checks |
 | `html-lint.yml` | HTML example validation |
+| `erb-lint.yml` | ERB example validation |
 | `yaml-lint.yml` | YAML configuration consistency |
 | `links.yml` | Broken link detection |
 | `component-validation.yml` | Plugin structure validation |

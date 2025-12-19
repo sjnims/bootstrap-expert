@@ -1,0 +1,207 @@
+<%#
+  Rails Navbar Partial with Bootstrap 5.3.8
+
+  This partial demonstrates:
+  - Responsive navbar with collapse
+  - Active link highlighting using current_page?
+  - User dropdown with authentication state
+  - Bootstrap Icons integration
+  - Turbo-compatible logout button
+
+  Place in: app/views/shared/_navbar.html.erb
+  Render with: <%= render "shared/navbar" %>
+%>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <div class="container">
+    <%# Brand with optional icon %>
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <i class="bi bi-bootstrap-fill text-primary me-2"></i>
+      <span class="fw-semibold">MyApp</span>
+    <% end %>
+
+    <%# Mobile toggle button %>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <%# Collapsible content %>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <%# Main navigation links %>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to root_path,
+                      class: "nav-link #{'active' if current_page?(root_path)}",
+                      aria: { current: (current_page?(root_path) ? "page" : nil) } do %>
+            <i class="bi bi-house-door me-1"></i>Home
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to about_path,
+                      class: "nav-link #{'active' if current_page?(about_path)}",
+                      aria: { current: (current_page?(about_path) ? "page" : nil) } do %>
+            <i class="bi bi-info-circle me-1"></i>About
+          <% end %>
+        </li>
+
+        <%# Dropdown menu example %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <i class="bi bi-grid me-1"></i>Products
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to "All Products", products_path, class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Categories", categories_path, class: "dropdown-item" %>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <%= link_to "New Arrivals", products_path(sort: "newest"), class: "dropdown-item" %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <%# Search form (optional) %>
+      <%= form_with url: search_path,
+                    method: :get,
+                    class: "d-flex me-3",
+                    role: "search" do |f| %>
+        <div class="input-group">
+          <%= f.search_field :q,
+                             class: "form-control",
+                             placeholder: "Search...",
+                             aria: { label: "Search" },
+                             value: params[:q] %>
+          <button class="btn btn-outline-secondary" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      <% end %>
+
+      <%# Right-side navigation (authentication) %>
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <%# Notifications dropdown %>
+          <li class="nav-item dropdown me-2">
+            <a class="nav-link position-relative"
+               href="#"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+              <i class="bi bi-bell fs-5"></i>
+              <% if current_user.unread_notifications_count > 0 %>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <%= current_user.unread_notifications_count %>
+                  <span class="visually-hidden">unread notifications</span>
+                </span>
+              <% end %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" style="width: 300px;">
+              <li><h6 class="dropdown-header">Notifications</h6></li>
+              <% current_user.recent_notifications.each do |notification| %>
+                <li>
+                  <%= link_to notification_path(notification),
+                              class: "dropdown-item #{'fw-bold' unless notification.read?}" do %>
+                    <%= notification.message %>
+                    <small class="text-muted d-block">
+                      <%= time_ago_in_words(notification.created_at) %> ago
+                    </small>
+                  <% end %>
+                </li>
+              <% end %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to "View all notifications", notifications_path, class: "dropdown-item text-center" %>
+              </li>
+            </ul>
+          </li>
+
+          <%# User dropdown %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center"
+               href="#"
+               role="button"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+              <%# User avatar or icon %>
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar.variant(resize_to_fill: [32, 32]),
+                              class: "rounded-circle me-2",
+                              alt: current_user.name %>
+              <% else %>
+                <i class="bi bi-person-circle fs-4 me-2"></i>
+              <% end %>
+              <span class="d-none d-lg-inline"><%= current_user.name %></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <span class="dropdown-item-text">
+                  <strong><%= current_user.name %></strong><br>
+                  <small class="text-muted"><%= current_user.email %></small>
+                </span>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                  <i class="bi bi-person me-2"></i>Profile
+                <% end %>
+              </li>
+              <li>
+                <%= link_to settings_path, class: "dropdown-item" do %>
+                  <i class="bi bi-gear me-2"></i>Settings
+                <% end %>
+              </li>
+              <% if current_user.admin? %>
+                <li>
+                  <%= link_to admin_dashboard_path, class: "dropdown-item" do %>
+                    <i class="bi bi-speedometer2 me-2"></i>Admin
+                  <% end %>
+                </li>
+              <% end %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%#
+                  Use button_to for logout to ensure proper CSRF handling
+                  with Turbo. method: :delete creates a form with _method=delete
+                %>
+                <%= button_to destroy_user_session_path,
+                              method: :delete,
+                              class: "dropdown-item text-danger",
+                              data: { turbo_confirm: "Are you sure you want to sign out?" } do %>
+                  <i class="bi bi-box-arrow-right me-2"></i>Sign Out
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <%# Guest navigation %>
+          <li class="nav-item">
+            <%= link_to new_user_session_path,
+                        class: "nav-link #{'active' if current_page?(new_user_session_path)}" do %>
+              <i class="bi bi-box-arrow-in-right me-1"></i>Sign In
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class: "btn btn-primary ms-2" do %>
+              <i class="bi bi-person-plus me-1"></i>Sign Up
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

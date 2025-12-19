@@ -23,10 +23,10 @@
 - [ ] Skills (`skills/bootstrap-*`)
 - [ ] Agent (`bootstrap-expert`)
 - [ ] Commands (`/bootstrap-expert:component`)
-- [ ] Examples (HTML/CSS/JS samples in `examples/` folders)
+- [ ] Examples (HTML/CSS/JS/ERB samples in `examples/` folders)
 - [ ] References (skill reference documents in `references/` folders)
 - [ ] Documentation (README.md, CONTRIBUTING.md, SECURITY.md)
-- [ ] Configuration (plugin.json, .markdownlint.json, .htmlhintrc, .yamllint.yml)
+- [ ] Configuration (plugin.json, .markdownlint.json, .htmlhintrc, .erb_lint.yml, .yamllint.yml)
 - [ ] Issue/PR templates
 - [ ] Other (please specify):
 
@@ -76,6 +76,7 @@ Fixes # (issue)
 
 - [ ] I have run `markdownlint` and fixed all issues
 - [ ] I have run `npx htmlhint` on any HTML example files
+- [ ] I have run `erb_lint --lint-all` on any ERB example files
 - [ ] I have run `uvx yamllint` on any YAML configuration files
 - [ ] I have verified special HTML elements are properly closed (`<p>`, `<img>`, `<example>`, `<commentary>`)
 

@@ -1,0 +1,44 @@
+name: ERB Lint
+
+# Validates ERB example files using erb_lint
+# Config: .erb_lint.yml (Rails/Bootstrap-friendly rules)
+# Triggers on ERB file changes or config changes
+
+on:
+  pull_request:
+    paths:
+      - "**/*.erb"
+      - ".erb_lint.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.erb"
+      - ".erb_lint.yml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint ERB Files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@ed55d55e820a01da7d3e4863a8c51a61d73c3228 # v1.274.0
+        with:
+          ruby-version: '3.4'
+
+      - name: Install erb_lint
+        run: gem install erb_lint
+
+      - name: Run erb_lint
+        run: erb_lint --lint-all
