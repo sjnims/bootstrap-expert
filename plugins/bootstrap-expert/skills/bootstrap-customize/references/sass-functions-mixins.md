@@ -254,9 +254,51 @@ Target a range spanning multiple breakpoints.
 
 ## Color Mode Mixin
 
+### color-mode($mode)
+
+Applies styles based on the current color mode setting. Output depends on `$color-mode-type`:
+
+- When `data` (default): Outputs `[data-bs-theme="X"]` selector
+- When `media-query`: Outputs `@media (prefers-color-scheme: X)`
+
+```scss
+@include color-mode(dark) {
+  .element {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+  }
+}
+```
+
+**With `$color-mode-type: data` (default), compiles to:**
+
+```css
+[data-bs-theme=dark] .element {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+```
+
+**With `$color-mode-type: media-query`, compiles to:**
+
+```css
+@media (prefers-color-scheme: dark) {
+  .element {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+  }
+}
+```
+
+Use `color-mode()` when you want styles to respect the project's `$color-mode-type` configuration.
+
+---
+
+## Color Scheme Mixin
+
 ### color-scheme($name)
 
-Shorthand for `prefers-color-scheme` media query.
+Direct shorthand for `prefers-color-scheme` media query. Unlike `color-mode()`, this always outputs a media query regardless of `$color-mode-type`.
 
 ```scss
 .adaptive-element {
