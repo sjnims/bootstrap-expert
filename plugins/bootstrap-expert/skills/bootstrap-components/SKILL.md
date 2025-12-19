@@ -62,7 +62,9 @@ Auto-update navigation based on scroll position. Use `data-bs-spy="scroll"` on s
 
 ### Tooltips
 
-**Requires JS init.** Hover hints for brief descriptions. Use `data-bs-toggle="tooltip"` with `title` attribute. Initialize with `new bootstrap.Tooltip(el)` or batch initialize all: `document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el))`. Placements: top, right, bottom, left.
+**Requires JS init.** Hover hints for brief descriptions. Use `data-bs-toggle="tooltip"` with `title` attribute. Initialize with `new bootstrap.Tooltip(el)` or batch initialize all: `document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el))`. Placements: top, right, bottom, left. Tooltips on disabled buttons require a wrapper `<span>` or `<div>` with `tabindex="0"` for keyboard accessibility.
+
+**Note:** Tooltips and popovers require Popper.js for positioning. Use `bootstrap.bundle.js` (includes Popper) or include Popper separately before `bootstrap.js`.
 
 ## Static Components
 
