@@ -93,7 +93,35 @@ Use `disabled` for fields users cannot interact with at all. Use `readonly` when
 <!-- Sizing -->
 <select class="form-select form-select-lg">...</select>
 <select class="form-select form-select-sm">...</select>
+
+<!-- Visible options with size attribute -->
+<select class="form-select" size="3">
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+  <option value="4">Four</option>
+</select>
 ```
+
+The `size` attribute displays multiple options without requiring `multiple` selection. Unlike `.form-select-lg` which changes visual scale, `size` controls how many options are visible at once. Use it for small option lists where showing all choices improves usability.
+
+## Datalists
+
+Datalists provide autocomplete suggestions for text inputs. They combine the flexibility of free-text input with the convenience of predefined options.
+
+```html
+<label for="browser" class="form-label">Choose a browser</label>
+<input class="form-control" list="browsers" id="browser" placeholder="Type to search...">
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Safari">
+  <option value="Edge">
+  <option value="Opera">
+</datalist>
+```
+
+Connect the input to the datalist using the `list` attribute matching the datalist's `id`. Users can type freely or select from suggestions. Datalist styling is browser-native and varies across browsers—Bootstrap's `.form-control` styles the input, but the dropdown appearance is not customizable.
 
 ## Checkboxes and Radios
 
@@ -244,6 +272,8 @@ Toggle buttons are announced by screen readers as "checked"/"not checked" since 
 
 ## Range
 
+Range inputs provide a slider control. Use `.form-range` for consistent styling across browsers.
+
 ```html
 <label for="range" class="form-label">Range slider</label>
 <input type="range" class="form-range" id="range">
@@ -251,6 +281,21 @@ Toggle buttons are announced by screen readers as "checked"/"not checked" since 
 <!-- With min, max, step -->
 <input type="range" class="form-range" min="0" max="100" step="5">
 ```
+
+### Displaying the Current Value
+
+Use the `<output>` element with JavaScript to show the current range value in real-time:
+
+```html
+<label for="volumeRange" class="form-label">
+  Volume: <output id="volumeValue">50</output>
+</label>
+<input type="range" class="form-range" id="volumeRange"
+       min="0" max="100" value="50"
+       oninput="document.getElementById('volumeValue').textContent = this.value">
+```
+
+The `oninput` event fires as the slider moves, providing immediate feedback. Place the `<output>` element in the label or nearby for clear association. For more complex scenarios, use a separate event listener instead of inline handlers.
 
 ## Input Groups
 
