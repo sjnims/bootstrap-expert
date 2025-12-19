@@ -343,12 +343,65 @@ See `references/grid-reference.md` for position utilities that work with z-index
 </div>
 ```
 
+## Sass Customization
+
+When compiling Bootstrap from source, you can customize the layout system through Sass variables and mixins.
+
+### Key Variables
+
+```scss
+// Override before importing Bootstrap
+$grid-columns: 12;           // Change to 16 or 24 for finer control
+$grid-gutter-width: 1.5rem;  // Adjust column gaps
+$enable-cssgrid: true;       // Enable CSS Grid classes
+```
+
+### Media Query Mixins
+
+```scss
+// Mobile-first (applies at breakpoint and UP)
+@include media-breakpoint-up(md) { ... }
+
+// Desktop-first (applies BELOW breakpoint)
+@include media-breakpoint-down(lg) { ... }
+
+// Range (applies BETWEEN two breakpoints)
+@include media-breakpoint-between(sm, xl) { ... }
+
+// Single breakpoint only
+@include media-breakpoint-only(md) { ... }
+```
+
+### Grid Mixins
+
+Create semantic grid layouts without utility classes:
+
+```scss
+.blog-layout {
+  @include make-row();
+}
+
+.blog-main {
+  @include make-col-ready();
+  @include make-col(8);  // 8 of 12 columns
+}
+
+.blog-sidebar {
+  @include make-col-ready();
+  @include make-col(4);  // 4 of 12 columns
+}
+```
+
+See `references/sass-customization.md` for complete variable reference and mixin documentation.
+
 ## Additional Resources
 
 ### Reference Files
 
 - `references/grid-reference.md` - Complete grid class reference
+- `references/sass-customization.md` - Sass variables and mixins for layout customization
 
 ### Example Files
 
 - `examples/responsive-layouts.html` - Responsive layout patterns
+- `examples/sass-customization.scss` - Sass customization examples
