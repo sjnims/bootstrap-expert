@@ -46,8 +46,8 @@ jobs:
       - name: Install linters
         run: |
           npm install -g markdownlint-cli
-          pip install yamllint
-          gem install erb_lint
+          pip install yamllint==1.37.1
+          gem install erb_lint -v 0.9.0
 
       - name: Review PR with Claude
         uses: anthropics/claude-code-action@94e310eb2ce38c5bff2934c5858caf6cbde5ac01 # v1.0.26

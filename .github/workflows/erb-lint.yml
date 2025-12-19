@@ -38,7 +38,7 @@ jobs:
           ruby-version: '3.4'
 
       - name: Install erb_lint
-        run: gem install erb_lint
+        run: gem install erb_lint -v 0.9.0
 
       - name: Run erb_lint
         run: erb_lint --lint-all

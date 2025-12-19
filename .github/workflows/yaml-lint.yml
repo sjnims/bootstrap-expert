@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Install yamllint
-        run: pip install yamllint
+        run: pip install yamllint==1.37.1
 
       - name: Run yamllint
-        run: yamllint -c .yamllint.yml .github/ .claude-plugin/
+        run: yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
