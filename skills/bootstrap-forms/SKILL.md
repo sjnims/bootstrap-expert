@@ -348,6 +348,40 @@ Use input groups to visually attach related elements to form controls. Common pa
 <div class="input-group input-group-lg">...</div>
 ```
 
+### Wrapping Behavior
+
+Input groups wrap by default via `flex-wrap: wrap`. To keep all elements on a single line regardless of content width, add `.flex-nowrap`:
+
+```html
+<div class="input-group flex-nowrap">
+  <span class="input-group-text">@</span>
+  <input type="text" class="form-control" placeholder="Username">
+</div>
+```
+
+### Border Radius Limitations
+
+Hidden elements (using `.d-none` or `display: none`) in the first or last position break border-radius styling on adjacent elements. This is a known Bootstrap limitation. Workaround: move hidden elements outside the input group or use visibility utilities instead when the element needs to remain in the DOM.
+
+### Segmented Dropdown Buttons
+
+Use `.dropdown-toggle-split` for split button dropdowns within input groups. This creates a separate dropdown trigger alongside a main action button:
+
+```html
+<div class="input-group">
+  <button type="button" class="btn btn-outline-secondary">Action</button>
+  <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Option 1</a></li>
+    <li><a class="dropdown-item" href="#">Option 2</a></li>
+  </ul>
+  <input type="text" class="form-control" placeholder="Enter value">
+</div>
+```
+
 ## Floating Labels
 
 Use floating labels for a cleaner, more compact form design where labels animate into the input on focus. They work best in simple forms like login or signup. Avoid them when you need help text or complex validation messages alongside inputs.
@@ -368,6 +402,24 @@ Use floating labels for a cleaner, more compact form design where labels animate
   <label for="floatingTextarea">Comments</label>
 </div>
 ```
+
+### Input Groups with Floating Labels and Validation
+
+When combining floating labels with input groups and validation, special structure is required. Place `.form-floating` inside `.input-group`, add `.has-validation` to the input group, and place validation feedback outside `.form-floating` but inside `.input-group`:
+
+```html
+<div class="input-group has-validation">
+  <span class="input-group-text">@</span>
+  <div class="form-floating is-invalid">
+    <input type="text" class="form-control is-invalid" id="floatingUsername"
+           placeholder="Username" required>
+    <label for="floatingUsername">Username</label>
+  </div>
+  <div class="invalid-feedback">Please choose a username.</div>
+</div>
+```
+
+The `.has-validation` class ensures proper border-radius styling when validation feedback is present. Without it, the input group's visual appearance may break with validation states.
 
 ## Form Layout
 
@@ -553,6 +605,21 @@ Mark invalid fields for assistive technology:
 <input type="text" class="form-control is-invalid">
 <div class="invalid-feedback">Please provide a valid value.</div>
 ```
+
+### Validation Tooltips
+
+Use `.valid-tooltip` and `.invalid-tooltip` as alternatives to feedback messages when you want positioned tooltip-style validation. Tooltips appear as floating messages positioned absolutely, requiring the parent element to have `position: relative`:
+
+```html
+<div class="col-md-4 position-relative">
+  <label for="city" class="form-label">City</label>
+  <input type="text" class="form-control is-invalid" id="city" required>
+  <div class="valid-tooltip">Looks good!</div>
+  <div class="invalid-tooltip">Please provide a valid city.</div>
+</div>
+```
+
+Tooltips are useful when feedback messages would disrupt form layout or when you want a more prominent visual indicator. Use them consistently within a form—avoid mixing tooltips and feedback messages.
 
 ## Additional Resources
 
