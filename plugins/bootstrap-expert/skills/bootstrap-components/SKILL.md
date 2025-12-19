@@ -124,6 +124,50 @@ Progress indicators for tasks. Use `.progress` wrapper with `.progress-bar` insi
 
 Loading indicators. Types: `.spinner-border` (spinning), `.spinner-grow` (pulsing). Sizes: `.spinner-border-sm`, `.spinner-grow-sm`. Colors: `.text-{color}`. Include `role="status"` and `.visually-hidden` loading text.
 
+## Common Gotchas & Tips
+
+### Components Requiring JavaScript Initialization
+
+Tooltips and popovers will not work without explicit JavaScript initialization. Unlike modals, dropdowns, and carousels (which work via data attributes), these components must be initialized:
+
+```javascript
+// Initialize all tooltips
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  .forEach(el => new bootstrap.Tooltip(el));
+
+// Initialize all popovers
+document.querySelectorAll('[data-bs-toggle="popover"]')
+  .forEach(el => new bootstrap.Popover(el));
+```
+
+Toasts also require JavaScript to show—they are hidden by default and must be shown programmatically with `toast.show()`.
+
+### Modal Best Practices
+
+**Semantic headings**: Bootstrap recommends using `<h1>` for modal titles semantically (the modal represents its own document context). Use font size utilities like `.fs-5` to control visual appearance while maintaining proper heading hierarchy.
+
+**Autofocus workaround**: The HTML `autofocus` attribute has no effect in Bootstrap modals due to HTML5 semantics. To focus an input when a modal opens:
+
+```javascript
+myModal.addEventListener('shown.bs.modal', () => {
+  document.getElementById('myInput').focus();
+});
+```
+
+**Nested modals**: Bootstrap only supports one modal at a time. Nested modals are not supported and considered poor user experience. If multiple dialogs are needed, close the current modal before opening another.
+
+**Dynamic content height**: After dynamically changing modal body content that affects height, call `modal.handleUpdate()` to readjust the modal's position.
+
+### Cross-Component Patterns
+
+**Modals with forms**: Place form validation feedback inside the modal body. On successful submission, call `modal.hide()` and optionally show a toast notification.
+
+**Toast stacking**: Use `.toast-container` with positioning utilities (`.position-fixed.bottom-0.end-0.p-3`) for consistent toast placement. Multiple toasts stack automatically.
+
+**Navbar with offcanvas**: For mobile navigation, combine `.navbar` with offcanvas for a sliding menu. Use `data-bs-toggle="offcanvas"` on the navbar toggler instead of collapse for a different UX pattern.
+
+**Cards in grids**: Use `.row.row-cols-{n}` with `.col` > `.card.h-100` to create equal-height card grids that respond to breakpoints.
+
 ## Additional Resources
 
 ### Reference Files
