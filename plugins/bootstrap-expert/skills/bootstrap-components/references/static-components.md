@@ -212,7 +212,7 @@ To create a generic dismiss button for alerts, modals, toasts, and other dismiss
 
 <!-- In modal header -->
 <div class="modal-header">
-  <h5 class="modal-title">Modal title</h5>
+  <h1 class="modal-title fs-5">Modal title</h1>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 

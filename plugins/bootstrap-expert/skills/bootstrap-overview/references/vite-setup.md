@@ -124,7 +124,7 @@ export default defineConfig({
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal Title</h5>
+              <h1 class="modal-title fs-5">Modal Title</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
