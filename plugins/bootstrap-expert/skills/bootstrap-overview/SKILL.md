@@ -1,6 +1,6 @@
 ---
 name: bootstrap-overview
-description: This skill should be used when the user asks about Bootstrap 5 getting started, Bootstrap installation, Bootstrap CDN setup, Bootstrap npm installation, Bootstrap project setup, Bootstrap starter template, Bootstrap browser support, Bootstrap version compatibility, Bootstrap RTL support, Bootstrap Vite setup, Bootstrap Parcel setup, Bootstrap Webpack setup, Bootstrap Rails setup, Bootstrap Rails 8 integration, Bootstrap importmaps Rails, Bootstrap cssbundling-rails, Bootstrap Propshaft setup, Bootstrap dartsass-rails, Bootstrap Turbo integration, Bootstrap Stimulus controllers, Bootstrap Hotwire, Rails form helpers Bootstrap, Bootstrap Icons Rails, bootstrap gem Ruby, Bootstrap accessibility, Bootstrap WCAG compliance, Bootstrap screen reader support, Bootstrap visually-hidden class, Bootstrap reduced motion, Bootstrap RFS, Bootstrap responsive font sizes, Bootstrap fluid typography, or needs help setting up a new Bootstrap project.
+description: This skill should be used when the user asks about Bootstrap 5 getting started, Bootstrap installation, Bootstrap CDN setup, Bootstrap npm installation, Bootstrap Bun installation, Bootstrap project setup, Bootstrap starter template, Bootstrap browser support, Bootstrap version compatibility, Bootstrap RTL support, Bootstrap Vite setup, Bootstrap Parcel setup, Bootstrap Webpack setup, Bootstrap Rails setup, Bootstrap Rails 8 integration, Bootstrap importmaps Rails, Bootstrap cssbundling-rails, Bootstrap Propshaft setup, Bootstrap dartsass-rails, Bootstrap Turbo integration, Bootstrap Stimulus controllers, Bootstrap Hotwire, Rails form helpers Bootstrap, Bootstrap Icons Rails, bootstrap gem Ruby, Bootstrap accessibility, Bootstrap WCAG compliance, Bootstrap screen reader support, Bootstrap visually-hidden class, Bootstrap reduced motion, Bootstrap RFS, Bootstrap responsive font sizes, Bootstrap fluid typography, or needs help setting up a new Bootstrap project.
 ---
 
 # Bootstrap 5.3 Overview
@@ -38,6 +38,11 @@ yarn add bootstrap@5.3.8
 **pnpm:**
 ```bash
 pnpm add bootstrap@5.3.8
+```
+
+**Bun:**
+```bash
+bun add bootstrap@5.3.8
 ```
 
 After installation, import in JavaScript:

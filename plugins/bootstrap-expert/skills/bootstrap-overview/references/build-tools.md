@@ -125,7 +125,7 @@ const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el))
 
 ## Parcel
 
-Parcel offers zero-configuration bundling with automatic transforms.
+Parcel offers zero-configuration bundling with automatic Sass compilation and hot module replacement.
 
 ### Project Setup
 
@@ -146,7 +146,8 @@ my-bootstrap-app/
 │   ├── js/
 │   │   └── main.js
 │   └── scss/
-│       └── styles.scss
+│       ├── styles.scss
+│       └── _custom.scss
 ```
 
 ### Configuration
@@ -155,9 +156,12 @@ my-bootstrap-app/
 ```json
 {
   "name": "my-bootstrap-app",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel serve src/index.html --open",
-    "build": "parcel build src/index.html"
+    "start": "parcel serve --open",
+    "build": "parcel build --no-source-maps",
+    "build:dev": "parcel build"
   },
   "devDependencies": {
     "parcel": "^2.0.0"
@@ -182,6 +186,9 @@ my-bootstrap-app/
   <body>
     <div class="container py-4">
       <h1>Hello, Bootstrap + Parcel!</h1>
+      <button class="btn btn-primary" data-bs-toggle="tooltip" title="Tooltip text">
+        Hover me
+      </button>
     </div>
     <script type="module" src="js/main.js"></script>
   </body>
@@ -190,14 +197,111 @@ my-bootstrap-app/
 
 **src/scss/styles.scss:**
 ```scss
-// Import all of Bootstrap's CSS
+// 1. Include functions first (for variable manipulation)
+@import "~bootstrap/scss/functions";
+
+// 2. Custom variables (before Bootstrap's variables)
+@import "custom";
+
+// 3. Include Bootstrap
 @import "~bootstrap/scss/bootstrap";
+```
+
+**src/scss/_custom.scss:**
+```scss
+// Custom variable overrides
+$primary: #0074d9;
+$enable-rounded: true;
+$enable-shadows: true;
+
+// Custom theme colors
+$custom-colors: (
+  "custom": #900
+);
 ```
 
 **src/js/main.js:**
 ```javascript
 // Import Bootstrap JS
 import * as bootstrap from 'bootstrap';
+
+// Initialize tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+```
+
+### Hot Module Replacement
+
+Parcel provides automatic HMR out of the box. When running `npm start`:
+
+- CSS/Scss changes apply instantly without page reload
+- JavaScript changes trigger a full page reload
+- HTML changes trigger a full page reload
+
+No additional configuration is required—Parcel detects file changes and updates the browser automatically.
+
+### Production Build
+
+For production, use optimized build settings:
+
+```bash
+# Production build (minified, no source maps)
+npm run build
+
+# Development build (with source maps for debugging)
+npm run build:dev
+```
+
+The `--no-source-maps` flag reduces bundle size for production. Output files are generated in the `dist/` directory with content hashes for cache busting.
+
+### PurgeCSS Integration
+
+Remove unused CSS for smaller production bundles:
+
+```bash
+npm install -D @fullhuman/postcss-purgecss
+```
+
+Create **postcss.config.js:**
+```javascript
+module.exports = {
+  plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./src/**/*.html', './src/**/*.js'],
+      safelist: {
+        standard: [/^modal/, /^tooltip/, /^popover/, /^dropdown/, /^collapse/, /^show/, /^fade/]
+      }
+    })
+  ]
+};
+```
+
+Note: Safelist dynamically added classes from Bootstrap JavaScript components to prevent removal.
+
+### Troubleshooting
+
+**Sass compilation errors:**
+Parcel uses Dart Sass internally. If you encounter deprecation warnings, ensure Bootstrap version compatibility:
+
+```bash
+# Check installed versions
+npm list bootstrap sass
+```
+
+**Cache issues:**
+If changes aren't appearing, clear Parcel's cache:
+
+```bash
+rm -rf .parcel-cache dist
+npm start
+```
+
+**Module resolution errors:**
+The `~` prefix in Scss imports tells Parcel to resolve from `node_modules`. If imports fail, verify the package is installed and try the full path:
+
+```scss
+// Alternative if ~ resolution fails
+@import "node_modules/bootstrap/scss/bootstrap";
 ```
 
 ---
