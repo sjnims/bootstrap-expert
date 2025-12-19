@@ -48,6 +48,27 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Modal, Tooltip } from 'bootstrap';
 ```
 
+### ES Module Usage
+
+For native ESM usage in browsers without a bundler, use `bootstrap.esm.min.js` with an importmap:
+
+```html
+<script type="importmap">
+{
+  "imports": {
+    "@popperjs/core": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js",
+    "bootstrap": "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.esm.min.js"
+  }
+}
+</script>
+<script type="module">
+  import * as bootstrap from 'bootstrap'
+  // Use bootstrap components
+</script>
+```
+
+For older browsers, include the [es-module-shims](https://github.com/guybedford/es-module-shims) polyfill.
+
 ## Starter Template
 
 Every Bootstrap page requires this minimal structure:
@@ -166,6 +187,16 @@ All components follow consistent patterns:
 - Component-specific methods (show, hide, toggle, etc.)
 
 See `references/javascript-api.md` for the complete JavaScript API including events, methods, and options for all components.
+
+### Framework Considerations
+
+Bootstrap JavaScript is **not fully compatible with React, Vue, or Angular**—both Bootstrap and the framework may attempt to mutate the same DOM elements, causing bugs. For these frameworks, use dedicated packages:
+
+- React: [React Bootstrap](https://react-bootstrap.github.io/)
+- Vue 3: [BootstrapVueNext](https://bootstrap-vue-next.github.io/bootstrap-vue-next/)
+- Angular: [ng-bootstrap](https://ng-bootstrap.github.io/)
+
+Bootstrap CSS works with any framework without issues.
 
 ## Accessibility
 
