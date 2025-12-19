@@ -86,6 +86,10 @@ Outlined variants work with `.btn-outline-*` classes for a lighter appearance.
 | `.input-group-text` | Addon text styling |
 | `.input-group-lg` | Large input group |
 | `.input-group-sm` | Small input group |
+| `.flex-nowrap` | Prevent input group wrapping |
+| `.has-validation` | Enable validation feedback in input groups |
+
+Hidden elements (`.d-none`) in first/last position break border-radius styling—a known Bootstrap limitation.
 
 ## Floating Label Classes
 
@@ -103,8 +107,15 @@ Outlined variants work with `.btn-outline-*` classes for a lighter appearance.
 | `.is-invalid` | Invalid state on input |
 | `.valid-feedback` | Valid feedback message |
 | `.invalid-feedback` | Invalid feedback message |
-| `.valid-tooltip` | Valid tooltip message |
-| `.invalid-tooltip` | Invalid tooltip message |
+| `.valid-tooltip` | Valid tooltip message (positioned) |
+| `.invalid-tooltip` | Invalid tooltip message (positioned) |
+
+### Feedback vs. Tooltips
+
+- **Feedback** (`.valid-feedback`, `.invalid-feedback`): Inline messages that flow with form layout
+- **Tooltips** (`.valid-tooltip`, `.invalid-tooltip`): Positioned absolutely, require parent `position: relative`
+
+Use tooltips when feedback messages would disrupt layout or for a more prominent visual indicator.
 
 ## Form Text
 
