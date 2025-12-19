@@ -102,7 +102,7 @@ Series of content items as lists. Use `.list-group` > `.list-group-item`. Action
 
 ### Navbar
 
-Responsive navigation header. Use `.navbar.navbar-expand-{breakpoint}`. Contains `.navbar-brand`, `.navbar-toggler`, `.navbar-collapse`. Placement: `.fixed-top`, `.fixed-bottom`, `.sticky-top`. Theme: `data-bs-theme="dark"`.
+Responsive navigation header. Use `.navbar.navbar-expand-{breakpoint}`. Contains `.navbar-brand`, `.navbar-toggler`, `.navbar-collapse`. Placement: `.fixed-top`, `.fixed-bottom`, `.sticky-top`. Theme: `data-bs-theme="dark"` (`.navbar-light` deprecated in v5.3).
 
 ### Navs and Tabs
 
