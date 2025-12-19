@@ -10,6 +10,29 @@
 
   Place in: app/views/shared/_navbar.html.erb
   Render with: <%= render "shared/navbar" %>
+
+  DEPENDENCIES:
+
+  Routes (adapt to your application):
+  - root_path, about_path, search_path
+  - products_path, categories_path
+  - notifications_path, notification_path(notification)
+  - settings_path, admin_dashboard_path
+
+  Authentication (uses Devise conventions):
+  - user_signed_in?, current_user
+  - new_user_session_path, destroy_user_session_path
+  - new_user_registration_path, edit_user_registration_path
+
+  User model methods:
+  - current_user.name, current_user.email
+  - current_user.avatar.attached?, current_user.avatar.variant(...)
+  - current_user.admin?
+  - current_user.unread_notifications_count
+  - current_user.recent_notifications
+
+  Adapt these helpers and routes to your authentication solution
+  (Devise, Clearance, Rodauth, or custom).
 %>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">

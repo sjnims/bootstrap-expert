@@ -588,6 +588,8 @@ export default class extends Controller {
 
 ### Form Helper with Validation States
 
+> **Note**: This custom form builder is an advanced pattern. For simpler approaches using standard `form_with` helpers with Bootstrap classes, see the ERB examples in `examples/rails-bootstrap-form.html.erb`.
+
 Create a custom form builder for Bootstrap styling:
 
 **app/helpers/bootstrap_form_helper.rb:**
@@ -799,6 +801,8 @@ export default class extends Controller {
 ```
 
 ### Pagination (with Pagy)
+
+This example uses the [Pagy](https://github.com/ddnexus/pagy) gem. Other popular pagination options include [Kaminari](https://github.com/kaminari/kaminari) and [will_paginate](https://github.com/mislav/will_paginate). Adapt the markup to your chosen solution.
 
 **app/views/shared/_pagination.html.erb:**
 

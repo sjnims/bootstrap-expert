@@ -9,6 +9,15 @@
   - Stimulus controller for validation UX
 
   Usage: Adapt this pattern for your model forms
+
+  DEPENDENCIES:
+
+  Routes (adapt to your application):
+  - terms_path (Terms of Service page)
+  - new_session_path (login page for "Already have an account?" link)
+
+  Model:
+  - @user (or your registration model with validations)
 %>
 
 <%# Registration Form Example %>
@@ -61,6 +70,11 @@
                                class: "form-control #{'is-invalid' if @user.errors[:first_name].any?}",
                                required: true,
                                autofocus: true %>
+              <%#
+                Validation feedback pattern:
+                - "d-block" forces display for server-side Rails errors (shows immediately)
+                - Without "d-block" for client-side HTML5 validation (shows on :invalid state)
+              %>
               <% if @user.errors[:first_name].any? %>
                 <div class="invalid-feedback d-block">
                   <%= @user.errors[:first_name].first %>
