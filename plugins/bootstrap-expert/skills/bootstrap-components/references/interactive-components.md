@@ -340,7 +340,7 @@ To display rich overlay content triggered by click or hover, use the popover com
 ```html
 <!-- Basic popover -->
 <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"
-  title="Popover title" data-bs-content="And here's some amazing content.">
+  data-bs-title="Popover title" data-bs-content="And here's some amazing content.">
   Click to toggle popover
 </button>
 
@@ -364,7 +364,7 @@ To display rich overlay content triggered by click or hover, use the popover com
 
 <!-- Dismiss on next click (focus trigger) -->
 <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover"
-  data-bs-trigger="focus" title="Dismissible popover"
+  data-bs-trigger="focus" data-bs-title="Dismissible popover"
   data-bs-content="Click anywhere else to dismiss.">
   Dismissible popover
 </a>
@@ -377,7 +377,7 @@ To display rich overlay content triggered by click or hover, use the popover com
 
 <!-- HTML content -->
 <button type="button" class="btn btn-secondary" data-bs-toggle="popover"
-  data-bs-html="true" title="<em>HTML</em> title"
+  data-bs-html="true" data-bs-title="<em>HTML</em> title"
   data-bs-content="<b>Bold</b> and <u>underlined</u> content.">
   HTML Popover
 </button>

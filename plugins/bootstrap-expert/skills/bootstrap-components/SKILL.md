@@ -50,7 +50,7 @@ Hidden sidebars that slide from viewport edge. Positions: `.offcanvas-start` (le
 
 ### Popovers
 
-**Requires JS init.** Rich overlay content triggered by click or hover. Use `data-bs-toggle="popover"` with `title` and `data-bs-content`. Initialize with `new bootstrap.Popover(el)` or batch initialize all: `document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => new bootstrap.Popover(el))`. Placements: top, right, bottom, left.
+**Requires JS init.** Rich overlay content triggered by click or hover. Use `data-bs-toggle="popover"` with `data-bs-title` and `data-bs-content`. Initialize with `new bootstrap.Popover(el)` or batch initialize all: `document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => new bootstrap.Popover(el))`. Placements: top, right, bottom, left.
 
 ### Scrollspy
 

@@ -266,6 +266,7 @@ Quick reference for all Bootstrap 5.3 component classes.
 |-----------|-------------|
 | `data-bs-toggle="popover"` | Enable popover |
 | `data-bs-placement` | Position |
+| `data-bs-title` | Popover title (preferred) |
 | `data-bs-content` | Content |
 | `data-bs-trigger` | Trigger type |
 | `data-bs-html` | Allow HTML |
@@ -325,7 +326,8 @@ Quick reference for all Bootstrap 5.3 component classes.
 | `data-bs-placement` | Position |
 | `data-bs-html` | Allow HTML |
 | `data-bs-trigger` | Trigger type |
-| `title` | Tooltip text |
+| `data-bs-title` | Tooltip text (preferred) |
+| `title` | Tooltip text (legacy, also works) |
 
 ## Data Attributes (Common)
 
