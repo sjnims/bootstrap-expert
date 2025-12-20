@@ -50,7 +50,7 @@ jobs:
           gem install erb_lint -v 0.9.0
 
       - name: Review PR with Claude
-        uses: anthropics/claude-code-action@94e310eb2ce38c5bff2934c5858caf6cbde5ac01 # v1.0.26
+        uses: anthropics/claude-code-action@7145c3e0510bcdbdd29f67cc4a8c1958f1acfa2f # v1.0.27
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           track_progress: true
