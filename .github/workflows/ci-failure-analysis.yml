@@ -38,12 +38,8 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          # Checkout at the failed commit to access correct config files
-          ref: ${{ github.event.workflow_run.head_sha }}
-          fetch-depth: 1
+      # NOTE: No checkout step - analyzing untrusted code from forks is a security risk
+      # The workflow logs contain all information needed for analysis
 
       - name: Analyze failure with Claude
         uses: anthropics/claude-code-action@7145c3e0510bcdbdd29f67cc4a8c1958f1acfa2f # v1.0.27
@@ -84,27 +80,27 @@ jobs:
 
             **For "Markdown Lint" failures:**
             - Look for lines like: `filename:line:column MD00X/rule-name message`
-            - Read `.markdownlint.json` to understand the project's rules
+            - Common rules: ATX-style headers (`#`), dash-style lists (`-`), 2-space list indentation
             - Common issues: wrong list style (should use `-`), wrong header style (should use ATX `#`)
 
             **For "HTML Lint" (htmlhint) failures:**
             - Look for lines like: `filename:line:column error-message (rule-name)`
-            - Read `.htmlhintrc` to understand the project's rules
+            - Common rules: tag pairs must match, double-quoted attributes, images need alt
             - Common issues: unclosed tags, missing alt attributes, unescaped special characters (`<`, `>`, `&`)
 
             **For "ERB Lint" (erb_lint) failures:**
             - Look for lines like: `In file: filename:line` followed by the error message
-            - Read `.erb_lint.yml` to understand the project's rules
+            - Common rules: no extra blank lines, no trailing whitespace, files end with newline
             - Common issues: extra blank lines, trailing whitespace, missing final newline, inconsistent ERB tag spacing
 
             **For "YAML Lint" (yamllint) failures:**
             - Look for lines like: `filename:line:column [error] message (rule-name)`
-            - Read `.yamllint.yml` to understand the project's rules
+            - Common rules: 2-space indentation, no trailing spaces, newline at end of file
             - Common issues: wrong indentation (should use 2 spaces), trailing spaces, missing newline at end of file
 
             **For "Check Links" (lychee) failures:**
             - Look for broken URLs with HTTP status codes (404, 403, etc.)
-            - Read `.lycheeignore` to see what's intentionally excluded
+            - Some URLs may be intentionally excluded in `.lycheeignore`
             - Check if the URL has moved or if it's a false positive
 
             **For "Validate Workflows" (actionlint) failures:**
@@ -202,4 +198,4 @@ jobs:
             After posting (or if no PR found), summarize what you found and what action was taken.
 
           claude_args: |
-            --allowedTools "Bash(gh run:*),Bash(gh pr:*),Read"
+            --allowedTools "Bash(gh run:*),Bash(gh pr:*)"

@@ -414,10 +414,22 @@
           input.setAttribute('aria-invalid', 'true');
         });
 
-        // Show error summary
+        // Show error summary using safe DOM methods (avoids XSS)
         errorSummary.classList.remove('d-none');
-        errorSummary.innerHTML = '<strong>' + errors.length + ' error(s) found:</strong><ul class="mb-0 mt-2">' +
-          errors.map(function(e) { return '<li>' + e + '</li>'; }).join('') + '</ul>';
+        errorSummary.textContent = '';  // Clear existing content
+
+        var strong = document.createElement('strong');
+        strong.textContent = errors.length + ' error(s) found:';
+        errorSummary.appendChild(strong);
+
+        var ul = document.createElement('ul');
+        ul.className = 'mb-0 mt-2';
+        errors.forEach(function(e) {
+          var li = document.createElement('li');
+          li.textContent = e;  // textContent safely escapes HTML
+          ul.appendChild(li);
+        });
+        errorSummary.appendChild(ul);
       } else {
         errorSummary.classList.add('d-none');
         // Clear aria-invalid from all inputs
