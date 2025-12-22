@@ -217,7 +217,6 @@ tools: Read, Write, Edit, Grep, Glob
 | `sync-labels.yml` | Label synchronization |
 | `semantic-labeler.yml` | Auto-label PRs by file paths |
 | `weekly-maintenance.yml` | Weekly maintenance tasks |
-| `dependabot-auto-merge.yml` | Auto-merge Dependabot PRs |
 
 ### GitHub Actions SHA Pinning
 
