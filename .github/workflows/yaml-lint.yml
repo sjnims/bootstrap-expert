@@ -32,8 +32,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Install yamllint
-        run: pip install yamllint==1.37.1
-
       - name: Run yamllint
-        run: yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
+        run: pipx run yamllint==1.37.1 -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
