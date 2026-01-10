@@ -21,7 +21,7 @@ concurrency:
 
 permissions:
   contents: read
-  issues: write  # Required by peter-evans/create-issue-from-file on failure
+  issues: write  # Required by gh issue create on failure
 
 jobs:
   linkChecker:
