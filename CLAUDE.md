@@ -26,11 +26,11 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 |------|---------|
 | Load plugin | `claude --plugin-dir /path/to/bootstrap-expert` |
 | Generate component | `/bootstrap-expert:component navbar` |
-| Lint markdown | `markdownlint '**/*.md' --ignore node_modules` |
-| Fix markdown | `markdownlint '**/*.md' --ignore node_modules --fix` |
+| Lint markdown | `npx markdownlint-cli2 '**/*.md' '#node_modules'` |
+| Fix markdown | `npx markdownlint-cli2 '**/*.md' '#node_modules' --fix` |
 | Lint HTML | `npx htmlhint 'plugins/**/examples/*.html'` |
 | Lint ERB | `erb_lint --lint-all` (requires `gem install erb_lint`) |
-| Lint YAML | `uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/` |
+| Lint YAML | `pipx run yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/` |
 | Check links | `lychee --exclude-file .lycheeignore '**/*.md'` |
 | Run all lints | See "Run All Lints" section below |
 
@@ -54,10 +54,10 @@ rm -rf /tmp/test-bootstrap-plugin
 Run all linters before committing:
 
 ```bash
-markdownlint '**/*.md' --ignore node_modules && \
+npx markdownlint-cli2 '**/*.md' '#node_modules' && \
 npx htmlhint 'plugins/**/examples/*.html' && \
 erb_lint --lint-all && \
-uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
+pipx run yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
 ```
 
 ## Architecture
@@ -275,7 +275,7 @@ To find the SHA for an action version:
 
 **Solutions:**
 
-1. Run `markdownlint '**/*.md' --ignore node_modules` to see errors
+1. Run `npx markdownlint-cli2 '**/*.md' '#node_modules'` to see errors
 2. Auto-fix with `--fix` flag
 3. Check `.markdownlint.json` for allowed patterns
 
@@ -352,10 +352,10 @@ rg 'Current Version.*v[0-9]' CLAUDE.md
 
 ```bash
 # Run all linters
-markdownlint '**/*.md' --ignore node_modules && \
+npx markdownlint-cli2 '**/*.md' '#node_modules' && \
 npx htmlhint 'plugins/**/examples/*.html' && \
 erb_lint --lint-all && \
-uvx yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
+pipx run yamllint -c .yamllint.yml .github/ .claude-plugin/ plugins/*/.claude-plugin/
 
 # Verify version consistency
 rg '"version"' plugins/bootstrap-expert/.claude-plugin/plugin.json .claude-plugin/marketplace.json
