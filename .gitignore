@@ -1,5 +1,5 @@
-# Plugin local settings
-.claude/*.local.md
+# Claude Code
+.claude/
 
 # OS files
 .DS_Store

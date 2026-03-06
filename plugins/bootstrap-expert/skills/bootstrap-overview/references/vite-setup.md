@@ -283,6 +283,25 @@ $border-radius-sm: 0.25rem;
 $border-radius-lg: 0.5rem;
 ```
 
+## Sass Deprecation Warnings
+
+Dart Sass 1.70+ shows deprecation warnings when compiling Bootstrap's Sass (e.g., for legacy color functions). These are expected and do not affect output. Silence them in your Vite config:
+
+```javascript
+// vite.config.js
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
+      }
+    }
+  }
+});
+```
+
+Bootstrap will address these deprecations in a future major version.
+
 ## Build for Production
 
 ```bash

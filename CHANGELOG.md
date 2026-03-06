@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-03-06
+
+### Fixed
+
+- Corrected `$color-mode-type` Sass variable value from `media` to `media-query` in customize skill
+- Added validation accessibility warning about custom tooltips not being accessible to assistive technologies
+
+### Added
+
+- New `color-modes-utilities.md` reference documenting subtle/emphasis utility classes (`.bg-*-subtle`, `.text-*-emphasis`, `.border-*-subtle`)
+- Font-size utilities (`.fs-1` through `.fs-6`), `.font-monospace`, and `.text-reset` to utilities reference
+- Border opacity utilities (`.border-opacity-*`) to utilities reference
+- Negative margins documentation (`$enable-negative-margins`) to API customization reference
+- Scrollspy component to `/bootstrap-expert:component` command
+- Custom color mode "blue theme" example to customize references
+- Complete enable flags reference (`$enable-cssgrid`, `$enable-rfs`, `$enable-deprecation-messages`, etc.)
+- Sass deprecation warnings (Dart Sass 1.70+) documentation to Vite and build tool references
+- iOS Safari and Android Chrome browser quirks to build tools reference
+- Agent detection examples for utility class queries and Bootstrap 4-to-5 migration
+- NuGet and Composer package manager installation commands to overview skill
+- Trigger phrases: "Bootstrap toggle buttons", "Bootstrap download", "Bootstrap file structure", "Bootstrap CSS variables", "Bootstrap ES modules", "Bootstrap best practices"
+
+### Security
+
+- Pinned lychee-action to v2.8.0 (#208)
+- Pinned claude-code-action to v1.0.65 (#207)
+
+### Documentation
+
+- Aligned plugin structure with official Claude Code docs
+
 ## [0.1.0] - 2025-12-19
 
 Initial release of the Bootstrap Expert Claude Code plugin.
@@ -64,5 +95,6 @@ Initial release of the Bootstrap Expert Claude Code plugin.
 - Added missing component documentation (#6)
 - Addressed initial plugin review findings (#1)
 
-[Unreleased]: https://github.com/sjnims/bootstrap-expert/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/sjnims/bootstrap-expert/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/sjnims/bootstrap-expert/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/sjnims/bootstrap-expert/releases/tag/v0.1.0

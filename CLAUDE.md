@@ -8,7 +8,7 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 
 ## Quick Reference
 
-**Current Version**: v0.1.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
+**Current Version**: v0.1.1 (see [CHANGELOG.md](CHANGELOG.md) for release history)
 
 ### Quick Links
 
@@ -286,7 +286,7 @@ To find the SHA for an action version:
 **Solutions:**
 
 1. Ensure plugin is loaded with `--plugin-dir` flag
-2. Check command file exists at `plugins/bootstrap-expert/commands/bootstrap/component.md`
+2. Check command file exists at `plugins/bootstrap-expert/commands/component.md`
 3. Verify command has valid YAML frontmatter with `name` field
 
 ## Publishing & Version Management
@@ -296,7 +296,7 @@ To find the SHA for an action version:
 Version must be synchronized across these files on release:
 
 - `plugins/bootstrap-expert/.claude-plugin/plugin.json` (source of truth)
-- `.claude-plugin/marketplace.json` (metadata.version AND plugins[0].version)
+- `.claude-plugin/marketplace.json` (metadata.version)
 - `CLAUDE.md` (Quick Reference section)
 
 ```bash
@@ -325,7 +325,7 @@ git checkout -b release/v0.x.x
 Update version in **all version files** (must match):
 
 - `plugins/bootstrap-expert/.claude-plugin/plugin.json` (source of truth)
-- `.claude-plugin/marketplace.json` (metadata.version AND plugins[0].version)
+- `.claude-plugin/marketplace.json` (metadata.version)
 - `CLAUDE.md` (Quick Reference section)
 
 ```bash

@@ -144,7 +144,7 @@ claude --plugin-dir .
 
 - **Marketplace**: `.claude-plugin/marketplace.json`
 - **Plugin Manifest**: `plugins/bootstrap-expert/.claude-plugin/plugin.json`
-- **Commands**: `plugins/bootstrap-expert/commands/bootstrap/component.md`
+- **Commands**: `plugins/bootstrap-expert/commands/component.md`
 - **Skills**: `plugins/bootstrap-expert/skills/bootstrap-*/SKILL.md`
 - **Agent**: `plugins/bootstrap-expert/agents/bootstrap-expert.md`
 

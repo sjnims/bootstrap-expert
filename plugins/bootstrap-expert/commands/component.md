@@ -1,7 +1,7 @@
 ---
 name: component
 description: Generate Bootstrap 5.3 component code interactively or with arguments
-argument-hint: [component-name] [--options]
+argument-hint: [component-name]
 allowed-tools: Read, Write, Edit, AskUserQuestion
 ---
 
@@ -35,6 +35,7 @@ Generate a Bootstrap 5.3 component based on the user's request.
    - placeholders
    - popover
    - progress
+   - scrollspy
    - spinner
    - table
    - tabs / nav-tabs
@@ -89,6 +90,7 @@ Generate a Bootstrap 5.3 component based on the user's request.
 - **placeholders**: Animation (wave/glow)? Size? With card layout?
 - **popover**: Placement (top/right/bottom/left)? Trigger (hover/click/focus)? Dismissible?
 - **table**: Striped? Hoverable? Bordered? Responsive? Dark theme?
+- **scrollspy**: Target element or container? Navigation style? Smooth scroll? Offset value?
 - **tooltip**: Placement (top/right/bottom/left)? With HTML content?
 
 ## Output Format

@@ -47,6 +47,24 @@ Bootstrap theming and customization requires knowledge of Sass variables and CSS
 </commentary>
 </example>
 
+<example>
+Context: User needs help with utility classes
+user: "How do I center a div vertically and horizontally in Bootstrap?"
+assistant: "I'll use the bootstrap-expert agent to show you the right Bootstrap utility classes."
+<commentary>
+Centering elements is a common task solved by Bootstrap flex and spacing utilities.
+</commentary>
+</example>
+
+<example>
+Context: User is migrating from Bootstrap 4
+user: "I upgraded to Bootstrap 5 but data-toggle isn't working anymore"
+assistant: "I'll use the bootstrap-expert agent to help migrate your Bootstrap 4 code to v5."
+<commentary>
+Bootstrap 5 changed data attributes from data-* to data-bs-* and removed jQuery dependency. Migration requires updating attributes and initialization patterns.
+</commentary>
+</example>
+
 model: inherit
 color: cyan
 tools: Read, Write, Edit, Grep, Glob

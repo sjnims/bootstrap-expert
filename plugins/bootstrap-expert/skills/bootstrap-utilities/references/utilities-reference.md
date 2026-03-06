@@ -120,6 +120,29 @@ Responsive: `text-{breakpoint}-{start\|center\|end}`
 | `lh-base` | 1.5 |
 | `lh-lg` | 2 |
 
+### Font Size
+
+| Class | Size |
+|-------|------|
+| `fs-1` | 2.5rem (h1) |
+| `fs-2` | 2rem (h2) |
+| `fs-3` | 1.75rem (h3) |
+| `fs-4` | 1.5rem (h4) |
+| `fs-5` | 1.25rem (h5) |
+| `fs-6` | 1rem (h6) |
+
+### Font Family
+
+| Class | Font |
+|-------|------|
+| `font-monospace` | Monospace stack |
+
+### Miscellaneous
+
+| Class | Description |
+|-------|-------------|
+| `text-reset` | Reset color to inherit from parent |
+
 ## Flexbox
 
 ### Direction
@@ -236,6 +259,16 @@ primary, secondary, success, danger, warning, info, light, dark, body, body-seco
 
 `border-{color}` where color is:
 primary, secondary, success, danger, warning, info, light, dark, black, white
+
+### Opacity
+
+| Class | Opacity |
+|-------|---------|
+| `border-opacity-10` | 10% |
+| `border-opacity-25` | 25% |
+| `border-opacity-50` | 50% |
+| `border-opacity-75` | 75% |
+| `border-opacity-100` | 100% |
 
 ### Radius
 

@@ -315,6 +315,29 @@ $utilities: map-merge(
 );
 ```
 
+## Negative Margins
+
+By default, Bootstrap disables negative margin utilities. Enable them via the `$enable-negative-margins` Sass variable:
+
+```scss
+// Before importing Bootstrap
+$enable-negative-margins: true;
+```
+
+This generates negative margin classes using the `n` prefix:
+
+| Class | Value |
+|-------|-------|
+| `mt-n1` | margin-top: -0.25rem |
+| `mt-n2` | margin-top: -0.5rem |
+| `mt-n3` | margin-top: -1rem |
+| `mt-n4` | margin-top: -1.5rem |
+| `mt-n5` | margin-top: -3rem |
+
+All sides are supported: `m-n{size}`, `mt-n{size}`, `mb-n{size}`, `ms-n{size}`, `me-n{size}`, `mx-n{size}`, `my-n{size}`.
+
+Responsive variants are also generated: `mt-md-n3`, `ms-lg-n2`, etc.
+
 ## Global Configuration
 
 ### Disable !important

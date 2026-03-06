@@ -2,12 +2,11 @@
   "name": "bootstrap-expert-marketplace",
   "owner": {
     "name": "Steve Nims",
-    "email": "sjnims@gmail.com",
-    "url": "https://github.com/sjnims"
+    "email": "sjnims@gmail.com"
   },
   "metadata": {
     "description": "Marketplace for the Bootstrap Expert Claude Code plugin",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -15,7 +14,6 @@
       "name": "bootstrap-expert",
       "source": "./plugins/bootstrap-expert",
       "description": "Bootstrap 5.3.8 and Bootstrap Icons front-end development expert plugin providing comprehensive guidance, best practices, and code generation for Bootstrap development.",
-      "version": "0.1.0",
       "homepage": "https://github.com/sjnims/bootstrap-expert",
       "repository": "https://github.com/sjnims/bootstrap-expert",
       "license": "MIT",
