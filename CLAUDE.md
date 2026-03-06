@@ -8,7 +8,7 @@ Bootstrap Expert is a Claude Code plugin providing comprehensive Bootstrap 5.3.8
 
 ## Quick Reference
 
-**Current Version**: v0.1.0 (see [CHANGELOG.md](CHANGELOG.md) for release history)
+**Current Version**: v0.1.1 (see [CHANGELOG.md](CHANGELOG.md) for release history)
 
 ### Quick Links
 
