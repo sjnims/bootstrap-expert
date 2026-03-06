@@ -446,6 +446,66 @@ $modal-transition: transform .3s ease-out;
 $modal-scale-transform: scale(1.02);
 ```
 
+## Enable Flags
+
+```scss
+$enable-caret:                true;   // Dropdown caret indicators
+$enable-rounded:              true;   // Border radius on components
+$enable-shadows:              false;  // Box shadows on components
+$enable-gradients:            false;  // Background gradients
+$enable-transitions:          true;   // CSS transitions
+$enable-reduced-motion:       true;   // Respect prefers-reduced-motion
+$enable-smooth-scroll:        true;   // Smooth scrolling on :root
+$enable-grid-classes:         true;   // Generate .row, .col-* classes
+$enable-container-classes:    true;   // Generate .container classes
+$enable-cssgrid:              false;  // Experimental CSS Grid (.grid, .g-col-*)
+$enable-button-pointers:      true;   // cursor: pointer on buttons
+$enable-rfs:                  true;   // Responsive font sizing via RFS
+$enable-validation-icons:     true;   // Background SVG icons in validated inputs
+$enable-negative-margins:     false;  // Negative margin utilities (mt-n3, etc.)
+$enable-deprecation-messages: true;   // Sass warnings for deprecated features
+$enable-important-utilities:  true;   // !important on utility classes
+$enable-dark-mode:            true;   // Dark mode CSS generation
+$color-mode-type:             data;   // 'data' or 'media-query'
+```
+
+---
+
+## Custom Color Modes
+
+Define entirely custom color modes beyond `light` and `dark` using `[data-bs-theme="your-theme"]`:
+
+```css
+[data-bs-theme="blue"] {
+  --bs-body-color: #c2dbfe;
+  --bs-body-color-rgb: 194, 219, 254;
+  --bs-body-bg: #031633;
+  --bs-body-bg-rgb: 3, 22, 51;
+  --bs-emphasis-color: #f8f9fa;
+  --bs-emphasis-color-rgb: 248, 249, 250;
+  --bs-primary: #6ea8fe;
+  --bs-primary-rgb: 110, 168, 254;
+  --bs-secondary-color: rgba(194, 219, 254, 0.75);
+  --bs-tertiary-bg: #052c65;
+  --bs-link-color: #6ea8fe;
+  --bs-link-hover-color: #8bb9fe;
+  --bs-border-color: #084298;
+  --bs-heading-color: #f8f9fa;
+}
+```
+
+Apply it to any element:
+
+```html
+<html data-bs-theme="blue">
+<!-- or scoped to a section -->
+<div data-bs-theme="blue">
+  <div class="card">Uses blue theme variables</div>
+</div>
+```
+
+---
+
 ### Navbar
 
 ```scss

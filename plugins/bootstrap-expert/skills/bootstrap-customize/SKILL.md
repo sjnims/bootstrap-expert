@@ -200,7 +200,7 @@ Uses the `data-bs-theme` attribute on HTML elements:
 #### Media Query Method
 
 ```scss
-$color-mode-type: media;
+$color-mode-type: media-query;
 ```
 
 Uses the `prefers-color-scheme` media query automatically:
@@ -227,6 +227,8 @@ Uses the `prefers-color-scheme` media query automatically:
 **Use when:** You want automatic system preference detection without a manual toggle.
 
 ### Custom Color Mode Colors
+
+You can define entirely custom color modes beyond `light` and `dark`. See `references/sass-variables.md` for a complete "blue theme" example using `[data-bs-theme="blue"]`.
 
 Override colors per mode:
 
@@ -332,7 +334,7 @@ $enable-grid-classes: true;
 $enable-container-classes: true;
 $enable-negative-margins: false;
 $enable-dark-mode: true;
-$color-mode-type: data; // 'data' or 'media'
+$color-mode-type: data; // 'data' or 'media-query'
 ```
 
 ### Focus Ring

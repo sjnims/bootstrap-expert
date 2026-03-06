@@ -86,6 +86,8 @@ Uses Bootstrap's `.is-valid`/`.is-invalid` classes with styled feedback messages
 - Requires JavaScript
 - Must handle accessibility manually (`aria-invalid`, `aria-describedby`)
 
+> **Accessibility warning:** Bootstrap's custom validation styles and tooltips (`.valid-tooltip` / `.invalid-tooltip`) are **not accessible** to assistive technologies. Validation tooltips rely on CSS positioning and are not announced by screen readers. Always pair visual feedback with `aria-invalid="true"` and `aria-describedby` pointing to a visible `.valid-feedback` / `.invalid-feedback` element to ensure all users receive error information.
+
 ## Server-Side Validation
 
 Validates on the server and returns results via AJAX or page reload.

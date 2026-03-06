@@ -465,3 +465,37 @@ new PurgeCSSPlugin({
 ```
 
 Note: Safelist dynamically added classes from JavaScript components.
+
+## Sass Deprecation Warnings
+
+Dart Sass 1.70+ shows deprecation warnings when compiling Bootstrap (e.g., for legacy color functions and mixed declarations). These are expected and do not affect CSS output.
+
+**Vite**: Use `silenceDeprecations` in `css.preprocessorOptions.scss` (see `references/vite-setup.md`).
+
+**Webpack**: Configure `sass-loader` options:
+
+```javascript
+{
+  loader: 'sass-loader',
+  options: {
+    sassOptions: {
+      silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
+    }
+  }
+}
+```
+
+**Parcel**: Deprecation warnings appear in the console but do not affect the build. If they are disruptive, pin Dart Sass to a version below 1.70 until Bootstrap addresses them in a future major release.
+
+## Browser Quirks
+
+### iOS Safari
+
+- **Modal scrolling**: Scrollable modals may experience scroll chaining on iOS. Use `overscroll-behavior: contain` on the modal body.
+- **Text size adjustment**: iOS Safari may inflate text in landscape. Bootstrap's Reboot sets `-webkit-text-size-adjust: 100%` to prevent this.
+- **100vh issue**: `100vh` does not account for the Safari toolbar. Use `100dvh` or Bootstrap's `min-vh-100` cautiously.
+
+### Android Chrome
+
+- **Select menus**: Native `<select>` menus render with platform-specific styling that cannot be fully overridden. Bootstrap's `.form-select` applies consistent styling but the dropdown itself is native.
+- **Tap delay**: Modern Android Chrome has no 300ms tap delay, but ensure `<meta name="viewport">` includes `width=device-width` for proper touch behavior.
