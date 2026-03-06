@@ -1,7 +1,7 @@
 ---
 name: component
 description: Generate Bootstrap 5.3 component code interactively or with arguments
-argument-hint: [component-name] [--options]
+argument-hint: [component-name]
 allowed-tools: Read, Write, Edit, AskUserQuestion
 ---
 
